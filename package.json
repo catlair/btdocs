@@ -7,9 +7,13 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.4.5",
+    "@vercel/frameworks": "^1.5.0",
+    "@vercel/node": "^2.15.6",
+    "node-fetch": "^3.3.2",
     "sass": "^1.64.1",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",
+    "vercel": "^31.1.1",
     "vitepress": "^1.0.0-beta.6"
   },
   "scripts": {

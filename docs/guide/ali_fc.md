@@ -115,7 +115,7 @@ npx bilioutils -l
 
 ## 配置文件
 
-<ConfigPath />
+<!--@include: ../md/config_path.md-->
 
 ## 自定义任务
 

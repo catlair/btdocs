@@ -10,12 +10,17 @@ export default defineConfig({
   description: 'BiliOutils 使用文档',
   lang: 'zh-CN',
   base: process.env.GITHUB_PAGES ? '/BiliOutils/' : '/',
-  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     i18nRouting: false,
     lastUpdated: {
       text: '上次更新',
+    },
+
+    footer: {
+      message:
+        'Released under the <a href="https://github.com/catlair/BiliOutils/blob/main/LICENSE">MIT License</a>.',
+      copyright: 'Copyright © 2020-present <a href="https://github.com/catlair">Catlair</a>',
     },
 
     nav: nav(),
@@ -26,7 +31,7 @@ export default defineConfig({
 
     editLink: {
       text: '在 GitHub 上编辑此页',
-      pattern: 'https://github.com/catlair/btdocs/edit/dev/docs/:path',
+      pattern: 'https://github.com/catlair/btdocs/edit/main/docs/:path',
     },
 
     search: {

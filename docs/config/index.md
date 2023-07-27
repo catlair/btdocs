@@ -35,7 +35,7 @@ description: 配置说明
 
 ## 配置文件路径
 
-<ConfigPath />
+<!--@include: ../md/config_path.md-->
 
 ## 安全问题
 

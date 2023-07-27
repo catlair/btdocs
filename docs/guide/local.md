@@ -64,7 +64,9 @@ linux 还是推荐用 crontab 来定时运行，windows 下也可以使用系统
 
 下载 `cron_bilitools.exe`
 
-<MyLink :href="downloadUrl"></MyLink>
+<!-- <MyLink :href="downloadUrl"></MyLink> -->
+
+https://github.com/catlair/cron/releases/download/v0.0.2/cron_windows_amd64.tar.gz
 
 把 {{ tagName }} 替换成最新的 tag 名称，且只演示了 windows amd64（x64） 的版本，其他平台请自行下载。
 
@@ -96,14 +98,14 @@ linux 还是推荐用 crontab 来定时运行，windows 下也可以使用系统
 
 windows 下的定时运行方式，可以参考这个视频：
 
-<!-- <BilibiliVideo bv="BV1Na411W7nk"/>
+<BilibiliVideo bv="BV1Na411W7nk"/>
 
 <script setup>
-const ghproxy = __GLOBAL_GHPROXY__
+// const ghproxy = __GLOBAL_GHPROXY__
 const tagName = 'v0.0.2'
-const downloadUrl = `https://${ghproxy}/https://github.com/catlair/cron/releases/download/${tagName}/cron_windows_amd64.tar.gz`
+// const downloadUrl = `https://${ghproxy}/https://github.com/catlair/cron/releases/download/${tagName}/cron_windows_amd64.tar.gz`
 </script>
 
 ## 配置文件
 
-<ConfigPath /> -->
+<!--@include: ../md/config_path.md-->

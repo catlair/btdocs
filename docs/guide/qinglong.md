@@ -100,7 +100,7 @@ ql raw https://raw.githubusercontent.com/catlair/BiliOutils/main/tools/bilitools
   <CodeGroupItem title="手动">
 
 ```js
-require('@catlair/bilitools').sacnLogin();
+require('bilioutils').sacnLogin();
 ```
 
 手动创建一个 `任意名称.js` 文件，并且把上面的代码拷贝进去
@@ -121,7 +121,9 @@ require('@catlair/bilitools').sacnLogin();
 
 ## 配置文件
 
-<ConfigPath indexName="bilitools_npm" configName="cat_bili_config"/>
+注意：青龙不是 `config.json`, 而是 `cat_bili_config.json`。（共用文档，懒得改了）
+
+<!--@include: ../md/config_path.md-->
 
 ## npm 参数
 

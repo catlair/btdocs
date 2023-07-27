@@ -1,44 +1,5 @@
 <template>
-  <p>
-    满足以下的目录结构的
-    <code>{{ configName }}.json{5}</code>
-    都是符合要求的配置文件位置，选则一个合适的位置即可。如果你创建了多个，那。。。。别创建多个啊。
-  </p>
-  <div class="language-bash ext-sh line-numbers-mode">
-    <pre
-      class="language-bash"
-    ><code><span class="token builtin class-name">.</span>
-├── config
-│  ├── {{configName}}.json
-│  └── {{configName}}.json5
-└── src
-   ├── config
-   │  ├── {{configName}}.json
-   │  └── {{configName}}.json5
-   ├── {{configName}}.json
-   ├── {{configName}}.json5
-   └── {{indexName}}.js
-</code></pre>
-    <div class="highlight-lines">
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-      <div class="highlight-line">&nbsp;</div>
-    </div>
-    <div class="line-numbers" aria-hidden="true">
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-      <div class="line-number"></div>
-    </div>
-  </div>
   <div class="custom-container tip">
-    <p class="custom-container-title">目录树</p>
     <p>或者这样更加生动</p>
     <el-tree :data="data" :props="defaultProps" />
   </div>
@@ -83,13 +44,10 @@ onMounted(() => {
   }
 });
 
-const props = withDefaults(
-  defineProps<{ configName?: string; indexName?: string }>(),
-  {
-    configName: 'config',
-    indexName: 'index',
-  }
-);
+const props = withDefaults(defineProps<{ configName?: string; indexName?: string }>(), {
+  configName: 'config',
+  indexName: 'index',
+});
 
 const { configName, indexName } = props;
 

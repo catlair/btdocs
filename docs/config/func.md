@@ -37,7 +37,7 @@ description: 功能配置
 | batchUnfollow    |        | 取消关注                                      | [点击](#取关分组)    |
 | liveLottery      |        | 天选时刻                                      | [点击](#天选时刻)    |
 | liveRedPack      |        | 直播天选红包                                  | [点击](#天选红包)    |
-| dailyBattery     |        | 每日电池任务                                  |                      |
+| dailyBattery     |        | 每日电池任务                                  | [点击](#每日电池)    |
 | activityLottery  |        | 转盘抽奖                                      | [点击](#转盘抽奖)    |
 | judgement        |        | 风纪委员                                      | [点击](#风纪委员)    |
 
@@ -95,6 +95,9 @@ PS：达到 6 级后想要投币，或者投币数想大于 5 ，请参考解除
 
 ```json5
 {
+  function: {
+    addCoins: true,
+  },
   coin: {
     targetLevel: 6,
     stayCoins: 0,
@@ -126,7 +129,10 @@ PS：达到 6 级后想要投币，或者投币数想大于 5 ，请参考解除
 
 ```json5
 {
-  charge: {
+  function: {
+    useCouponBp: true,
+  },
+  couponBalance: {
     // 空数组表示每一天
     presetTime: [10, 20],
     use: '充电',
@@ -152,6 +158,9 @@ PS：涉及到硬币安全，建议开启后修改默认配置到适合自己的
 
 ```json5
 {
+  function: {
+    matchGame: true,
+  },
   match: {
     coins: 2,
     selection: 1,
@@ -182,6 +191,9 @@ PS：涉及到硬币安全，建议开启后修改默认配置到适合自己的
 
 ```json5
 {
+  function: {
+    liveLottery: true,
+  },
   lottery: {
     excludeAward: [
       '舰',
@@ -236,6 +248,9 @@ doing...
 
 ```json5
 {
+  function: {
+    liveRedPack: true,
+  },
   redPack: {
     // 直播间来源方式 1 活动（活动链接可能更新不及时），2 扫描。其它值 所有方式依次尝试。
     source: 0,
@@ -281,6 +296,9 @@ doing...
 
 ```json5
 {
+  function: {
+    batchUnfollow: true,
+  },
   unFollow: {
     // 单个取消的时间间隔（秒）
     delay: 3,
@@ -312,6 +330,9 @@ PS：正常运行的前提时配置了目标用户 `mids`，否则不会运行�
 
 ```json5
 {
+  function: {
+    giveGift: true,
+  },
   gift: {
     /** 自定义投喂礼物用户列表 */
     mids: [],
@@ -352,6 +373,9 @@ PS：如果想要观看直播间获取亲密度，请手动开启 `liveHeart`。
 
 ```json5
 {
+  function: {
+    liveIntimacy: true,
+  },
   // 亲密度
   intimacy: {
     // 直播弹幕
@@ -396,6 +420,9 @@ PS：如果想要观看直播间获取亲密度，请手动开启 `liveHeart`。
 
 ```json5
 {
+  function: {
+    mangaTask: true,
+  },
   // 漫画
   manga: {
     // 签到
@@ -505,6 +532,9 @@ PS：任务风纪委员可能会因为审核期间漏掉一天的审核，所以
 
 ```json5
 {
+  function: {
+    judgement: true,
+  },
   // 风纪委员
   jury: {
     // 默认投票，0 为好，1 为普通，2 为差，3 为无法判断,填多个为随机投票，填一个为固定投票，可以填写多个增加概率，例如 `[0, 0, 1]` 投好是普通的两倍概率
@@ -555,6 +585,9 @@ PS：任务风纪委员可能会因为审核期间漏掉一天的审核，所以
 
 ```json5
 {
+  function: {
+    bigPoint: true,
+  },
   // 大积分
   bigPoint: {
     // 是否在完成后等待 20s 再检查一次，也可直接填写等待时间（单位秒）
@@ -621,6 +654,9 @@ PS:
 
 ```json5
 {
+  function: {
+    activityLottery: true,
+  },
   // 转盘抽奖
   activityLottery: {
     // 活动列表
@@ -651,6 +687,30 @@ PS:
 
 由于任务不唯一，没有开发条件，故停滞。（主要还是没人用
 
+| Key    | 值类型 | 默认值  | 说明         |
+| ------ | ------ | ------- | ------------ |
+| task39 | 布尔值 | `false` | 每日 20 电池 |
+| task34 | 布尔值 | `true`  | 每日 1 电池  |
+
+::: details 参考写法
+
+```json5
+{
+  function: {
+    dailyBattery: true,
+  },
+  // 每日电池
+  dailyBattery: {
+    // 每日 20 电池
+    task39: false,
+    // 每日 1 电池
+    task34: true,
+  },
+}
+```
+
+:::
+
 ## 直播心跳
 
 `[watchLink]`
@@ -668,6 +728,9 @@ PS:
 
 ```json5
 {
+  function: {
+    watchLink: true,
+  },
   // 直播心跳
   watchLink: {
     // 用户 uid，非直播间 id
@@ -706,28 +769,6 @@ PS:
 
 自定义数组中的每项可以是数组，也可以是对象，（注意是也可以，不是都需要），例如
 
-::: 自定义参考写法
-
-```json5
-{
-  // 直播弹幕
-  liveDm: {
-    // 自定义
-    custom: [
-      [666, 1, ['打卡', '签到']], // 依次为 roomid, num, msg，roomid 为必填，num 和 msg 为选填
-      {
-        // id 为必填，num（默认1） 和 msg 为选填
-        id: 777,
-        num: 6,
-        msg: ['haha'],
-      },
-    ],
-  },
-}
-```
-
-:::
-
 ::: details 参考写法
 
 ```json5
@@ -740,8 +781,16 @@ PS:
     delay: [8, 13],
     // 次数
     num: 0,
-    // 自定义
-    custom: [],
+    // 自定义（以下并非默认值，仅用于文档参考，请勿直接复制）
+    custom: [
+      [666, 1, ['打卡', '签到']], // 依次为 roomid, num, msg，roomid 为必填，num 和 msg 为选填
+      {
+        // id 为必填，num（默认1） 和 msg 为选填
+        id: 777,
+        num: 6,
+        msg: ['haha'],
+      },
+    ],
   },
 }
 ```
