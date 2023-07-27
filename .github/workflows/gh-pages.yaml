@@ -27,8 +27,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -41,26 +40,16 @@ jobs:
         with:
           node-version: 18
           cache: yarn # or pnpm / npm
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
       - name: Install dependencies
         run: yarn install # or pnpm install / npm ci
       - name: Build with VitePress
         run: yarn docs:build # or pnpm docs:build / npm run docs:build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs/.vitepress/dist
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: docs/.vitepress/dist
+          repo: catlair/BiliOutils
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
