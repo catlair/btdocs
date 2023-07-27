@@ -1,0 +1,149 @@
+[
+  // 配置第一个用户
+  // 注意 // 开头的是注释，没有实际意义
+  {
+    // 浏览器用户代理
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+    // b 站 cookie （登录信息）可能需要双引号
+    // prettier-ignore
+    cookie: "xxxxx",
+    // 配置运行的功能
+    function: {
+      // 瓜子兑换硬币
+      silver2Coin: true,
+      // 投币
+      addCoins: true,
+      // 直播签到
+      liveSignTask: true,
+      // 分享和观看
+      shareAndWatch: true,
+      // 漫画任务
+      mangaTask: false,
+      // 应援团签到
+      supGroupSign: false,
+      // 使用 b 币券
+      useCouponBp: false,
+      // 获取 vip 权益
+      getVipPrivilege: true,
+      // 直播赠送礼物
+      giveGift: false,
+      // 赛事竞猜
+      matchGame: false,
+      // 取消关注
+      batchUnfollow: false,
+      // 直播天选时刻
+      liveLottery: false,
+      // 粉丝牌等级
+      liveIntimacy: false,
+      // 大会员大积分
+      bigPoint: false,
+      // 风纪委员
+      judgement: false,
+      // 转盘抽奖
+      activityLottery: false,
+      // 每日电池
+      dailyBattery: false,
+    },
+    // 消息推送
+    message: {
+      // 换行
+      br: '\n',
+      // 仅错误时发送
+      onlyError: false,
+      // 邮箱
+      email: {
+        from: '',
+        to: '',
+        pass: '',
+        host: 'smtp.163.com',
+        port: 465,
+      },
+      // push+
+      pushplusToken: '',
+      // server 酱
+      SCKEY: '',
+      // ... 更多省略
+      // 自定义
+      api: '',
+    },
+    // 投币相关
+    coin: {
+      // 目标等级
+      targetLevel: 6,
+      // 保留的硬币数
+      stayCoins: 0,
+      // 投币的数量（上限5）
+      targetCoins: 5,
+      // 自定义 up
+      customizeUp: [],
+      // 合作视频精准匹配上传者
+      upperAccMatch: false,
+    },
+    // 使用b币券
+    couponBalance: {
+      /** 充电的 up 默认自己 */
+      mid: 0,
+      /** 预设时间，哪一天？，空数组为每一天 */
+      presetTime: [10, 20],
+      /** 使用的方式，可以是 充电/charge 电池/battery */
+      use: '充电',
+    },
+    // 直播间礼物
+    gift: {
+      // 自定义投喂礼物 UP， 在所填中随机选取
+      mids: [],
+      // 省略部分配置
+    },
+    // 亲密度
+    intimacy: {
+      // 直播弹幕
+      liveSendMessage: true,
+      // 点赞直播间
+      liveLike: true,
+      // 每日亲密度上限 （系统 1500）
+      limitFeed: 1500,
+      // 耗时很长的直播心跳（默认关闭）
+      liveHeart: false,
+      // 白名单
+      whiteList: [],
+      // 黑名单
+      blackList: [],
+    },
+    // 漫画
+    manga: {
+      // 签到
+      sign: true,
+      // 购买漫画
+      buy: false,
+      // 购买漫画 id（优先级高）
+      mc: [],
+      // 购买漫画名称（优先级中）
+      name: [],
+      // 购买追漫（优先级低）
+      love: true,
+    },
+    // 风纪委员
+    jury: {
+      // 默认投票 0-3 好-无法判断，从中随机
+      vote: [0, 0, 1],
+      // 没有案件不退出，运行一次直到完成
+      once: true,
+      // 参考人数最少满足
+      opinionMin: 3,
+      // 没有案件后等待时间（分）
+      waitTime: 20,
+    },
+  },
+  // 配置第二个用户，和上面一样的配置。
+  {
+    // cookie: "xxxxxxxxxx"
+  },
+  {
+    // 公共配置，上面的配置会覆盖这里的配置（下面是举例，如果不需要公共配置，直接删除这个 {} 即可）
+    __common__: true,
+    // 云函数随机运行用的时间段
+    dailyRunTime: '17:30:00-23:40:00',
+    // 通用 api 延迟时间（s）
+    apiDelay: [2, 6],
+  },
+]

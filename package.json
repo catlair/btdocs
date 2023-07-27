@@ -1,0 +1,25 @@
+{
+  "name": "btdocs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:catlair/btdocs.git",
+  "author": "catlair <catlair@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "sass": "^1.64.1",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
+    "vitepress": "^1.0.0-beta.6"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.2.1",
+    "element-plus": "^2.3.8",
+    "v-code-diff": "^1.5.1"
+  }
+}

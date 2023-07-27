@@ -1,0 +1,108 @@
+---
+lang: zh-CN
+title: 腾讯云函数 SCF
+description: 腾讯云函数 SCF
+---
+
+## 腾讯云函数 SCF 文档 <TestedVersion type="scf" />
+
+[点击进入云函数控制台](https://console.cloud.tencent.com/scf)
+
+![Snipaste_2021-05-23_14-37-50](/images/119252529-6ca84400-bbdf-11eb-98e2-5bd87f3717ff.png)
+
+填写基本的信息
+
+- 运行环境选择最新的 `Nodejs`（目前是 16，最低请选择 14）
+
+![SCF基础配置](/images/scf-base-config.png)
+
+更多高级配置
+
+![image](/images/119252605-cd378100-bbdf-11eb-85a6-ca6aa97ea445.png)
+
+获取 ID 和 KEY [API 密钥管理](https://console.cloud.tencent.com/cam/capi)
+
+![image](/images/119252627-e4766e80-bbdf-11eb-9c53-359877711c20.png)
+
+## 下载或更新模块
+
+![下载或更新模块](/images/scf-npm.png)
+
+腾讯云函数使用了镜像加速，但是镜像不是实时更新的，如果想要今天刚更新的模块，请设置源为默认。
+
+```bash
+npm config set registry https://registry.npmjs.org/
+```
+
+安装/更新依赖，都是同样的
+
+```bash
+cd src
+yarn add bilioutils
+```
+
+如果是需要随机运行，还需要 `yarn add tencentcloud-sdk-nodejs`
+
+修改 index.js 的代码
+
+```javascript
+exports.main_handler = require('bilioutils').scf_handler();
+```
+
+最后参考图中位置，添加配置文件
+
+<!-- ### 代码自动更新 -->
+
+<!-- <ServerlessCommon/> -->
+
+## 更新 Cookie
+
+可能需要安装一个依赖
+
+```bash
+yarn add @catlair/blogin
+```
+
+然后执行如下命令
+
+```bash
+npx bilioutils -l
+```
+
+再使用手机扫码，如果 mid 存在于配置文件中，会自动更新，否则获取到的 cookie 会打印到控制台，以及 log 文件，请自行复制到配置文件中。
+
+## 新建配置文件并测试是否可用
+
+**部署后**点击运行，查看是否运行成功，如若失败，请根据输出内容修改后重试
+
+除了 config.json 当然也可以使用环境变量 [`BILITOOLS_CONFIG`](../config/env.md)
+
+文件配置优先级高于 `BILITOOLS_CONFIG`
+
+![bili-scf-config](/images/bili-scf-config.png)
+
+## 增加触发器
+
+![create-trigger](/images/create-trigger.png)
+
+![create-trigger](/images/scf-trigger-config.png)
+
+## 视频参考
+
+<BilibiliVideo bv="BV1eW4y127PM"/>
+
+## 配置文件
+
+<ConfigPath />
+
+## 自定义任务
+
+~~讨论：<https://github.com/catlair/BiliOutils/issues/90#issuecomment-1190976142>~~
+
+将触发器附加内容设置为：
+
+```json5
+{ task: 'xxxx,yyyy,zzzz' }
+```
+
+`任务 1,任务 2,任务 3`，部分任务需要前置 `loginTask`

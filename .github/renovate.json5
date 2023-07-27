@@ -1,0 +1,30 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:base',
+    ':dependencyDashboard',
+    ':docker',
+    'group:allNonMajor',
+    'schedule:automergeEarlyMondays',
+  ],
+  timezone: 'Asia/Shanghai',
+  npm: {
+    minimumReleaseAge: '3 days',
+  },
+  packageRules: [
+    {
+      dependencyDashboardApproval: true,
+      matchUpdateTypes: ['major'],
+      excludePackagePatterns: ['^@types/', '^eslint', 'prettier', 'typescript', '^ts-'],
+      automerge: false,
+    },
+  ],
+  lockFileMaintenance: {
+    enabled: true,
+  },
+  automerge: true,
+  automergeType: 'branch',
+  ignoreTests: true,
+  platformAutomerge: true,
+  labels: ['renovate'],
+}
