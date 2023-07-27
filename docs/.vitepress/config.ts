@@ -26,7 +26,7 @@ export default defineConfig({
 
     editLink: {
       text: '在 GitHub 上编辑此页',
-      pattern: 'https://github.com/catlair/BiliOutils/edit/dev/docs/:path',
+      pattern: 'https://github.com/catlair/btdocs/edit/dev/docs/:path',
     },
 
     search: {
@@ -246,6 +246,9 @@ function sidebar(): DefaultTheme.Sidebar {
 
 function vite(): UserConfig['vite'] {
   return {
+    ssr: {
+      noExternal: ['element-plus', 'v-code-diff'],
+    },
     resolve: {
       alias: [
         {
