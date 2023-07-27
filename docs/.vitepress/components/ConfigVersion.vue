@@ -1,61 +1,63 @@
 <template>
-  <el-drawer v-model="drawer" size="100%" title="输入你的配置" direction="ttb">
+  <div style="margin: auto; max-width: 96%">
+    <el-drawer v-model="drawer" size="100%" title="输入你的配置" direction="ttb">
+      <div>
+        <el-input
+          v-model="textarea"
+          :rows="2"
+          :autosize="{ minRows: 2 }"
+          type="textarea"
+          placeholder="简单测试一下，不搞那么复杂了"
+        />
+        <div style="margin-top: 10px">
+          <el-button @click="drawer = false">取消</el-button>
+          <el-button type="primary" @click="clickInputJSON">确定</el-button>
+        </div>
+      </div>
+    </el-drawer>
+    <div style="display: flex; flex-direction: column">
+      <div style="display: flex">
+        <div class="example-block">
+          <span class="example-demonstration">比较版本：</span>
+          <el-cascader
+            placeholder="选择版本"
+            v-model="oldValue"
+            :options="versionOptions"
+            filterable
+          />
+        </div>
+        <div class="example-block">
+          <span class="example-demonstration">当前版本：</span>
+          <el-cascader
+            placeholder="选择版本"
+            v-model="newValue"
+            :options="versionOptions"
+            filterable
+          />
+        </div>
+      </div>
+    </div>
+    <div class="change-format">
+      <div>
+        <el-button size="small" @click="drawer = true"> 输入内容对比 </el-button>
+        <a :href="newUrl" style="margin-left: 0.4em"
+          ><el-button size="small"> 下载当前选择版本 </el-button></a
+        >
+      </div>
+      <el-radio-group v-model="outputFormatRadio" size="small">
+        <el-radio-button label="Split" name="outputFormat" />
+        <el-radio-button label="Unified" />
+      </el-radio-group>
+    </div>
     <div>
-      <el-input
-        v-model="textarea"
-        :rows="2"
-        :autosize="{ minRows: 2 }"
-        type="textarea"
-        placeholder="简单测试一下，不搞那么复杂了"
+      <code-diff
+        :old-string="oldJSON"
+        :new-string="newJSON"
+        file-name="test.txt"
+        :context="5"
+        :output-format="outputFormat"
       />
-      <div style="margin-top: 10px">
-        <el-button @click="drawer = false">取消</el-button>
-        <el-button type="primary" @click="clickInputJSON">确定</el-button>
-      </div>
     </div>
-  </el-drawer>
-  <div style="display: flex; flex-direction: column">
-    <div style="display: flex">
-      <div class="example-block">
-        <span class="example-demonstration">比较版本：</span>
-        <el-cascader
-          placeholder="选择版本"
-          v-model="oldValue"
-          :options="versionOptions"
-          filterable
-        />
-      </div>
-      <div class="example-block">
-        <span class="example-demonstration">当前版本：</span>
-        <el-cascader
-          placeholder="选择版本"
-          v-model="newValue"
-          :options="versionOptions"
-          filterable
-        />
-      </div>
-    </div>
-  </div>
-  <div class="change-format">
-    <div>
-      <el-button size="small" @click="drawer = true"> 输入内容对比 </el-button>
-      <a :href="newUrl" style="margin-left: 0.4em"
-        ><el-button size="small"> 下载当前选择版本 </el-button></a
-      >
-    </div>
-    <el-radio-group v-model="outputFormatRadio" size="small">
-      <el-radio-button label="Split" name="outputFormat" />
-      <el-radio-button label="Unified" />
-    </el-radio-group>
-  </div>
-  <div>
-    <code-diff
-      :old-string="oldJSON"
-      :new-string="newJSON"
-      file-name="test.txt"
-      :context="5"
-      :output-format="outputFormat"
-    />
   </div>
 </template>
 
@@ -146,7 +148,7 @@ function clickInputJSON() {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @media screen and (max-width: 768px) {
   .container {
     .theme-default-content {
