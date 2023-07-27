@@ -230,6 +230,7 @@ function sidebar(): DefaultTheme.Sidebar {
           { text: '华为云函数图形化', link: '/guide/huawei_fg' },
           { text: 'Github Action', link: '/guide/github_action' },
           { text: 'Action 部署腾讯云函数', link: '/guide/action_scf' },
+          { text: '自定义任务', link: '/guide/task' },
           { text: '视频教程', link: '/guide/video' },
           { text: '更新日志', link: '/guide/update' },
         ],

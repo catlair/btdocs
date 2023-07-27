@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
 title: 本地直接运行
-description: 页面的描述
+description: 本地直接运行
 ---
 
 ## 本地直接运行文档
@@ -28,6 +28,8 @@ bilioutils -h
 bilioutils -c ./config.json
 ```
 
+注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
+
 更新代码：
 
 ```bash
@@ -37,7 +39,7 @@ npm install -g bilioutils
 帮助详情：
 
 ```bash
-Usage: bin.ts [options]
+Usage: bilioutils [options]
 
 BiliOutils 哔哩哔哩自动化工具箱
 
