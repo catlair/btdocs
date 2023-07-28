@@ -1143,7 +1143,7 @@
   resolved "https://registry.npmmirror.com/@changesets/types/-/types-5.2.1.tgz#a228c48004aa8a93bce4be2d1d31527ef3bf21f6"
   integrity sha512-myLfHbVOqaq9UtUKqR/nZA/OY7xFjQMdfgfqeZIBK4d0hA6pgxArvdv8M+6NUzzBsjWLOtvApv8YHr4qM+Kpfg==
 
-"@codemirror/autocomplete@^6.0.0":
+"@codemirror/autocomplete@^6.0.0", "@codemirror/autocomplete@^6.9.0":
   version "6.9.0"
   resolved "https://registry.npmmirror.com/@codemirror/autocomplete/-/autocomplete-6.9.0.tgz#1a1e63122288b8f8e1e9d7aff2eb39a83e04d8a9"
   integrity sha512-Fbwm0V/Wn3BkEJZRhr0hi5BhCo5a7eBL6LYaliPjOSwCyfOpnjXY59HruSxOUNV+1OYer0Tgx1zRNQttjXyDog==
@@ -1171,7 +1171,7 @@
     "@codemirror/language" "^6.0.0"
     "@lezer/json" "^1.0.0"
 
-"@codemirror/language@6.x", "@codemirror/language@^6.0.0":
+"@codemirror/language@6.x", "@codemirror/language@^6.0.0", "@codemirror/language@^6.8.0":
   version "6.8.0"
   resolved "https://registry.npmmirror.com/@codemirror/language/-/language-6.8.0.tgz#f2d7eea6b338c25593d800f2293b062d9f9856db"
   integrity sha512-r1paAyWOZkfY0RaYEZj3Kul+MiQTEbDvYqf8gPGaRvNneHXCmfSaAVFjwRUPlgxS8yflMxw2CTu6uCMp8R8A2g==

@@ -24,7 +24,9 @@
     "docs:api": "vercel dev"
   },
   "dependencies": {
+    "@codemirror/autocomplete": "^6.9.0",
     "@codemirror/commands": "^6.2.4",
+    "@codemirror/language": "^6.8.0",
     "@codemirror/lint": "^6.4.0",
     "@codemirror/state": "^6.2.1",
     "@codemirror/theme-one-dark": "^6.1.2",

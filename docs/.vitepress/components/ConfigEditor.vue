@@ -35,19 +35,13 @@ import JSON5 from 'json5';
 import { ElMessage } from 'element-plus';
 import 'element-plus/es/components/message/style/css';
 import { isBiliCookie } from './utils/cookie';
+import { checkboxPlugin } from './ConfigEditor';
+import { schema, arrSchema } from './schema';
 
 const code = ref(``);
 
-const schema = {
-  type: 'object',
-  properties: {
-    example: {
-      type: 'boolean',
-    },
-  },
-};
-
 const extensions = [
+  checkboxPlugin,
   basicSetup,
   keymap.of([...defaultKeymap, indentWithTab]),
   json5(),
@@ -56,10 +50,16 @@ const extensions = [
     delay: 300,
   }),
   linter(json5SchemaLinter(schema)),
+  linter(json5SchemaLinter(arrSchema)),
   hoverTooltip(json5SchemaHover(schema)),
+  hoverTooltip(json5SchemaHover(arrSchema)),
   json5Language.data.of({
     // @ts-ignore
     autocomplete: jsonCompletion(schema),
+  }),
+  json5Language.data.of({
+    // @ts-ignore
+    autocomplete: jsonCompletion(arrSchema),
   }),
   oneDark,
 ];
@@ -90,12 +90,31 @@ function verifyJSON5() {
   try {
     const config = JSON5.parse(json);
     console.log('JSON5 is valid');
-    const verifyCookie = isBiliCookie(config.cookie);
-    if (!verifyCookie) {
-      ElMessage.error(
-        'Cookie 格式不正确或为空，需要包含 bili_jct， SESSDATA， DedeUserID，且长度大于90',
-      );
-      return;
+
+    if (Array.isArray(config)) {
+      // 便利数组，检查每个的 cookie 是否正确，如果不正确则提示不正确的
+      const invalidCookie = config.filter(el => !isBiliCookie(el.cookie));
+      // 第 xx 个 cookie 格式不正确
+      if (invalidCookie.length) {
+        for (const el of invalidCookie) {
+          if (el.__common__) {
+            continue;
+          }
+          ElMessage.info(
+            `第 ${
+              config.indexOf(el) + 1
+            } 个 cookie 格式不正确，需要包含 bili_jct， SESSDATA， DedeUserID，且长度大于90`,
+          );
+        }
+      }
+    } else {
+      const verifyCookie = isBiliCookie(config.cookie);
+      if (!verifyCookie) {
+        ElMessage.error(
+          'Cookie 格式不正确或为空，需要包含 bili_jct， SESSDATA， DedeUserID，且长度大于90',
+        );
+        return;
+      }
     }
     ElMessage.success('JSON5 通过验证');
   } catch (e) {
