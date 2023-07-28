@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: auto; max-width: 96%">
+  <div style="margin: auto; max-width: 96%; background: #fff">
     <el-drawer v-model="drawer" size="100%" title="输入你的配置" direction="ttb">
       <div>
         <el-input

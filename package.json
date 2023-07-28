@@ -24,8 +24,18 @@
     "docs:api": "vercel dev"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.2.4",
+    "@codemirror/lint": "^6.4.0",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.15.3",
     "@vueuse/core": "^10.2.1",
+    "codemirror": "^6.0.1",
+    "codemirror-json-schema": "^0.3.2",
+    "codemirror-json5": "^1.0.3",
     "element-plus": "^2.3.8",
-    "v-code-diff": "^1.5.1"
+    "json5": "^2.2.3",
+    "v-code-diff": "^1.5.1",
+    "vue-codemirror": "^6.1.1"
   }
 }

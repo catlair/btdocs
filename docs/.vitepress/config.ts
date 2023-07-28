@@ -10,6 +10,7 @@ export default defineConfig({
   description: 'BiliOutils 使用文档',
   lang: 'zh-CN',
   base: process.env.GITHUB_PAGES ? '/BiliOutils/' : '/',
+  cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     i18nRouting: false,
@@ -124,12 +125,12 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'JSON5 校验',
-          link: 'https://verytoolz.com/json5-validator.html',
+          link: '/config/editor',
           target: '_blank',
         },
         {
           text: 'Cookie 校验和编码',
-          link: '/config/encode_cookie/',
+          link: '/config/encode_cookie',
           target: '_blank',
         },
         {
@@ -239,13 +240,14 @@ function sidebar(): DefaultTheme.Sidebar {
     '/config/': [
       { text: '配置', link: '/config/' },
       { text: '获取配置', link: '/config/get_value' },
-      { text: '账号配置', link: '/config/account' },
-      { text: '功能配置', link: '/config/func' },
+      { text: '基本配置', link: '/config/account' },
+      { text: '任务配置', link: '/config/func' },
       { text: '消息配置', link: '/config/message' },
       { text: '日志配置', link: '/config/logger' },
       { text: 'Github Secrets', link: '/config/github_secrets' },
       { text: '环境变量', link: '/config/env' },
-      { text: '版本更新', link: '/config/version' },
+      { text: '版本对比', link: '/config/version' },
+      { text: '配置编辑器', link: '/config/editor' },
     ],
   };
 }
@@ -253,7 +255,17 @@ function sidebar(): DefaultTheme.Sidebar {
 function vite(): UserConfig['vite'] {
   return {
     ssr: {
-      noExternal: ['element-plus', 'v-code-diff'],
+      noExternal: [
+        'element-plus',
+        'v-code-diff',
+        'codemirror-json-schema',
+        'vue-codemirror',
+        'json-schema-library',
+        '@sagold/json-query',
+        '@sagold/json-pointer',
+        'codemirror-json5',
+        'ebnf',
+      ],
     },
     resolve: {
       alias: [

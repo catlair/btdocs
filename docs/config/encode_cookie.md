@@ -9,3 +9,7 @@ description: Cookie 校验和编码
 <div>
 <EncodeCookie></EncodeCookie>
 </div>
+
+<script setup>
+import EncodeCookie from '@components/EncodeCookie.vue'
+</script>

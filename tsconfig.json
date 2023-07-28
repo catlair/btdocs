@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "baseUrl": ".",
     "module": "esnext",
     "strict": false,
     "jsx": "preserve",

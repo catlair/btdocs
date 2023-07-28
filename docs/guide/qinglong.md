@@ -20,37 +20,25 @@ bilioutils
 
 然后拉取青龙面板运行的代码
 
-<CodeGroup>
+::: code-group
 
-  <CodeGroupItem title="Gitee" active>
-
-```bash
+```bash [Gitee]
 ql raw https://gitee.com/catlair/BiliOutils/raw/main/tools/bilitools_npm.js
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Github">
-
-```bash
+```bash [Github]
 ql raw https://raw.githubusercontent.com/catlair/BiliOutils/main/tools/bilitools_npm.js
 ```
 
-  </CodeGroupItem>
+```js [手动]
+// 手动创建一个 `bilitools_npm.js` 文件，并且把下面的代码拷贝进去
 
-  <CodeGroupItem title="手动">
-
-```js
 require('bilioutils').ql();
+
+// 然后手动创建一个任务， `task bilitools_npm.js`
 ```
 
-手动创建一个 `bilitools_npm.js` 文件，并且把上面的代码拷贝进去
-
-然后手动创建一个任务， `task bilitools_npm.js`
-
-  </CodeGroupItem>
-
-</CodeGroup>
+:::
 
 创建一个配置文件
 `cat_bili_config.json` 配置与其他相同
@@ -79,41 +67,29 @@ PS: 可以不执行 `pnpm remove -g bilioutils`，不过前一个版本就会一
 
 然后拉取青龙面板运行的代码
 
-<CodeGroup>
+::: code-group
 
-  <CodeGroupItem title="Gitee" active>
-
-```bash
+```bash [Gitee]
 ql raw https://gitee.com/catlair/BiliOutils/raw/main/tools/bilitools_login.js
 ```
 
-  </CodeGroupItem>
-
-  <CodeGroupItem title="Github">
-
-```bash
+```bash [Github]
 ql raw https://raw.githubusercontent.com/catlair/BiliOutils/main/tools/bilitools_login.js
 ```
 
-  </CodeGroupItem>
+```js [手动]
+// 手动创建一个 `任意名称.js` 文件，并且把下面面的代码拷贝进去
 
-  <CodeGroupItem title="手动">
-
-```js
 require('bilioutils').sacnLogin();
+
+// 然后手动创建一个任务， `task 任意名称.js`
+
+// 再使用手机扫码，如果 mid 存在于配置文件中，会自动更新，否则获取到的 cookie 会打印到控制台，以及 log 文件，请自行复制到配置文件中。
+
+// 之后可以选择禁用任务，不要它自动运行。
 ```
 
-手动创建一个 `任意名称.js` 文件，并且把上面的代码拷贝进去
-
-然后手动创建一个任务， `task 任意名称.js`
-
-再使用手机扫码，如果 mid 存在于配置文件中，会自动更新，否则获取到的 cookie 会打印到控制台，以及 log 文件，请自行复制到配置文件中。
-
-之后可以选择禁用任务，不要它自动运行。
-
-  </CodeGroupItem>
-
-</CodeGroup>
+:::
 
 ## 参考视频
 
