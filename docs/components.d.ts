@@ -7,13 +7,13 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus/es')['ElButton'];
-    ElCascader: typeof import('element-plus/es')['ElCascader'];
-    ElDrawer: typeof import('element-plus/es')['ElDrawer'];
-    ElInput: typeof import('element-plus/es')['ElInput'];
-    ElRadioButton: typeof import('element-plus/es')['ElRadioButton'];
-    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup'];
-    ElSpace: typeof import('element-plus/es')['ElSpace'];
-    ElTree: typeof import('element-plus/es')['ElTree'];
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCascader: typeof import('element-plus/es')['ElCascader']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
+    ElSpace: typeof import('element-plus/es')['ElSpace']
+    ElTree: typeof import('element-plus/es')['ElTree']
   }
 }
