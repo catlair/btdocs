@@ -13,6 +13,8 @@ Node.js 首先需要本地的运行环境：
 
 ::: tip 提示
 如果已经安装了 node14 及以上可以跳过此步骤。
+
+windows 环境下可能出现 cmd/ps/git-bash 无法打印日志的问题，暂时无法修复，需要详细日志请查看 logs 文件夹下的日志文件。
 :::
 
 ## 1. npm 包 <Badge type="tip" text="推荐" vertical="top" /> <TestedVersion type="npm" />
