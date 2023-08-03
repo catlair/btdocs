@@ -9,7 +9,7 @@ export default defineConfig({
   title: 'BiliOutils',
   description: 'BiliOutils 使用文档',
   lang: 'zh-CN',
-  base: process.env.GITHUB_PAGES ? '/BiliOutils/' : '/',
+  base: '/',
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
