@@ -8,6 +8,23 @@ description: 更新日志
 
 [历史配置对比](/config/version.md)
 
+**v0.23.805**
+
+- <Badge type="danger" text="警告" vertical="middle" /> 部分云函数平台不再进行压缩包打包。
+- <Badge type="danger" text="修复" vertical="middle" /> 部分系统下因为日志数据流导致程序直接崩溃。
+- <Badge type="warning" text="修复" vertical="middle" /> 创建新 cookie 仅仅只有第一个配置生效。
+- <Badge type="warning" text="修复" vertical="middle" /> 莫名其妙的 24 点。
+- <Badge type="warning" text="修复" vertical="middle" /> 错误日志并没有输出 stack。
+- <Badge type="warning" text="修复" vertical="middle" /> 获取稿件：“请求过于频繁，请稍后再试”。
+- <Badge type="warning" text="修复" vertical="middle" /> 配置中解除投币 5 个限制的配置没作用。
+- <Badge type="warning" text="修复" vertical="middle" /> 指定 up 主投币但还是会根据顺序给其他 up 主投币。
+- <Badge type="tip" text="新增" vertical="middle" /> exchangeBigPoint 大积分兑换。
+- <Badge type="tip" text="新增" vertical="middle" /> liveDm 可配置。
+- <Badge type="tip" text="新增" vertical="middle" /> dailyBattery 旧版任务下线，新版任务替换（测试中，配置详见历史各版本配置对比）。
+- <Badge type="tip" text="新增" vertical="middle" /> mangaTask 夏季活动，没有卵用，白嫖一个漫画装扮而已。
+- <Badge type="tip" text="新增" vertical="middle" /> [app.http]配置项，解决部分 api 在不同版本下结果不同的问题。
+- <Badge type="tip" text="新增" vertical="middle" /> 使用 renovate-bot 自动更新依赖。
+
 **v0.23.715**
 
 <Badge type="warning" text="修复" vertical="middle" /> 直播心跳使用 uid 获取直播间号错误。
