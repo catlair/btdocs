@@ -11,6 +11,9 @@ export default defineConfig({
   lang: 'zh-CN',
   base: '/',
   cleanUrls: true,
+
+  head: [['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }]],
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     i18nRouting: false,
