@@ -12,7 +12,10 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
 
-  head: [['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }]],
+  head: [
+    ['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }],
+    ['meta', { name: 'baidu-site-verification', content: 'codeva-59RKnCJIEl' }],
+  ],
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
