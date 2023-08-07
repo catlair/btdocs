@@ -34,7 +34,7 @@ export default defineConfig({
 
     sidebar: sidebar(),
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/catlair/BiliOutils' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/catlair/BiliOutils' },{icon:{svg:'https://img.moegirl.org.cn/common/f/f5/Bilibili_Icon.svg'},link:'https://m.bilibili.com/space/357123798'}],
 
     editLink: {
       text: '在 GitHub 上编辑此页',
