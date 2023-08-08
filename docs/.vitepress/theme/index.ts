@@ -6,11 +6,14 @@ import MyLink from '@components/MyLink.vue';
 import ConfigPath from '@components/ConfigPath.vue';
 // import TestedVersion from '@components/TestedVersion.vue';
 
+import MyLayout from './MyLayout.vue';
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }: EnhanceAppContext) {
     registerComponents(app);
   },
+  Layout: MyLayout,
 };
 
 function registerComponents(app: EnhanceAppContext['app']) {

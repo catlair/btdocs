@@ -4,6 +4,8 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
+import { biliSvg, qqGroupSvg } from './svg';
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'BiliOutils',
@@ -15,6 +17,19 @@ export default defineConfig({
   head: [
     ['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }],
     ['meta', { name: 'baidu-site-verification', content: 'codeva-59RKnCJIEl' }],
+    ['script', { async: '', src: 'https://cdn.staticfile.org/twikoo/1.6.17/twikoo.all.min.js' }],
+    [
+      'script',
+      { async: '' },
+      `setTimeout(() => {
+      twikoo.init({
+        envId: 'https://bt-twikoo.vercel.app', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+        el: '#tcomment', // 容器元素
+        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+        lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
+      });
+    }, 1000);`,
+    ],
   ],
 
   themeConfig: {
@@ -26,7 +41,7 @@ export default defineConfig({
 
     footer: {
       message:
-        'Released under the <a href="https://github.com/catlair/BiliOutils/blob/main/LICENSE">MIT License</a>.',
+        'Released under the <a href="https://github.com/catlair/BiliOutils/blob/dev/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2020-present <a href="https://github.com/catlair">Catlair</a>',
     },
 
@@ -34,7 +49,21 @@ export default defineConfig({
 
     sidebar: sidebar(),
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/catlair/BiliOutils' },{icon:{svg:'https://img.moegirl.org.cn/common/f/f5/Bilibili_Icon.svg'},link:'https://m.bilibili.com/space/357123798'}],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/catlair/BiliOutils' },
+      {
+        icon: {
+          svg: biliSvg,
+        },
+        link: 'https://space.bilibili.com/357123798',
+      },
+      {
+        icon: {
+          svg: qqGroupSvg,
+        },
+        link: 'https://qm.qq.com/cgi-bin/qm/qr?k=ABEdCidOO7XamKukV2f2LRgH01MoLnbJ&jump_from=webapi&authKey=ZWEfoqvFOK4p9k0PlVZIPMyjR+rgkYUuckNgKjp94lsX/HJzyQlVbiCYG8Ca7WwD',
+      },
+    ],
 
     editLink: {
       text: '在 GitHub 上编辑此页',
