@@ -39,6 +39,13 @@ export default defineConfig({
       text: '上次更新',
     },
 
+    outlineTitle: '目录',
+
+    docFooter: {
+      prev: '上一篇',
+      next: '下一篇',
+    },
+
     footer: {
       message:
         'Released under the <a href="https://github.com/catlair/BiliOutils/blob/dev/LICENSE">MIT License</a>.',
