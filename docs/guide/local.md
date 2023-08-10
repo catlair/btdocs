@@ -27,7 +27,8 @@ bilioutils -h
 # 指定配置路径运行
 bilioutils -c ./config.json
 # 指定任务
-biloutils --task=loginTask,task1,task2
+# 请把 task1 换成你想要的好吗，别问我 task1 为啥不行，我怎么知道 task1 是啥。
+biloutils --task=task1,task2
 # 扫码登录
 bilioutils --login
 ```

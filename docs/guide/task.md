@@ -15,12 +15,22 @@ description: 自定义任务
 - `exchangeBigPoint` 大积分兑换
 - `exchangeCoupon` 兑换漫读券
 
+PS：下面不管什么方式，请把 task1 换成你想要的好吗，别问我 task1 为啥不行，我怎么知道 task1 是啥。
+
 ## npm 方式
 
 ```bash
 bilioutils -c ./config.json -t task1,task2
 
 ```
+
+举例：
+
+```bash
+bilioutils -c ./config.json -t loginTask
+```
+
+cli 参数格式如下：
 
 ```txt
 -t, --task <task>            执行指定的 task，使用英文逗号（,）分隔
@@ -32,6 +42,12 @@ bilioutils -c ./config.json -t task1,task2
 
 ```json5
 { task: 'task1,task2,task3' }
+```
+
+举例：
+
+```json5
+{ task: 'loginTask' }
 ```
 
 task 为需要执行的任务，使用英文逗号（,）分隔
