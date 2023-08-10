@@ -43,7 +43,7 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 
 **预览**
 
-无
+- <Badge type="tip" text="新增" vertical="middle" /> 风纪委员无案件等待次数可配置。
 
 **v0.23.805**
 
@@ -58,7 +58,7 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 - <Badge type="tip" text="新增" vertical="middle" /> exchangeBigPoint 大积分兑换。
 - <Badge type="tip" text="新增" vertical="middle" /> liveDm 可配置。
 - <Badge type="tip" text="新增" vertical="middle" /> dailyBattery 旧版任务下线，新版任务替换（测试中，配置详见历史各版本配置对比）。
-- <Badge type="tip" text="新增" vertical="middle" /> mangaTask 夏季活动，没有卵用，白嫖一个漫画装扮而已。
+- <Badge type="tip" text="新增" vertical="middle" /> mangaTask 夏季活动，没有卵用，白嫖一个漫画装扮而已（只获取积分，需手动兑换）。
 - <Badge type="tip" text="新增" vertical="middle" /> [app.http]配置项，解决部分 api 在不同版本下结果不同的问题。
 - <Badge type="tip" text="新增" vertical="middle" /> 使用 renovate-bot 自动更新依赖。
 

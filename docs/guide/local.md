@@ -13,8 +13,6 @@ Node.js 首先需要本地的运行环境：
 
 ::: tip 提示
 如果已经安装了 node14 及以上可以跳过此步骤。
-
-windows 环境下可能出现 cmd/ps/git-bash 无法打印日志的问题，暂时无法修复，需要详细日志请查看 logs 文件夹下的日志文件。
 :::
 
 ## 1. npm 包 <Badge type="tip" text="推荐" vertical="top" /> <TestedVersion type="npm" />
@@ -28,6 +26,10 @@ npm install -g bilioutils
 bilioutils -h
 # 指定配置路径运行
 bilioutils -c ./config.json
+# 指定任务
+biloutils --task=loginTask,task1,task2
+# 扫码登录
+bilioutils --login
 ```
 
 注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
@@ -60,43 +62,17 @@ Options:
 
 注意：很多任务（特别是需要判断大会员状态的任务）需要先执行 `loginTask` 任务。
 
-~~讨论：<https://github.com/catlair/BiliOutils/issues/90#issuecomment-1190364619>~~
+讨论：<https://github.com/catlair/BiliOutils/issues/90#issuecomment-1190364619>
 
 ## windows 下定时运行
 
-linux 还是推荐用 crontab 来定时运行，windows 下也可以使用系统任务，这里提供另一种方式（依赖 npm 方式，请确认上面的方式能够运行）。
+linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务。
 
-下载 `cron_bilitools.exe`
+将快捷方式移动到开机启动项
 
-<!-- <MyLink :href="downloadUrl"></MyLink> -->
-
-https://github.com/catlair/cron/releases/download/v0.0.2/cron_windows_amd64.tar.gz
-
-把 {{ tagName }} 替换成最新的 tag 名称，且只演示了 windows amd64（x64） 的版本，其他平台请自行下载。
-
-<https://github.com/catlair/cron/releases>
-
-首先把文件移动到合适的地方，之后就不要再移动了（移动后重新操作），所以不推荐放在桌面。
-
-- 创建一个快捷方式
-
-![win_create_link](/images/win_create_link.png)
-
-- 右键属性，给快捷方式路径后面添加一些参数
-
-`-config=./config/config.json` （必须）配置文件的路径  
-`-time=08:08:08` （可选）每天运行时间，默认为 08:08:00  
-`-start=false` （可选）是否立即执行，默认为 false，设置 `true` 电脑开机立即启动  
-`-once=false` （可选）每天只执行一次，默认为 false，设置 `true` 只执行一次（避免多次开关机多次运行）
-
-![win_setting_args](/images/win_setting_args.png)
-
-- 将快捷方式移动到开机启动项
-  ```bash
-  %systemdrive%%homepath%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-  ```
-
-![win_start](/images/win_start.png)
+```bash
+%systemdrive%%homepath%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+```
 
 ## 参考视频
 

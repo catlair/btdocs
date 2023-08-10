@@ -6,7 +6,7 @@ import MyLink from '@components/MyLink.vue';
 import ConfigPath from '@components/ConfigPath.vue';
 // import TestedVersion from '@components/TestedVersion.vue';
 
-import MyLayout from './MyLayout.vue';
+import MyLayout from './components/MyLayout.vue';
 
 export default {
   extends: DefaultTheme,
