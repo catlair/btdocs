@@ -280,6 +280,7 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '环境变量', link: '/config/env' },
       { text: '版本对比', link: '/config/version' },
       { text: '配置编辑器', link: '/config/editor' },
+      { text: '配置和 npm 使用案例', link: '/config/demo' },
     ],
   };
 }

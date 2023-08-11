@@ -6,16 +6,22 @@ description: 华为 AGC 云函数
 
 ## 华为 AGC 云函数文档 <TestedVersion type="agc" />
 
-**不再开源，故不再提供打包好的内容**
+下载最新版的 [tencent_scf.zip 压缩包](https://github.com/catlair/BiliOutils/releases/latest)
 
-~~下载最新版的 [huawei_agc.zip 压缩包](https://github.com/catlair/BiliOutils/releases/latest)~~
+解压压缩包（当然如果你使用 winrar 等软件直接编辑压缩包更好）
 
-~~[Gitee 备份下载地址](https://gitee.com/catlair/BiliOutils/releases/)~~
+编辑 index.js 文件。将代码修改如下：
 
-加速下载：
-<MyLink :href="downloadUrl"></MyLink>
+::: details index.js
+<<< ./agc_index.js
+:::
 
-把 {{ tagName }} 替换成最新版本号即可
+重新压缩为 zip 压缩包，用于上传到 AGC
+
+<!-- 加速下载：
+<MyLink :href="downloadUrl"></MyLink> -->
+
+<!-- 把 {{ tagName }} 替换成最新版本号即可 -->
 
 ## 2. 新增 AGC CF
 
@@ -38,14 +44,6 @@ description: 华为 AGC 云函数
 创建好后修改基本信息
 
 ![AGC基础配置2](/images/agc-base-info.png)
-
-### 高级配置
-
-环境变量名为 [`BILITOOLS_CONFIG`](../config/env.md)
-
-配置就是 gzip 压缩后的，可以在此处压缩，[压缩详见](https://www.baidufe.com/fehelper/en-decode/)
-
-![环境变量配置](/images/agc-base-env.png)
 
 ### 触发器配置
 
