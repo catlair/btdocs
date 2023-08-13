@@ -69,11 +69,33 @@ Options:
 
 linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务。
 
-将快捷方式移动到开机启动项
+### 计划任务
+
+打开任务计划程序：
+
+快捷键 `win + r`，在运行中输入 `taskschd.msc` 回车即可打开任务计划程序。
+
+在 powershell 中输入 `taskschd.msc` 也可以打开任务计划程序。
+
+![win_trigger](/images/win_trigger.png)
+
+![win_run_taskschd](/images/win_run.png)
+
+这里的命令是 `npx`，安装 node 就有，没有那是你的问题，别问我。
+
+参数是 `bilioutils -c E:\github\bilitools\config.json5 -ld E:\github\bilitools` 注意更改路径哦，别问我路径怎么写，我也不知道。并且你能确保你的命令能够在 cmd 或者 powershell 中直接运行成功。
+
+起始于，如果你知道是啥最好写上，不知道那就别乱填写。
+
+![win_likerun](/images/win_likerun.png)
+
+配置好后可以点击运行测试一下，由于没有弹窗，看日志文件是否有输出。
+
+<!-- 将快捷方式移动到开机启动项
 
 ```bash
 %systemdrive%%homepath%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
-```
+``` -->
 
 ## 参考视频
 

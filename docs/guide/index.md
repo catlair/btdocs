@@ -44,6 +44,12 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 **预览**
 
 - <Badge type="tip" text="新增" vertical="middle" /> 风纪委员无案件等待次数可配置。
+- <Badge type="tip" text="新增" vertical="middle" /> npm cli 增加 --log-dir 参数，用于指定日志目录。
+- <Badge type="tip" text="新增" vertical="middle" /> npm cli 增加 --async 参数，用于同时执行多账号，而非依次执行（功能早已实现，使用环境变量配置，现添加命令行参数指定）。
+- <Badge type="tip" text="新增" vertical="middle" /> npm cli 增加 --detached 参数，用于将子进程脱离主进程，避免需要后台运行时出现弹窗。（前期其实是默认的，但是这会导致 windows 下无日志输出，所有增加此配置）
+- <Badge type="tip" text="新增" vertical="middle" /> 风纪委员无案件等待次数可配置。
+- <Badge type="tip" text="优化" vertical="middle" /> 漫读券兑换，startHour 类型修改为数组。
+- <Badge type="tip" text="优化" vertical="middle" /> 每日电池等待间隔过小。
 
 **v0.23.805**
 
