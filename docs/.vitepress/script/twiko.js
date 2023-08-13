@@ -1,7 +1,10 @@
 export default `
+console.log('twikoo init');
 function waitForVar(key) {
+  console.log('waitForVar', key);
   return new Promise(resolve => {
     const interval = setInterval(() => {
+      console.log('waitForVar', key, window[key]);
       if (window[key]) {
         clearInterval(interval);
         resolve();
