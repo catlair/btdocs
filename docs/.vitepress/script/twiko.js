@@ -13,6 +13,7 @@ function waitForVar(key) {
   });
 }
 waitForVar('twikoo').then(() => {
+  window.twikooInit = true;
   twikoo.init({
     envId: 'https://bt-twikoo.2024666.xyz', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
     el: '#tcomment', // 容器元素
