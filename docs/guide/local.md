@@ -19,6 +19,13 @@ Node.js 首先需要本地的运行环境：
 
 ### 安装
 
+::: tip
+
+注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
+
+如果需要了解哪个源更快，使用 `nru test` 测试一下。
+:::
+
 在 cmd 或者 terminal 中运行以下命令
 
 ```bash
@@ -43,11 +50,6 @@ bilioutils --login
   npm install -g bilioutils@0.23.814
 ```
 
-:::
-
-::: tip
-
-注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
 :::
 
 ### 更新

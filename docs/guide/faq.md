@@ -77,3 +77,20 @@ Require stack:
 
 青龙面板出现该问题请更新青龙面板，我也不知道到底是啥毛病，反正是青龙的锅。
 
+```bash
+/ql/scripts/raw_tools_bilitools_npm.js:1
+require('bilioutils').ql();
+                      ^
+
+TypeError: require(...).ql is not a function
+    at Object.<anonymous> (/ql/scripts/raw_tools_bilitools_npm.js:1:23)
+    at Module._compile (node:internal/modules/cjs/loader:1097:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1151:10)
+    at Module.load (node:internal/modules/cjs/loader:975:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+    at node:internal/main/run_main_module:17:47
+
+Node.js v17.5.0
+
+```
