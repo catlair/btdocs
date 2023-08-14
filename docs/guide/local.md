@@ -15,7 +15,9 @@ Node.js 首先需要本地的运行环境：
 如果已经安装了 node14 及以上可以跳过此步骤。
 :::
 
-## 1. npm 包 <Badge type="tip" text="推荐" vertical="top" /> <TestedVersion type="npm" />
+## npm 包 <Badge type="tip" text="推荐" vertical="top" /> <TestedVersion type="npm" />
+
+### 安装
 
 在 cmd 或者 terminal 中运行以下命令
 
@@ -33,15 +35,28 @@ biloutils --task=task1,task2
 bilioutils --login
 ```
 
-注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
+::: info
 
-更新代码：
+指定版本安装：
+
+```bash
+  npm install -g bilioutils@0.23.814
+```
+
+:::
+
+::: tip
+
+注意：当 npm 下载缓慢时可以换源，详情百度。也可以 `npm install -g nru` 安装 nru，然后 `nru u taobao` 选择淘宝源，需要 npm 源的时候 `nru u npm` 选择 npm 源。
+:::
+
+### 更新
 
 ```bash
 npm install -g bilioutils
 ```
 
-帮助详情：
+帮助详情：（可能未及时更新，最新的直接 `bilioutils -h` 获取）
 
 ```bash
 Usage: bilioutils [options]
@@ -67,7 +82,11 @@ Options:
 
 ## windows 下定时运行
 
+::: info
 linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务。
+
+本运行方式是在上面的 npm 包的基础上，使用系统任务来定时运行，请确认之前的步骤已经完成，且能够正常运行。
+:::
 
 ### 计划任务
 
@@ -76,6 +95,8 @@ linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务
 快捷键 `win + r`，在运行中输入 `taskschd.msc` 回车即可打开任务计划程序。
 
 在 powershell 中输入 `taskschd.msc` 也可以打开任务计划程序。
+
+![win_base.png](/images/win_base.png)
 
 ![win_trigger](/images/win_trigger.png)
 
@@ -99,9 +120,11 @@ linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务
 
 ## 参考视频
 
-windows 下的定时运行方式，可以参考这个视频：
+<!-- windows 下的定时运行方式，可以参考这个视频： -->
 
-<BilibiliVideo bv="BV1Na411W7nk"/>
+<!-- <BilibiliVideo bv="BV1Na411W7nk"/> -->
+
+待补充，欢迎 PR
 
 <script setup>
 // const ghproxy = __GLOBAL_GHPROXY__

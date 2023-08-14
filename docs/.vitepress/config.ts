@@ -29,7 +29,7 @@ export default defineConfig({
       text: '上次更新',
     },
 
-    outline: 3,
+    outline: [2, 3],
     outlineTitle: '目录',
 
     docFooter: {
