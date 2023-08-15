@@ -122,9 +122,9 @@ linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务
 
 ## 参考视频
 
-<!-- windows 下的定时运行方式，可以参考这个视频： -->
+windows 下的定时运行方式，可以参考这个视频：
 
-<!-- <BilibiliVideo bv="BV1Na411W7nk"/> -->
+<BilibiliVideo bv="BV1oF411y71V"/>
 
 待补充，欢迎 PR
 

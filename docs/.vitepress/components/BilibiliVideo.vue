@@ -19,9 +19,7 @@ const props = defineProps<{
   bv: string;
   page?: string | number;
 }>();
-const url = `//player.bilibili.com/player.html?bvid=${props.bv}&page=${
-  props.page || 1
-}`;
+const url = `//player.bilibili.com/player.html?bvid=${props.bv}&page=${props.page || 1}`;
 </script>
 
 <style scoped>
@@ -29,7 +27,7 @@ const url = `//player.bilibili.com/player.html?bvid=${props.bv}&page=${
   width: 100%;
   height: 500px;
   max-width: 100%;
-  align: center;
+  text-align: center;
   padding: 20px 0;
 }
 </style>

@@ -127,9 +127,15 @@ GitHub 上的开源项目：
 
 ### 项目所使用到的平台
 
+感谢以下平台为本项目提供服务（主要是教给有缘人白嫖技巧）：
+
 - [vercel](https://vercel.com/) 为本项目提供静态网站托管服务（为支持国内访问，本人自费 2024666.xyz 域名）。
 - [supabase](https://supabase.io/) 为本项目提供数据库服务。
+- [mongodb](https://www.mongodb.com/) 为本项目提供数据库服务。
 - [js.org](https://js.org/) 为本项目提供域名服务，用于 Github pages 部署的备份文档。
 - [github pages](https://pages.github.com/) 为本项目提供静态网站托管服务。
 - [github actions](https://docs.github.com/zh/actions) 为本项目提供持续集成服务。
 - [renovate](https://www.mend.io/renovate/) 为本项目提供依赖更新服务。
+- [bilibili](https://www.bilibili.com/) 为本项目提供在线视频服务。
+- [twikoo](https://twikoo.js.org/) 一个简洁、安全、免费的静态网站评论系统。
+- [vitepress](https://vitepress.dev/) Simple, powerful, and fast. Meet the modern SSG framework you've always wanted.
