@@ -18,7 +18,7 @@
         href="https://www.baidufe.com/fehelper/en-decode/"
         target="_blank"
         rel="noopener noreferrer"
-        >gzip 压缩<ExternalLinkIcon /></a
+        >gzip 压缩</a
       >）
     </li>
   </ul>

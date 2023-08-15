@@ -36,7 +36,10 @@ description: 配置详情
 **重要配置说明**
 
 - cookie 详见 [获取 Cookie 的方法](./get_value.md)。
-- userAgent - 内置默认浏览器 UA，但请尽量自行设置为常用设备 UA。该浏览器的 UA 为：<code>{{ userAgent }}</code>
+- userAgent - 内置默认浏览器 UA，但请尽量自行设置为常用设备 UA。该浏览器的 UA 为：
+  ```txt-vue
+    {{ userAgent }}
+  ```
 - `__common__` 表示此配置为公共配置，所有账号都会使用此配置，如果某个账号有此配置，则会覆盖公共配置。只有一个公共配置。
 - createCookieDay 无法用于云函数，因为云函数无法创建文件。
 

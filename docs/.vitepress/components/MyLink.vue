@@ -1,7 +1,5 @@
 <template>
-  <a :href="href" target="_blank" rel="noopener noreferrer"
-    >{{ href }}<ExternalLinkIcon
-  /></a>
+  <a :href="href" target="_blank" rel="noopener noreferrer">{{ href }}</a>
 </template>
 
 <script setup lang="ts">

@@ -9,11 +9,9 @@ description: 青龙面板运行
 ::: danger 注意
 测试使用 v2.13.8 版本，最新版都 2.16.x，别惦记你那 2.11.x 版本了，更新吧。
 
-已知低版本无法正确安装依赖，或者安装依赖后提示 `require(...).ql is not a function` 。该错误与 bilioutils 无关，与 node，npm 无关，请考虑升级青龙面板。
+已知低版本安装依赖后提示 `require(...).ql is not a function` 。该错误与 bilioutils 无关，与 node，npm 无关，请考虑升级青龙面板。
 
-依赖一直在安装中可能是仓库源地址的问题，请尝试使用代理或直接在青龙面板的终端中执行[手动安装依赖](#手动安装依赖)。（此处是青龙面包使用问题，本人不提供相关文档帮助，如有需要请考虑寻找青龙面板相关文档。）
-
-如果确实什么不得已的原因，无法升级青龙面板，可以考虑手动安装依赖，然后在尝试运行。
+如果确实什么不得已的原因，无法升级青龙面板，可以考虑[参考此处，作者的恩赐](#旧版本-ql-函数不存在)，然后在尝试运行。
 :::
 
 - 默认配置文件名 `cat_bili_config.json`，或 `.json5`
@@ -22,17 +20,25 @@ description: 青龙面板运行
 
 ## 使用 npm 包
 
-安装 Node 依赖（侧边栏中依赖管理）
+### 安装 Node 依赖
+
+在侧边栏依赖管理中添加 Node 依赖
 
 ```txt
 bilioutils
 ```
 
 ::: tip
-依赖一直在安装中可能是仓库源地址的问题，[手动安装依赖](#手动安装依赖)。
+
+```txt
+开始安装依赖 bilioutils，开始时间 2023/8/15 20:30:31
+WARN using --force Recommended protections disabled.
+```
+
+依赖一直（**长时间**）在安装中可能是仓库源地址的问题，[切换 npm 源](#切换-npm-源)。
 :::
 
-然后拉取青龙面板运行的代码
+### 拉取运行代码
 
 ::: code-group
 
@@ -129,7 +135,34 @@ require('bilioutils').sacnLogin();
 
 `--delay` 运行任务前休眠多少时间（模仿随机运行），值有两种写法，第一种是 `10m-1h` 在 10 分钟和 1 小时直接随机，第二种是 `1h`，在 0 到 1h 之间随机。关于单位：不带单位是（m）分钟，单位可以为 ms（毫秒）、s（秒）、m（分）、h（小时）。
 
-## 手动安装依赖
+## 切换 npm 源
+
+![ql_check_reg](/images/ql_check_reg.png)
+
+```bash
+pnpm config set registry https://registry.npmmirror.com/ && pnpm install
+```
+
+任务创建好后运行（没有日志），或者在终端运行（有日志），运行完成后**最好删除任务**。
+
+完成后即可在依赖管理里面安装依赖了。
+
+## 旧版本 ql 函数不存在
+
+### 方案一：指定导入文件
+
+修改[拉取运行代码](#拉取运行代码)中的包`bilioutils`，改为 `bilioutils/main`。
+
+```javascript
+require('bilioutils').ql(); // [!code --]
+require('bilioutils/main').ql(); // [!code ++]
+```
+
+### 方案二：手动在指定目录安装依赖
+
+在什么地方输入下面的命令？你运行过 `ql raw` 吗？
+
+提示：Docker Desktop 打开容器终端，或者 `docker exec -it 容器名 sh`，这是青龙的使用方法，不是本项目的使用方法，不提供更多的帮助，勿扰。
 
 ```bash
 cd /ql/scripts
@@ -137,3 +170,5 @@ pnpm config set registry https://registry.npmmirror.com/
 pnpm install
 pnpm add bilioutils
 ```
+
+这样操作后更新也需要在此手动更新 `pnpm add bilioutils`

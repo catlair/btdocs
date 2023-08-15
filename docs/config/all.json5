@@ -3,7 +3,7 @@
   // 注意 // 开头的是注释，没有实际意义
   {
     // 浏览器用户代理
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+    userAgent: {{1 + 1}},
     // b 站 cookie （登录信息）可能需要双引号
     // prettier-ignore
     cookie: "xxxxx",

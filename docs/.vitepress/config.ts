@@ -1,11 +1,10 @@
-import { UserConfig, defineConfig, DefaultTheme } from 'vitepress';
+import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions } from 'vitepress';
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 import { biliSvg, qqGroupSvg } from './svg';
-import twiko from './script/twiko';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -18,8 +17,6 @@ export default defineConfig({
   head: [
     ['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }],
     ['meta', { name: 'baidu-site-verification', content: 'codeva-59RKnCJIEl' }],
-    ['script', { async: '', src: 'https://cdn.staticfile.org/twikoo/1.6.17/twikoo.all.min.js' }],
-    ['script', { async: '' }, twiko],
   ],
 
   themeConfig: {
@@ -121,6 +118,7 @@ export default defineConfig({
     },
   },
   vite: vite(),
+  markdown: markdown(),
 });
 
 function nav(): DefaultTheme.NavItem[] {
@@ -322,5 +320,12 @@ function vite(): UserConfig['vite'] {
         resolvers: [ElementPlusResolver()],
       }),
     ],
+  };
+}
+
+function markdown(): MarkdownOptions {
+  return {
+    // 如果是本地则 lineNumbers: true，否则 lineNumbers: false
+    lineNumbers: process.env.NODE_ENV === 'development',
   };
 }
