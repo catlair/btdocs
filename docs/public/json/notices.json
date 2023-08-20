@@ -1,0 +1,25 @@
+{
+  "common": [
+    {
+      "content": "本项目开源且免费，文档地址 https://b.2024666.xyz 使用请自觉 star，请不要无故 fork 本项目。文档 UI 已经更换，如果文档没有更新，请使用 ctrl + shift + r 强制刷新。"
+    },
+    {
+      "rule": [
+        {
+          "key": ["function", "mangaTask"],
+          "value": true
+        },
+        {
+          "key": ["manga", "summer"],
+          "value": true
+        }
+      ],
+      "content": "漫画夏季活动即将结束，没有兑换的请尽快手动兑换。"
+    }
+  ],
+  "scf": [],
+  "fc": [],
+  "agc": [],
+  "cfc": [],
+  "fg": []
+}

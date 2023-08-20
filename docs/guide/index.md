@@ -114,8 +114,7 @@ GitHub 上的开源项目：
 
 ### 技术支持
 
-- [吾爱破解](https://www.52pojie.cn/)
-- [MDN](https://www.52pojie.cn//)
+- [MDN](https://developer.mozilla.org/zh-CN/)
 
 ### 捐赠者
 
