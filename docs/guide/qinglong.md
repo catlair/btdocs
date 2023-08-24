@@ -4,9 +4,13 @@ title: 青龙面板运行
 description: 青龙面板运行
 ---
 
-## 青龙面板文档 <TestedVersion type="ql" />
+## 青龙面板文档 <Badge type="danger" text="不推荐使用" vertical="top" /> <TestedVersion type="ql" />
 
-::: danger 注意
+::: danger 警告
+请尽量不要使用青龙面板，青龙面板不同版本带着不同特性，导致本程序在不同版本中运行情况不同，文档无法覆盖所有情况，除非自己了解青龙面板的运行机制，已经有一定的 Linux 和 Node.js 基础，否则不建议使用青龙面板。本人不提供任何除本文档使用版本外的支持。
+:::
+
+::: warning 注意
 测试使用 v2.13.8 版本，最新版都 2.16.x，别惦记你那 2.11.x 版本了，更新吧。
 
 已知低版本安装依赖后提示 `require(...).ql is not a function` 。该错误与 bilioutils 无关，与 node，npm 无关，请考虑升级青龙面板。
@@ -60,27 +64,6 @@ require('bilioutils').ql();
 
 :::
 
-创建一个配置文件
-`cat_bili_config.json` 配置与其他相同
-
-![ql_config](/images/ql_config.png)
-
-或者使用环境变量
-
-![环境变量](https://user-images.githubusercontent.com/81743795/148545529-73c95e3d-219f-4bf9-b266-7ad03bd9e9be.png)
-
-## 更新 npm 包
-
-自动更新如下所示：
-
-![ql_update](/images/ql_update.png)
-
-```bash
-pnpm remove -g bilioutils && pnpm add -g bilioutils
-```
-
-PS: 可以不执行 `pnpm remove -g bilioutils`，不过前一个版本就会一直保留在磁盘中。
-
 ## 更新 cookie
 
 添加 node 依赖 `@catlair/blogin`
@@ -117,7 +100,16 @@ require('bilioutils').sacnLogin();
 
 ## 配置文件
 
-注意：青龙不是 `config.json`, 而是 `cat_bili_config.json`。（共用文档，懒得改了）
+创建一个配置文件
+`cat_bili_config.json` 配置与其他相同
+
+![ql_config](/images/ql_config.png)
+
+或者使用环境变量
+
+![环境变量](https://user-images.githubusercontent.com/81743795/148545529-73c95e3d-219f-4bf9-b266-7ad03bd9e9be.png)
+
+注意：青龙不是 `config.json` （虽然也能用）, 而是 `cat_bili_config.json`。（共用文档，懒得改了）
 
 <!--@include: ../md/config_path.md-->
 
@@ -137,6 +129,10 @@ require('bilioutils').sacnLogin();
 
 ## 切换 npm 源
 
+以下没有说明的版本为未测试版本，不保证哪个方式可用。
+
+### 2.11.x 版本
+
 ![ql_check_reg](/images/ql_check_reg.png)
 
 ```bash
@@ -146,6 +142,18 @@ pnpm config set registry https://registry.npmmirror.com/ && pnpm install
 任务创建好后运行（没有日志），或者在终端运行（有日志），运行完成后**最好删除任务**。
 
 完成后即可在依赖管理里面安装依赖了。
+
+### 2.13.x 版本
+
+参考 [2.11.x](#211x-版本)，需要修改命令
+
+```bash
+pnpm config set registry https://registry.npmmirror.com/ && pnpm install && pnpm install -g
+```
+
+### 最新版本
+
+似乎可以直接在青龙的配置里面配置 `https://registry.npmmirror.com/`
 
 ## 旧版本 ql 函数不存在
 

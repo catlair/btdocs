@@ -58,7 +58,11 @@ bilioutils --login
 npm install -g bilioutils
 ```
 
-帮助详情：（可能未及时更新，最新的直接 `bilioutils -h` 获取）
+### 帮助详情
+
+::: info
+可能未及时更新，最新的直接 `bilioutils -h` 获取
+:::
 
 ```bash
 Usage: bilioutils [options]
