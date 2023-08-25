@@ -4,7 +4,11 @@ title: 阿里云函数 FC
 description: 阿里云函数 FC
 ---
 
-## 阿里云函数 FC 文档 <TestedVersion type="fc" />
+## 阿里云函数 FC 文档 <TestedVersion type="fc" />、
+
+::: tip 提示
+在没有资源包的情况下，每月可能需要 1 元左右的费用。（不启用阿里云日志，除风纪任务外，未开启其他如天选，直播心跳等耗时任务）
+:::
 
 [点击进入云函数控制台](https://fcnext.console.aliyun.com/cn-chengdu/services)
 

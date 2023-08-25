@@ -6,6 +6,10 @@ description: 腾讯云函数 SCF
 
 ## 腾讯云函数 SCF 文档 <TestedVersion type="scf" />
 
+::: tip 提示
+未实际测试消费，可能和阿里云相差不大，在一到两元之间。
+:::
+
 [点击进入云函数控制台](https://console.cloud.tencent.com/scf)
 
 ![Snipaste_2021-05-23_14-37-50](/images/119252529-6ca84400-bbdf-11eb-98e2-5bd87f3717ff.png)
