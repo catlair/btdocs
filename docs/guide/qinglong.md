@@ -96,7 +96,13 @@ require('bilioutils').sacnLogin();
 
 ## 参考视频
 
+### 运行
+
 <BilibiliVideo bv="BV1fB4y1i7hL" />
+
+### 旧版本错误解决
+
+<BilibiliVideo bv="BV13G411Z7Qm" />
 
 ## 配置文件
 
