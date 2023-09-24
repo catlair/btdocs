@@ -17,16 +17,22 @@
     <!-- 也没人备注昵称啊，那就不弄了。<del>备注昵称，将出现在感谢列表中。</del> -->
     <!-- </p> -->
 
-    <el-button
-      v-for="button in buttons"
-      :key="button.text"
-      :type="button.type"
-      text
-      @click="changeZZUrl(button)"
-      >{{ button.text }}</el-button
-    >
+    <div>
+      <el-button
+        v-for="button in buttons"
+        :key="button.text"
+        :type="button.type"
+        text
+        @click="changeZZUrl(button)"
+        >{{ button.text }}</el-button
+      >
 
-    <img :class="zzClass" :src="zzUrl" alt="zz_three" />
+      <img :class="zzClass" :src="zzUrl" alt="zz_three" />
+    </div>
+
+    <div>
+      <img class="zz" :src="alipay_red" alt="alipay_red" />
+    </div>
 
     <!-- <p>感谢：</p> -->
     <!-- <ul>
@@ -50,6 +56,7 @@ import zz_three from '/images/zz_three.png';
 import zz_alipay from '/images/zz_alipay.png';
 import zz_weixin from '/images/zz_weixin.png';
 import zz_qq from '/images/zz_qq.png';
+import alipay_red from '/images/alipay_red.jpg';
 import { ref } from 'vue';
 // import { storeToRefs } from 'pinia';
 // import { useReleasesStore } from '@stores/releases';
