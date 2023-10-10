@@ -43,6 +43,10 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 
 **预览**
 
+- <Badge type="tip" text="新增" vertical="middle" /> addExp 大会员领取 10 经验，默认开启。
+
+**v0.23.901**
+
 - <Badge type="tip" text="新增" vertical="middle" /> 风纪委员无案件等待次数可配置。
 - <Badge type="tip" text="新增" vertical="middle" /> npm cli 增加 --log-dir 参数，用于指定日志目录。
 - <Badge type="tip" text="新增" vertical="middle" /> npm cli 增加 --async 参数，用于同时执行多账号，而非依次执行（功能早已实现，使用环境变量配置，现添加命令行参数指定）。
@@ -50,23 +54,6 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 - <Badge type="tip" text="新增" vertical="middle" /> 风纪委员无案件等待次数可配置。
 - <Badge type="tip" text="优化" vertical="middle" /> 漫读券兑换，startHour 类型修改为数组。
 - <Badge type="tip" text="优化" vertical="middle" /> 每日电池等待间隔过小。
-
-**v0.23.805**
-
-- <Badge type="danger" text="警告" vertical="middle" /> 部分云函数平台不再进行压缩包打包。
-- <Badge type="danger" text="修复" vertical="middle" /> 部分系统下因为日志数据流导致程序直接崩溃。
-- <Badge type="warning" text="修复" vertical="middle" /> 创建新 cookie 仅仅只有第一个配置生效。
-- <Badge type="warning" text="修复" vertical="middle" /> 莫名其妙的 24 点。
-- <Badge type="warning" text="修复" vertical="middle" /> 错误日志并没有输出 stack。
-- <Badge type="warning" text="修复" vertical="middle" /> 获取稿件：“请求过于频繁，请稍后再试”。
-- <Badge type="warning" text="修复" vertical="middle" /> 配置中解除投币 5 个限制的配置没作用。
-- <Badge type="warning" text="修复" vertical="middle" /> 指定 up 主投币但还是会根据顺序给其他 up 主投币。
-- <Badge type="tip" text="新增" vertical="middle" /> exchangeBigPoint 大积分兑换。
-- <Badge type="tip" text="新增" vertical="middle" /> liveDm 可配置。
-- <Badge type="tip" text="新增" vertical="middle" /> dailyBattery 旧版任务下线，新版任务替换（测试中，配置详见历史各版本配置对比）。
-- <Badge type="tip" text="新增" vertical="middle" /> mangaTask 夏季活动，没有卵用，白嫖一个漫画装扮而已（只获取积分，需手动兑换）。
-- <Badge type="tip" text="新增" vertical="middle" /> [app.http]配置项，解决部分 api 在不同版本下结果不同的问题。
-- <Badge type="tip" text="新增" vertical="middle" /> 使用 renovate-bot 自动更新依赖。
 
 链接跳转：
 

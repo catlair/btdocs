@@ -54,6 +54,8 @@
     watchLink: false,
     // 直播弹幕
     liveDm: false,
+    // 大会员领取经验
+    addExp: true,
   },
   // 消息推送
   message: {

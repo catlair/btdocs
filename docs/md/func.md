@@ -28,6 +28,7 @@
 | ~~liveLottery~~  |        | ~~直播天选时刻~~（黑号风险）                  | [点击](/config/func.md#天选时刻)    |
 | liveRedPack      |        | 直播天选红包                                  | [点击](/config/func.md#每日电池)    |
 | dailyBattery     |        | 每日电池任务                                  | [点击](/config/func.md#天选红包)    |
+| addExp           | `true` | 大会员领取经验                                | 无                                  |
 | activityLottery  |        | 转盘抽奖                                      | [点击](/config/func.md#转盘抽奖)    |
 | judgement        |        | 风纪委员                                      | [点击](/config/func.md#风纪委员)    |
 | ~~liveWeekTask~~ |        | 直播周任务                                    |                                     |
