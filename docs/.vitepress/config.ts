@@ -2,7 +2,7 @@ import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions } from 'vitepre
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { ElementPlusResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
 
 import { biliSvg, qqGroupSvg } from './svg';
@@ -324,16 +324,11 @@ function vite(): UserConfig['vite'] {
       AutoImport({
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         resolvers: [ElementPlusResolver()],
-        imports: [
-          'vue',
-          {
-            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
-          },
-        ],
+        imports: ['vue'],
       }),
       Components({
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-        resolvers: [ElementPlusResolver(), NaiveUiResolver()],
+        resolvers: [ElementPlusResolver()],
       }),
     ],
   };

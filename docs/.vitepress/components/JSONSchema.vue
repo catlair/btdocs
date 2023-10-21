@@ -1,15 +1,13 @@
 <template>
-  <n-space :vertical="true" :size="160">
-    <div class="form">
-      <vue-form
-        v-model="value"
-        :schema="props.schema"
-        :form-props="formProps"
-        :ui-schema="uiSchema"
-        @submit="submit"
-      ></vue-form>
-    </div>
-  </n-space>
+  <div class="form">
+    <vue-form
+      v-model="value"
+      :schema="props.schema"
+      :form-props="formProps"
+      :ui-schema="uiSchema"
+      @submit="submit"
+    ></vue-form>
+  </div>
 </template>
 
 <script setup lang="ts">
