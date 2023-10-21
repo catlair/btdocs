@@ -2,7 +2,8 @@ import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions } from 'vitepre
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+import { ElementPlusResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
 
 import { biliSvg, qqGroupSvg } from './svg';
 
@@ -160,6 +161,11 @@ function nav(): DefaultTheme.NavItem[] {
           target: '_blank',
         },
         {
+          text: '配置在线编辑',
+          link: '/config/schema',
+          target: '_blank',
+        },
+        {
           text: 'Cookie 校验和编码',
           link: '/config/encode_cookie',
           target: '_blank',
@@ -312,12 +318,22 @@ function vite(): UserConfig['vite'] {
       ],
     },
     plugins: [
-      // ...
+      createStyleImportPlugin({
+        resolves: [ElementPlusResolve()],
+      }),
       AutoImport({
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
         resolvers: [ElementPlusResolver()],
+        imports: [
+          'vue',
+          {
+            'naive-ui': ['useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
+          },
+        ],
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        resolvers: [ElementPlusResolver(), NaiveUiResolver()],
       }),
     ],
   };
