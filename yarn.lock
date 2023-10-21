@@ -554,6 +554,14 @@
   dependencies:
     "@lljj/vjsf-utils" "1.19.0"
 
+"@lljj/vue3-form-element@^1.19.0":
+  version "1.19.0"
+  resolved "https://registry.npmmirror.com/@lljj/vue3-form-element/-/vue3-form-element-1.19.0.tgz#0c3626d1d8e105c7dad762539f84ed63571fc5f2"
+  integrity sha512-nGQtLGRYpEdyoDl0Ro7mpO70qX7QPyuX4zwFDx1jn0ufvzSy++OxZ8d5fZblw0SfEjDs1zuVEVYHL1oymTcZeA==
+  dependencies:
+    "@lljj/vjsf-utils" "1.19.0"
+    "@lljj/vue3-form-core" "1.19.0"
+
 "@lljj/vue3-form-naive@^1.19.1":
   version "1.19.1"
   resolved "https://registry.npmmirror.com/@lljj/vue3-form-naive/-/vue3-form-naive-1.19.1.tgz#1106677603cc8432bbf06e5e5af22f059d5551cf"
