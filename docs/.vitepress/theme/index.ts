@@ -1,6 +1,8 @@
 import DefaultTheme from 'vitepress/theme';
 import type { EnhanceAppContext } from 'vitepress';
-import naive from 'naive-ui';
+// import naive from 'naive-ui';
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
 
 import BilibiliVideo from '@components/BilibiliVideo.vue';
 import MyLink from '@components/MyLink.vue';
@@ -13,7 +15,8 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }: EnhanceAppContext) {
     registerComponents(app);
-    app.use(naive);
+    // app.use(naive);
+    app.use(ElementPlus);
   },
   Layout,
 };
