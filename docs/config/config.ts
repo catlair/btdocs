@@ -262,7 +262,6 @@ export const defaultConfig = {
     } as Record<number, string | string[]>,
   },
   jury: {
-    once: undefined,
     // 重复运行次数，小于0为无限制
     repeat: 999,
     // 默认投票 0-3 好-无法判断，从中随机

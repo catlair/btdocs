@@ -284,7 +284,11 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: 'Github Secrets', link: '/config/github_secrets' },
       { text: '环境变量', link: '/config/env' },
       { text: '版本对比', link: '/config/version' },
-      { text: '配置编辑器', link: '/config/editor' },
+      { text: '配置编辑器', link: '/config/editor', target: '_blank' },
+      {
+        text: '配置在线编辑 web',
+        link: '/config/schema',
+      },
       { text: '配置和 npm 使用案例', link: '/config/demo' },
     ],
   };
@@ -314,6 +318,10 @@ function vite(): UserConfig['vite'] {
         {
           find: '@img',
           replacement: fileURLToPath(new URL('/images', import.meta.url)),
+        },
+        {
+          find: '@store',
+          replacement: fileURLToPath(new URL('./store', import.meta.url)),
         },
       ],
     },

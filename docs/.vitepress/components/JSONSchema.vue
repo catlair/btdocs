@@ -5,13 +5,14 @@
       :schema="props.schema"
       :form-props="formProps"
       :ui-schema="uiSchema"
+      :formFooter="formFooter"
       @submit="submit"
     ></vue-form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onActivated, onMounted, computed } from 'vue';
+import { computed } from 'vue';
 import VueForm from '@lljj/vue3-form-naive';
 // import VueForm from '@lljj/vue3-form-element';
 
@@ -27,14 +28,6 @@ const value = computed({
   },
 });
 
-onActivated(() => {
-  console.log('about page activated');
-});
-
-onMounted(() => {
-  console.log('about page mounted');
-});
-
 const formProps = {
   layoutColumn: 2,
 };
@@ -47,6 +40,10 @@ const uiSchema = {
 
 const submit = (data: any) => {
   console.log(data);
+};
+
+const formFooter = {
+  show: false,
 };
 </script>
 
