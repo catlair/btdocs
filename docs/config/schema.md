@@ -4,6 +4,13 @@ title: 历史配置对比
 description: 历史配置对比
 ---
 
+## TODO
+
+- [ ] 简单实现
+- [ ] 多账号
+- [ ] 保存页面状态
+- [ ] UI 组件优化
+
 ## 风纪委员
 
 <JSONSchema :schema="jury" v-model="data.jury"></JSONSchema>
@@ -36,6 +43,22 @@ description: 历史配置对比
 {{data.couponBalance}}
 ```
 
+## 投币
+
+<JSONSchema :schema="coin" v-model="data.coin"></JSONSchema>
+
+```json-vue
+{{data.coin}}
+```
+
+## 漫画
+
+<JSONSchema :schema="manga" v-model="data.manga"></JSONSchema>
+
+```json-vue
+{{data.manga}}
+```
+
 ## 配置总览
 
 ```json-vue
@@ -46,7 +69,8 @@ description: 历史配置对比
 import JSONSchema from '@components/JSONSchema.vue'
 import { onActivated, onMounted, ref } from 'vue';
 import VueForm from '@lljj/vue3-form-naive';
-import { jury, match ,gift,couponBalance} from './_schema';
+import { jury, match ,gift,couponBalance,coin,manga} from './_schema';
+import { defaultConfig } from "./config";
 
 onActivated(() => {
 console.log('about page activated');
@@ -58,26 +82,8 @@ console.log('about page mounted');
 
 
 
-const data = ref({
-  jury: {},
-  match: {},
-  gift:{},
-  couponBalance: {}
-})
+const data = ref(defaultConfig)
 
-const formProps = {
-layoutColumn: 1
-};
-
-const uiSchema = {
-'ui:width': {
-width: '50%'
-}
-};
-
-const submit = (data: any) => {
-console.log(data);
-};
 </script>
 
 <style scoped></style>

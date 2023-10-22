@@ -36,7 +36,7 @@ onMounted(() => {
 });
 
 const formProps = {
-  layoutColumn: 1,
+  layoutColumn: 2,
 };
 
 const uiSchema = {

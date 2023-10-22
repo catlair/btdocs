@@ -196,3 +196,103 @@ export const couponBalance = {
     },
   },
 };
+
+export const coin = {
+  type: 'object',
+  properties: {
+    customizeUp: {
+      type: 'array',
+      title: '投币列表',
+      default: [],
+      items: {
+        type: 'integer',
+      },
+      description: '自定义高优先级用户列表',
+    },
+    targetLevel: {
+      type: 'integer',
+      title: '目标等级',
+      default: 6,
+      maximum: 6,
+      minimum: 0,
+      description: '目标等级 默认6级',
+    },
+    stayCoins: {
+      type: 'integer',
+      title: '剩余硬币数',
+      default: 0,
+      minimum: 0,
+      description: '最低剩余硬币数,默认0',
+    },
+    targetCoins: {
+      type: 'integer',
+      title: '预计投币数',
+      default: 5,
+      minimum: 1,
+      description: '预计投币数,默认5',
+    },
+    src: {
+      type: 'array',
+      title: '获取稿件的来源',
+      items: {
+        type: 'string',
+      },
+      default: ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
+      description: '获取稿件的来源（排序），留空则来自 首页推荐',
+    },
+    upperAccMatch: {
+      type: 'boolean',
+      title: '精准投币',
+      default: false,
+      description: '稿件必须是 up 的稿件，而非合作视频中的参与者',
+    },
+  },
+};
+
+export const manga = {
+  type: 'object',
+  properties: {
+    buyNum: {
+      title: '购买漫画的数量',
+      default: 1,
+      type: 'integer',
+      description: '购买漫画的数量，小于 1 为自动。仅在 buyMangaOnlyBeforeExpire 为 false 时有效',
+    },
+    sign: {
+      type: 'boolean',
+      title: '签到',
+      default: true,
+    },
+    buy: {
+      type: 'boolean',
+      title: '购买漫画',
+      default: false,
+    },
+    read: {
+      type: 'boolean',
+      default: true,
+      title: '每日阅读',
+    },
+    mc: {
+      type: 'array',
+      title: '购买漫画 id（优先级高）',
+      default: [],
+      items: {
+        type: 'integer',
+      },
+    },
+    name: {
+      type: 'array',
+      title: '购买漫画名称（优先级中）',
+      default: [],
+      items: {
+        type: 'string',
+      },
+    },
+    love: {
+      type: 'boolean',
+      title: '购买追漫（优先级低）',
+      default: true,
+    },
+  },
+};

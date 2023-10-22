@@ -124,7 +124,6 @@ export const defaultConfig = {
     /** 比赛赔率差距需要大于多少才压 */
     diff: 7,
   },
-  charge: {} as any,
   couponBalance: {
     /** 充电的 up 默认自己 */
     mid: 0,
