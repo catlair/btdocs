@@ -147,9 +147,12 @@ import JSONSchema from '@components/JSONSchema.vue'
 import { onActivated, onMounted, ref } from 'vue';
 import VueForm from '@lljj/vue3-form-naive';
 import * as _schema from './_schema';
-import useConfigStore from '@store/config'
+import {defaultConfig} from './config'
+// import useConfigStore from '@store/config'
 
-const data = useConfigStore()
+// const data = useConfigStore()
+
+const data = ref(defaultConfig)
 
 onActivated(() => {
 console.log('about page activated');

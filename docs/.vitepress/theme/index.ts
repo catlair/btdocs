@@ -2,7 +2,7 @@ import DefaultTheme from 'vitepress/theme';
 import type { EnhanceAppContext } from 'vitepress';
 import naive from 'naive-ui';
 import { createPinia } from 'pinia';
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
+// import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 import BilibiliVideo from '@components/BilibiliVideo.vue';
 import MyLink from '@components/MyLink.vue';
@@ -16,9 +16,9 @@ export default {
   enhanceApp({ app }: EnhanceAppContext) {
     registerComponents(app);
     app.use(naive);
-    const pinia = createPinia();
-    pinia.use(piniaPluginPersistedstate);
-    app.use(pinia);
+    // const pinia = createPinia();
+    // pinia.use(piniaPluginPersistedstate);
+    // app.use(pinia);
   },
   Layout,
 };
