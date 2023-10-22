@@ -12,8 +12,8 @@
 
 <script setup lang="ts">
 import { onActivated, onMounted, computed } from 'vue';
-// import VueForm from '@lljj/vue3-form-naive';
-import VueForm from '@lljj/vue3-form-element';
+import VueForm from '@lljj/vue3-form-naive';
+// import VueForm from '@lljj/vue3-form-element';
 
 const props = defineProps(['modelValue', 'schema']);
 const emit = defineEmits(['update:modelValue']);

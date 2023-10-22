@@ -16,9 +16,5 @@ declare module 'vue' {
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElTree: typeof import('element-plus/es')['ElTree']
-    NButton: typeof import('naive-ui')['NButton']
-    NCode: typeof import('naive-ui')['NCode']
-    NInput: typeof import('naive-ui')['NInput']
-    NSpace: typeof import('naive-ui')['NSpace']
   }
 }
