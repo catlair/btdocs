@@ -316,8 +316,8 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '大积分', link: '/schema/big_point' },
       { text: '转盘抽奖', link: '/schema/activity_lottery' },
       { text: '每日电池', link: '/schema/daily_battery' },
-      { text: '直播心跳', link: '/schema/' },
-      { text: '直播弹幕', link: '/schema/' },
+      { text: '直播心跳', link: '/schema/watch_link' },
+      { text: '直播弹幕', link: '/schema/live_dm' },
     ],
   };
 }
