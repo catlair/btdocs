@@ -36,6 +36,22 @@ const useConfigStore = defineStore('config', {
         /** 获取稿件的来源（排序），留空则来自 首页推荐 */
         src: ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
       },
+      couponBalance: {
+        /** 充电的 up 默认自己 */
+        mid: 0,
+        /** 预设时间，哪一天？设置为空数组即每一天 */
+        presetTime: [10, 20],
+        /** 使用方式 */
+        use: '充电' as '充电' | '电池' | 'charge' | 'battery',
+      },
+      match: {
+        /** 压硬币数量 */
+        coins: 2,
+        /** 压硬币规则 大于0 是正压，小于反压 */
+        selection: 1,
+        /** 比赛赔率差距需要大于多少才压 */
+        diff: 7,
+      },
     };
   },
   getters: {},

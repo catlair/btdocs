@@ -98,32 +98,6 @@ export const jury = {
   },
 };
 
-export const match = {
-  type: 'object',
-  properties: {
-    coins: {
-      type: 'integer',
-      title: '压硬币数量',
-      default: 2,
-      description: '压硬币数量',
-      maximum: 10,
-      minimum: 1,
-    },
-    selection: {
-      type: 'integer',
-      title: '压硬币规则',
-      default: 1,
-      description: '压硬币规则 大于0 是正压，小于反压',
-    },
-    diff: {
-      type: 'number',
-      title: '比赛赔率差',
-      default: 7,
-      description: '比赛赔率差距需要大于多少才压',
-    },
-  },
-};
-
 export const gift = {
   type: 'object',
   properties: {
@@ -165,86 +139,6 @@ export const gift = {
       title: '过期的礼物',
       default: true,
       description: '仅投喂即将过期的礼物',
-    },
-  },
-};
-
-export const couponBalance = {
-  type: 'object',
-  properties: {
-    mid: {
-      type: 'integer',
-      title: '充电的 up',
-      default: 0,
-      description: '充电的 up 默认自己',
-    },
-    presetTime: {
-      type: 'array',
-      title: '执行时间',
-      default: [10, 20],
-      items: {
-        type: 'integer',
-      },
-      description: '预设时间，哪一天？设置为空数组即每一天',
-    },
-    use: {
-      type: 'string',
-      title: '使用方式',
-      default: '充电',
-      description: '使用方式',
-      enum: ['充电', '电池'],
-    },
-  },
-};
-
-export const coin = {
-  type: 'object',
-  properties: {
-    customizeUp: {
-      type: 'array',
-      title: '投币列表',
-      default: [],
-      items: {
-        type: 'integer',
-      },
-      description: '自定义高优先级用户列表',
-    },
-    targetLevel: {
-      type: 'integer',
-      title: '目标等级',
-      default: 6,
-      maximum: 6,
-      minimum: 0,
-      description: '目标等级 默认6级',
-    },
-    stayCoins: {
-      type: 'integer',
-      title: '剩余硬币数',
-      default: 0,
-      minimum: 0,
-      description: '最低剩余硬币数,默认0',
-    },
-    targetCoins: {
-      type: 'integer',
-      title: '预计投币数',
-      default: 5,
-      minimum: 1,
-      description: '预计投币数,默认5',
-    },
-    src: {
-      type: 'array',
-      title: '获取稿件的来源',
-      items: {
-        type: 'string',
-      },
-      default: ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
-      description: '获取稿件的来源（排序），留空则来自 首页推荐',
-    },
-    upperAccMatch: {
-      type: 'boolean',
-      title: '精准投币',
-      default: false,
-      description: '稿件必须是 up 的稿件，而非合作视频中的参与者',
     },
   },
 };
