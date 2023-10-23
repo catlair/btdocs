@@ -128,6 +128,43 @@ const useConfigStore = defineStore('config', {
           // 11111: '打卡',
         } as Record<number, string | string[]>,
       },
+      dailyBattery: {
+        tasks: ['5弹幕', '20弹幕', '20弹幕30秒观看'] as ('5弹幕' | '20弹幕' | '20弹幕30秒观看')[],
+        // 每次任务间隔时间，单位 s
+        delay: [8, 12],
+        // 当重复获取到同一roomid时，等待时间，单位 s
+        delayByRoomid: [10, 20],
+      },
+      unFollow: {
+        // 单个取消的时间间隔（秒）
+        delay: 3,
+        // 中场休息，[取消数量, 休息时间（分）] 取消数量和休息时间都应该为正数（非0），否则无效
+        restTime: [20, -1],
+        // 总数 -1 无限制
+        totalNum: -1,
+        // 取消关注的 tag
+        tags: ['天选时刻', 'rp关注'],
+      },
+      bigPoint: {
+        // 是否重试，或者重试间隔时间，单位秒
+        isRetry: 20 as boolean | number,
+        // 是否观看视频
+        isWatch: true,
+        // 领取任务后的观看延时（秒）
+        watchDelay: 40,
+      },
+      exchangeBigPoint: {
+        // 多次尝试间隔时间，单位 ms
+        delay: 200,
+        // 重试次数
+        retry: 3,
+        // 启动延时 ms（12点开始计算）
+        startDelay: 30,
+        // 兑换商品名称，与 token 二选一
+        name: [] as string[],
+        // 兑换商品 token
+        token: [] as string[],
+      },
     };
   },
   getters: {},
