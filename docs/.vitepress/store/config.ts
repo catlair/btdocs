@@ -52,6 +52,22 @@ const useConfigStore = defineStore('config', {
         /** 比赛赔率差距需要大于多少才压 */
         diff: 7,
       },
+      manga: {
+        // 购买漫画的数量，小于 1 为自动。仅在 buyMangaOnlyBeforeExpire 为 false 时有效
+        buyNum: 1,
+        // 签到
+        sign: true,
+        // 购买漫画
+        buy: false,
+        // 每日阅读
+        read: true,
+        // 购买漫画 id（优先级高）
+        mc: [] as number[],
+        // 购买漫画名称（优先级中）
+        name: [] as string[],
+        // 购买追漫（优先级低）
+        love: true,
+      },
     };
   },
   getters: {},

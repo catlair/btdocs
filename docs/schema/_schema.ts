@@ -143,54 +143,6 @@ export const gift = {
   },
 };
 
-export const manga = {
-  type: 'object',
-  properties: {
-    buyNum: {
-      title: '购买漫画的数量',
-      default: 1,
-      type: 'integer',
-      description: '购买漫画的数量，小于 1 为自动。仅在 buyMangaOnlyBeforeExpire 为 false 时有效',
-    },
-    sign: {
-      type: 'boolean',
-      title: '签到',
-      default: true,
-    },
-    buy: {
-      type: 'boolean',
-      title: '购买漫画',
-      default: false,
-    },
-    read: {
-      type: 'boolean',
-      default: true,
-      title: '每日阅读',
-    },
-    mc: {
-      type: 'array',
-      title: '购买漫画 id（优先级高）',
-      default: [],
-      items: {
-        type: 'integer',
-      },
-    },
-    name: {
-      type: 'array',
-      title: '购买漫画名称（优先级中）',
-      default: [],
-      items: {
-        type: 'string',
-      },
-    },
-    love: {
-      type: 'boolean',
-      title: '购买追漫（优先级低）',
-      default: true,
-    },
-  },
-};
-
 export const intimacy = {
   type: 'object',
   properties: {

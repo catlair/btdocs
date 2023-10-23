@@ -309,7 +309,7 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '取关分组', link: '/schema/' },
       { text: '直播间礼物', link: '/schema/' },
       { text: '粉丝亲密度', link: '/schema/' },
-      { text: '漫画任务', link: '/schema/' },
+      { text: '漫画任务', link: '/schema/manga' },
       { text: '兑换漫读券', link: '/schema/' },
       { text: '大积分兑换', link: '/schema/' },
       { text: '风纪委员', link: '/schema/' },

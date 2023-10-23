@@ -1,14 +1,14 @@
 ---
 lang: zh-CN
-title: 投币
-description: 投币
+title: 竞猜
+description: 竞猜
 ---
 
 <script setup lang="ts">
 import useConfigStore from '@store/config'
 const data = useConfigStore()
 
-export const matchSchema = {
+const matchSchema = {
   type: 'object',
   properties: {
     coins: {
@@ -32,8 +32,6 @@ export const matchSchema = {
       description: '比赛赔率差距需要大于多少才压',
     },
   },
-};
-
 };
 
 </script>

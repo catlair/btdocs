@@ -1,14 +1,14 @@
 ---
 lang: zh-CN
-title: 投币
-description: 投币
+title: 使用 B 币券
+description: 使用 B 币券
 ---
 
 <script setup lang="ts">
 import useConfigStore from '@store/config'
 const data = useConfigStore()
 
-export const couponBalanceSchema = {
+const couponBalanceSchema = {
   type: 'object',
   properties: {
     mid: {
