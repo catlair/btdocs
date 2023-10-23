@@ -375,6 +375,9 @@ export const unFollowSchema = {
       default: [20, -1],
       description:
         '中场休息，[取消数量, 休息时间（分）] 取消数量和休息时间都应该为正数（非0），否则无效',
+      items: {
+        type: 'integer',
+      },
     },
     totalNum: {
       type: 'integer',
@@ -486,11 +489,152 @@ export const exchangeBigPointSchema = {
   },
 };
 
-export const exchangeCouponSchema = {};
+export const exchangeCouponSchema = {
+  type: 'object',
+  properties: {
+    num: {
+      title: '兑换漫读券数量',
+      default: 1,
+      type: 'integer',
+      description: '兑换漫读券数量，小于 1 为自动',
+    },
+    delay: {
+      title: '间隔时间',
+      default: 2000,
+      type: 'integer',
+      description: '单位 ms，随机误差 -50 ~ 150',
+    },
+    keepAmount: {
+      title: '保留积分数',
+      default: 0,
+      type: 'integer',
+    },
+    startHour: {
+      type: 'array',
+      title: '兑换开始时间',
+      items: {
+        type: 'integer',
+      },
+    },
+    multiNum: {
+      title: '分多次兑换',
+      type: 'integer',
+    },
+  },
+};
 
-export const redPackSchema = {};
+export const redPackSchema = {
+  type: 'object',
+  properties: {
+    source: {
+      title: '直播间来源方式',
+      type: 'integer',
+    },
+    uri: {
+      type: 'string',
+    },
+    intervalActive: {
+      title: '每轮抢红包的间隔时间',
+      type: 'integer',
+    },
+    restTime: {
+      type: 'array',
+      title: '中场休息时间',
+      items: {
+        type: 'integer',
+      },
+    },
+    riskTime: {
+      type: 'array',
+      title: '疑似触发风控时休眠时间',
+      items: {
+        type: 'integer',
+      },
+    },
+    riskSleepTime: {
+      type: 'integer',
+    },
+    linkRoomNum: {
+      title: '同时参与的直播间数量',
+      type: 'integer',
+    },
+    totalNum: {
+      title: '总参与次数',
+      type: 'integer',
+    },
+    dmNum: {
+      type: 'array',
+      title: '参与直播时发送的弹幕数量',
+      items: {
+        type: 'integer',
+      },
+    },
+    moveUpInWait: {
+      title: '是否在等待时处理关注用户',
+      type: 'boolean',
+    },
+    moveTag: {
+      type: 'string',
+    },
+    actFollowMsg: {
+      type: 'string',
+      enum: ['read', 'del', 'delete', 'none'],
+    },
+    noWinNum: {
+      title: '连续超过多少次没有中',
+      type: 'integer',
+    },
+    riskNum: {
+      title: '连续疑似触发风控多少次',
+      type: 'integer',
+    },
+  },
+};
 
-export const lotterySchema = {};
+export const lotterySchema = {
+  type: 'object',
+  properties: {
+    excludeAward: {
+      type: 'array',
+      items: {
+        type: 'string',
+      },
+    },
+    includeAward: {
+      type: 'array',
+      items: {
+        type: 'string',
+      },
+    },
+    blackUid: {
+      type: 'array',
+      items: {
+        type: 'integer',
+      },
+    },
+    moveTag: {
+      type: 'string',
+    },
+    pageNum: {
+      title: '天选获取的直播页数',
+      type: 'integer',
+    },
+    actFollowMsg: {
+      type: 'string',
+      enum: ['read', 'del', 'delete', 'none'],
+    },
+    scanFollow: {
+      type: 'string',
+      enum: ['only'],
+    },
+    skipNeedFollow: {
+      type: 'boolean',
+    },
+    mayBeWinMsg: {
+      type: 'boolean',
+    },
+  },
+};
 
 export const activityLotterySchema = {
   type: 'object',
@@ -663,14 +807,49 @@ export const blinkSchema = {
   },
 };
 
-export const appSchema = {};
+export const appSchema = {
+  type: 'object',
+  properties: {
+    http: {
+      type: 'object',
+      properties: {
+        build: {
+          type: 'integer',
+        },
+      },
+    },
+  },
+};
 
-export const functionSchema$ = {};
+export const functionSchema = {};
 
 export const limitSchema = {};
 
 export const messageSchema = {};
 
-export const logSchema = {};
+export const logSchema = {
+  type: 'object',
+  properties: {
+    pushLevel: {
+      type: 'string',
+      enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
+    },
+    consoleLevel: {
+      type: 'string',
+      enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
+    },
+    fileLevel: {
+      type: 'string',
+      enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
+    },
+    useEmoji: {
+      type: 'boolean',
+    },
+    fileSplit: {
+      type: 'string',
+      enum: ['day', 'month'],
+    },
+  },
+};
 
 export const baseSchema = {};

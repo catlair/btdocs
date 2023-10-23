@@ -167,7 +167,7 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: '配置在线编辑',
-          link: '/config/schema',
+          link: '/schema/',
           target: '_blank',
         },
         {

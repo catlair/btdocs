@@ -296,7 +296,7 @@ const useConfigStore = defineStore('config', {
   },
   getters: {},
   actions: {},
-  // persist: true,
+  persist: true,
 });
 
 export default useConfigStore;
