@@ -1,14 +1,13 @@
 ---
 lang: zh-CN
-title: 投币
-description: 投币
+title: 取关分组
+description: 取关分组
 ---
 
 <script setup lang="ts">
+import { unFollowSchema } from './_schema'
 import useConfigStore from '@store/config'
 const data = useConfigStore()
-
-const unFollowSchema = {}
 
 </script>
 

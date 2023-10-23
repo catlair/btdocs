@@ -105,6 +105,29 @@ const useConfigStore = defineStore('config', {
         // 仅投喂即将过期的礼物
         expire: true,
       },
+      intimacy: {
+        // 直播弹幕
+        liveSendMessage: true,
+        // 点赞直播间
+        liveLike: true,
+        // 直播心跳
+        liveHeart: false,
+        // 白名单
+        whiteList: [] as number[],
+        // 黑名单
+        blackList: [] as number[],
+        // 每日亲密度上限 （系统 1500）
+        limitFeed: 1500,
+        // 同时有多少个直播间已获取亲密度超过200时，强制跳过弹幕和点赞。小于 0 不跳过
+        skipNum: 10,
+        // 完成直播心跳后是否再检查一次，可能因为数据延迟而重复操作，不建议云函数开启
+        isRetryHeart: false,
+        // 专属弹幕
+        dm: {
+          // id 为 up 主 mid，非直播间 id。用于某些直播间可能有机器人玩法
+          // 11111: '打卡',
+        } as Record<number, string | string[]>,
+      },
     };
   },
   getters: {},
