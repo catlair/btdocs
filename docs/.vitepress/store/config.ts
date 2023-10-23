@@ -193,6 +193,75 @@ const useConfigStore = defineStore('config', {
         // 分多次兑换，小于 1 或者大于 num 则配置无效，不分多次
         multiNum: 0,
       },
+      lottery: {
+        /** 天选屏蔽奖品 */
+        excludeAward: [
+          '舰',
+          '船',
+          '航海',
+          '代金券',
+          '优惠券',
+          '自拍',
+          '照',
+          '写真',
+          '图',
+          '提督',
+          '车车一局',
+          '再来一局',
+          '游戏道具',
+        ],
+        /** 天选包含奖品 */
+        includeAward: ['谢'],
+        /** 黑名单 */
+        blackUid: [65566781, 1277481241, 1643654862, 603676925],
+        /** 天选时刻关注 UP 移动到分组 */
+        moveTag: '天选时刻',
+        /** 天选获取的直播页数 */
+        pageNum: 2,
+        /** 关注回复处理方式  */
+        actFollowMsg: 'read' as 'read' | 'del' | 'delete' | 'none' | undefined,
+        /** 扫描关注的用户 */
+        scanFollow: undefined as string | 'only' | undefined,
+        /** 跳过需要关注的天选 */
+        skipNeedFollow: false,
+        // 打印可能中奖的消息
+        mayBeWinMsg: true,
+      },
+      redPack: {
+        /**
+         * 声明：
+         * 表示次数时，小于等于0的数表示不限制次数
+         */
+        // 直播间来源方式 1 活动（活动链接可能更新不及时），2 扫描。其它值 所有方式依次尝试。
+        source: 0,
+        // 活动链接
+        uri: '',
+        // 仅使用活动时有效，每轮抢红包的间隔时间（秒）
+        intervalActive: 60,
+        // 中场休息时间，当每参加了几个直播间的时候，休息一下 [参加个数，休息时间（分，小于1为直接结束）]
+        restTime: [-1, -1],
+        // 疑似触发风控时休眠时间，[连续出现次数，休眠时间（分，小于1为直接结束）]
+        riskTime: [-1, -1], // 与 riskNum 不同，该参数会与 restTime 互相影响重置次数
+        // 【废弃】
+        riskSleepTime: -1,
+        // 同时参与的直播间数量
+        linkRoomNum: 1,
+        // 总参与次数，达到后不管结果如何，直接结束
+        totalNum: -1,
+        // 参与直播时发送的弹幕数量（与内置数量比，min(10，剩余时间/5，配置)）
+        // [固定值]，[最少,最多]
+        dmNum: [10],
+        // 是否在等待时处理关注用户（读取消息，移动）
+        moveUpInWait: true,
+        /** 天选时刻关注 UP 移动到分组 */
+        moveTag: 'rp关注',
+        /** 关注回复处理方式  */
+        actFollowMsg: 'read' as 'read' | 'del' | 'delete' | 'none' | undefined,
+        // 连续超过多少次没有中，直接结束，小于1为不限制
+        noWinNum: 10, // 避免一直运行
+        // 连续疑似触发风控多少次，直接结束，小于1为不限制
+        riskNum: 5, // 避免一直运行
+      },
     };
   },
   getters: {},
