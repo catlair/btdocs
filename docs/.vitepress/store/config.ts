@@ -165,6 +165,34 @@ const useConfigStore = defineStore('config', {
         // 兑换商品 token
         token: [] as string[],
       },
+      activityLottery: {
+        // 活动列表
+        list: [] as ActivityLotteryIdType[],
+        // 是否从网络请求活动列表
+        isRequest: true,
+        // 抽奖延时（秒）
+        delay: [1.8, 3.2],
+        // 追番？
+        bangumi: false,
+        // 关注？
+        follow: false,
+        // 请求 GitHub 使用的代理前缀
+        proxyPrefix: 'https://ghproxy.com/',
+        // 自定义活动列表链接
+        customUrl: '',
+      },
+      exchangeCoupon: {
+        // 兑换漫读券数量，小于 1 为自动
+        num: 1,
+        // 间隔时间，单位 ms，随机误差 -50 ~ 150
+        delay: 2000,
+        // 保留积分数
+        keepAmount: 0,
+        // 兑换开始时间，0、10、12
+        startHour: [0],
+        // 分多次兑换，小于 1 或者大于 num 则配置无效，不分多次
+        multiNum: 0,
+      },
     };
   },
   getters: {},

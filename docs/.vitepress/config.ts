@@ -310,7 +310,7 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '直播间礼物', link: '/schema/gift' },
       { text: '粉丝亲密度', link: '/schema/intimacy' },
       { text: '漫画任务', link: '/schema/manga' },
-      { text: '兑换漫读券', link: '/schema/' },
+      { text: '兑换漫读券', link: '/schema/exchange_coupon' },
       { text: '大积分兑换', link: '/schema/exchange_big_point' },
       { text: '风纪委员', link: '/schema/jury' },
       { text: '大积分', link: '/schema/big_point' },
