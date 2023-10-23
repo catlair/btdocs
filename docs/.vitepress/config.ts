@@ -142,7 +142,7 @@ function nav(): DefaultTheme.NavItem[] {
         },
         {
           text: '文档 Github',
-          link: 'https://gitee.com/catlair/btdocs',
+          link: 'https://github.com/catlair/btdocs',
           target: '_blank',
         },
         {
@@ -314,7 +314,7 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '大积分兑换', link: '/schema/exchange_big_point' },
       { text: '风纪委员', link: '/schema/jury' },
       { text: '大积分', link: '/schema/big_point' },
-      { text: '转盘抽奖', link: '/schema/' },
+      { text: '转盘抽奖', link: '/schema/activity_lottery' },
       { text: '每日电池', link: '/schema/daily_battery' },
       { text: '直播心跳', link: '/schema/' },
       { text: '直播弹幕', link: '/schema/' },
