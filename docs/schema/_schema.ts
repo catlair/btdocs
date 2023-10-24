@@ -821,11 +821,247 @@ export const appSchema = {
   },
 };
 
-export const functionSchema = {};
+export const functionSchema = {
+  type: 'object',
+  properties: {
+    silver2Coin: {
+      type: 'boolean',
+      title: '瓜子兑换硬币',
+      default: true,
+    },
+    liveSignTask: {
+      type: 'boolean',
+      title: '直播签到',
+      default: true,
+    },
+    addCoins: {
+      type: 'boolean',
+      title: '投币',
+      default: true,
+    },
+    shareAndWatch: {
+      type: 'boolean',
+      title: '分享和观看',
+      default: true,
+    },
+    supGroupSign: {
+      type: 'boolean',
+      title: '应援团签到',
+      default: false,
+    },
+    useCouponBp: {
+      type: 'boolean',
+      title: '使用 b 币券',
+      default: false,
+    },
+    charging: {
+      type: 'boolean',
+      title: '充电（废弃）',
+      default: false,
+    },
+    getVipPrivilege: {
+      type: 'boolean',
+      title: '获取 vip 权益',
+      default: false,
+    },
+    giveGift: {
+      type: 'boolean',
+      title: '直播赠送礼物',
+      default: false,
+    },
+    matchGame: {
+      type: 'boolean',
+      title: '赛事竞猜',
+      default: false,
+    },
+    liveLottery: {
+      type: 'boolean',
+      title: '直播天选时刻',
+      default: false,
+    },
+    liveRedPack: {
+      type: 'boolean',
+      title: '直播天选红包',
+      default: false,
+    },
+    batchUnfollow: {
+      type: 'boolean',
+      title: '批量取关',
+      default: false,
+    },
+    liveIntimacy: {
+      type: 'boolean',
+      title: '粉丝牌等级',
+      default: false,
+    },
+    mangaTask: {
+      type: 'boolean',
+      title: '漫画任务',
+      default: false,
+    },
+    bigPoint: {
+      type: 'boolean',
+      title: '大会员积分',
+      default: false,
+    },
+    judgement: {
+      type: 'boolean',
+      title: '风纪委员',
+      default: false,
+    },
+    activityLottery: {
+      type: 'boolean',
+      title: '转盘抽奖',
+      default: false,
+    },
+    dailyBattery: {
+      type: 'boolean',
+      title: '每日电池',
+      default: false,
+    },
+    liveWeekTask: {
+      type: 'boolean',
+      title: '每日直播任务',
+      default: false,
+    },
+    blink: {
+      type: 'boolean',
+      title: '直播',
+      default: false,
+    },
+    watchLink: {
+      type: 'boolean',
+      title: '直播间心跳',
+      default: false,
+    },
+    liveDm: {
+      type: 'boolean',
+      title: '直播弹幕',
+      default: false,
+    },
+    addExp: {
+      type: 'boolean',
+      title: '大会员领取经验',
+      default: true,
+    },
+  },
+};
 
-export const limitSchema = {};
+export const limitSchema = {
+  type: 'object',
+  properties: {
+    level6: {
+      type: 'boolean',
+      title: '获取经验限制为 6 级',
+      default: true,
+    },
+    coins5: {
+      type: 'boolean',
+      title: '投币限制为 5 颗',
+      default: true,
+    },
+    buyMangaOnlyBeforeExpire: {
+      type: 'boolean',
+      title: '仅在漫画即将过期前购买漫画',
+      default: true,
+    },
+  },
+};
 
-export const messageSchema = {};
+export const messageSchema = {
+  type: 'object',
+  properties: {
+    br: {
+      type: 'string',
+      title: 'markdown 格式需要 \\n\\n',
+      default: '\n',
+    },
+    onlyError: {
+      type: 'boolean',
+      title: '仅错误时发送',
+      default: false,
+    },
+    email: {
+      type: 'object',
+      title: 'email',
+      properties: {
+        host: {
+          type: 'string',
+          title: 'host',
+          default: 'smtp.163.com',
+        },
+        port: {
+          type: 'integer',
+          title: 'port',
+          default: 465,
+        },
+      },
+    },
+    pushplusToken: {
+      type: 'string',
+      title: 'pushplusToken',
+      default: '',
+    },
+    api: {
+      type: 'object',
+      title: 'api',
+      properties: {
+        method: {
+          type: 'string',
+          title: 'method',
+          default: 'POST',
+        },
+        headers: {
+          type: 'object',
+          title: 'headers',
+          properties: {
+            'Content-Type': {
+              type: 'string',
+              title: 'Content-Type',
+              default: 'application/json',
+            },
+          },
+        },
+        timeout: {
+          type: 'integer',
+          title: 'timeout',
+          default: 5000,
+        },
+        url: {
+          type: 'string',
+          title: 'url',
+          default: '',
+        },
+        proxy: {
+          type: 'object',
+          title: 'proxy',
+          properties: {
+            host: {
+              type: 'string',
+              title: 'host',
+              default: '',
+            },
+            port: {
+              type: 'integer',
+              title: 'port',
+              default: 443,
+            },
+            auth: {
+              type: 'string',
+              title: 'auth',
+              default: '',
+            },
+          },
+        },
+        data: {
+          type: 'object',
+          title: 'data',
+          default: {},
+        },
+      },
+    },
+  },
+};
 
 export const logSchema = {
   type: 'object',

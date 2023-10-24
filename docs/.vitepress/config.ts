@@ -298,9 +298,9 @@ function sidebar(): DefaultTheme.Sidebar {
     ],
     '/schema/': [
       { text: '配置', link: '/schema/' },
-      { text: '账号管理', link: '/schema/' },
-      { text: '基本配置', link: '/schema/' },
-      { text: '功能配置', link: '/schema/' },
+      { text: '账号管理', link: '/schema/user' },
+      { text: '基本配置', link: '/schema/base' },
+      { text: '功能配置', link: '/schema/function' },
       { text: '投币', link: '/schema/coin' },
       { text: '使用 B 币券', link: '/schema/coupon_balance' },
       { text: '竞猜', link: '/schema/match' },

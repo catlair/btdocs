@@ -4,6 +4,12 @@ title: 历史配置对比
 description: 历史配置对比
 ---
 
+<script setup lang="ts">
+import useConfigStore from '@store/config'
+const store = useConfigStore()
+
+</script>
+
 ## TODO
 
 ::: info
@@ -15,3 +21,9 @@ description: 历史配置对比
 - [x] 保存页面状态
 - [ ] UI 组件优化
 - [ ] 导入已有配置
+
+## 配置总览
+
+```json-vue
+{{store.config}}
+```
