@@ -7,16 +7,17 @@ description: 直播弹幕
 <script setup lang="ts">
 import { liveDmSchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="liveDmSchema" v-model="data.liveDm"></JSONSchema>
+<JSONSchema :schema="liveDmSchema" v-model="configs[id].liveDm"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.liveDm}}
+{{configs[id].liveDm}}
 ```

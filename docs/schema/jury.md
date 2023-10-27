@@ -7,16 +7,17 @@ description: 风纪委员
 <script setup lang="ts">
 import { jurySchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="jurySchema" v-model="data.jury"></JSONSchema>
+<JSONSchema :schema="jurySchema" v-model="configs[id].jury"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.jury}}
+{{configs[id].jury}}
 ```

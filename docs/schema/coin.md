@@ -5,18 +5,22 @@ description: 投币
 ---
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia';
 import { coinSchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
-
+const { configs, id } = storeToRefs(useConfigStore())
 </script>
+
+## 账户管理
+
+
 
 ## 表单
 
-<JSONSchema :schema="coinSchema" v-model="data.coin"></JSONSchema>
+<JSONSchema :schema="coinSchema" v-model="configs[id].coin"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.coin}}
+{{configs[id].coin}}
 ```

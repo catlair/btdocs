@@ -7,16 +7,17 @@ description: 每日电池
 <script setup lang="ts">
 import { dailyBatterySchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="dailyBatterySchema" v-model="data.dailyBattery"></JSONSchema>
+<JSONSchema :schema="dailyBatterySchema" v-model="configs[id].dailyBattery"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.dailyBattery}}
+{{configs[id].dailyBattery}}
 ```

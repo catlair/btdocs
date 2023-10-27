@@ -14,12 +14,17 @@ import Layout from './Layout.vue';
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }: EnhanceAppContext) {
+  enhanceApp({ app, router }: EnhanceAppContext) {
     registerComponents(app);
     app.use(naive);
     const pinia = createPinia();
     pinia.use(piniaPluginPersistedstate);
     app.use(pinia);
+
+    router.onBeforeRouteChange = to => {
+      if (to === '/') document.documentElement.classList.add('gray');
+      else document.documentElement.classList.remove('gray');
+    };
   },
   Layout,
 };

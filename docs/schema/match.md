@@ -7,16 +7,17 @@ description: 竞猜
 <script setup lang="ts">
 import { matchSchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="matchSchema" v-model="data.match"></JSONSchema>
+<JSONSchema :schema="matchSchema" v-model="configs[id].match"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.match}}
+{{configs[id].match}}
 ```

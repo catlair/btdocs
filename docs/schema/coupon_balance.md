@@ -7,16 +7,17 @@ description: 使用 B 币券
 <script setup lang="ts">
 import { couponBalanceSchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="couponBalanceSchema" v-model="data.couponBalance"></JSONSchema>
+<JSONSchema :schema="couponBalanceSchema" v-model="configs[id].couponBalance"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.couponBalance}}
+{{configs[id].couponBalance}}
 ```

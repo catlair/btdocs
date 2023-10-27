@@ -7,16 +7,17 @@ description: 直播心跳
 <script setup lang="ts">
 import { watchLinkSchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="watchLinkSchema" v-model="data.watchLink"></JSONSchema>
+<JSONSchema :schema="watchLinkSchema" v-model="configs[id].watchLink"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.watchLink}}
+{{configs[id].watchLink}}
 ```

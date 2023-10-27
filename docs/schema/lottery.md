@@ -7,16 +7,17 @@ description: 天选时刻
 <script setup lang="ts">
 import { lotterySchema } from './_schema'
 import useConfigStore from '@store/config'
-const data = useConfigStore()
+import { storeToRefs } from 'pinia';
+const { configs, id } = storeToRefs(useConfigStore())
 
 </script>
 
 ## 表单
 
-<JSONSchema :schema="lotterySchema" v-model="data.lottery"></JSONSchema>
+<JSONSchema :schema="lotterySchema" v-model="configs[id].lottery"></JSONSchema>
 
 ## 代码
 
 ```json-vue
-{{data.lottery}}
+{{configs[id].lottery}}
 ```
