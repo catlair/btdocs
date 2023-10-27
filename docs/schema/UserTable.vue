@@ -9,7 +9,8 @@
 
 <script>
 import { h, defineComponent, ref, nextTick, computed } from 'vue';
-import { NInput } from 'naive-ui';
+import naive from 'naive-ui';
+const { NInput } = naive
 
 const createData = () =>
   Array.from({ length: 5 }).map((_, index) => ({
