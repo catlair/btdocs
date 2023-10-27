@@ -37,7 +37,7 @@ const useConfigStore = defineStore('config', {
   getters: {
     config: state => Object.values(state.configs),
   },
-  // persist: true,
+  persist: true,
 });
 
 export default useConfigStore;

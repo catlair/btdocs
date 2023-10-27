@@ -21,10 +21,12 @@ export default {
     pinia.use(piniaPluginPersistedstate);
     app.use(pinia);
 
-    router.onBeforeRouteChange = to => {
-      if (to === '/') document.documentElement.classList.add('gray');
-      else document.documentElement.classList.remove('gray');
-    };
+    if (!import.meta.env.SSR) {
+      router.onBeforeRouteChange = to => {
+        if (to === '/') document.documentElement.classList.add('gray');
+        else document.documentElement.classList.remove('gray');
+      };
+    }
   },
   Layout,
 };
