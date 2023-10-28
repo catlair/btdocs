@@ -15,11 +15,11 @@ import Layout from './Layout.vue';
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router }: EnhanceAppContext) {
-    registerComponents(app);
-    app.use(naive);
     const pinia = createPinia();
     pinia.use(piniaPluginPersistedstate);
     app.use(pinia);
+    registerComponents(app);
+    app.use(naive);
 
     if (!import.meta.env.SSR) {
       router.onBeforeRouteChange = to => {

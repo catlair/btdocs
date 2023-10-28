@@ -1,29 +1,30 @@
 <template>
-  <n-data-table
-    :key="row => row.key"
-    :columns="columns"
-    :data="data"
-    :on-update:page="handlePageChange"
-  />
+  <n-space vertical>
+    <n-data-table :key="row => row.key" :columns="columns" :data="data" />
+    <n-button type="tertiary" @click="buttonClick"> 添加新账号 </n-button>
+  </n-space>
 </template>
 
-<script>
+<script lang="ts" setup>
+import * as naive from 'naive-ui';
 import { h, defineComponent, ref, nextTick, computed } from 'vue';
-import naive from 'naive-ui';
-const { NInput } = naive
+import { storeToRefs } from 'pinia';
+import useConfigStore from '@store/config';
+const configStore = useConfigStore();
+const { users } = storeToRefs(configStore);
+const { NInput, NButton } = naive;
 
-const createData = () =>
-  Array.from({ length: 5 }).map((_, index) => ({
+const data = computed(() =>
+  users.value.map((user, index) => ({
     key: index,
-    name: `John Brown ${index}`,
-    age: (Math.random() * 40) | 0,
-    address: `New York No. ${index} Lake Park`,
-  }));
+    ...user,
+  })),
+);
 
 const ShowOrEdit = defineComponent({
   props: {
     value: [String, Number],
-    onUpdateValue: [Function, Array],
+    onUpdateValue: [Function],
   },
   setup(props) {
     const isEdit = ref(false);
@@ -61,69 +62,64 @@ const ShowOrEdit = defineComponent({
   },
 });
 
-export default defineComponent({
-  setup() {
-    const data = ref(createData());
-    const page = ref(1);
+const buttonClick = () => {
+  configStore.addUser({
+    name: new Date().getTime().toString(),
+    remark: '点击修改',
+  });
+};
 
-    const getDataIndex = key => {
-      return data.value.findIndex(item => item.key === key);
-    };
-    const handlePageChange = curPage => {
-      page.value = curPage;
-    };
+const getDataIndex = key => {
+  return data.value.findIndex(item => item.key === key);
+};
 
-    return {
-      data,
-      handlePageChange,
-      columns: [
-        {
-          title: '名称',
-          key: 'name',
-          width: 150,
-          render(row) {
-            const index = getDataIndex(row.key);
-            return h(ShowOrEdit, {
-              value: row.name,
-              onUpdateValue(v) {
-                data.value[index].name = v;
-              },
-            });
-          },
+const columns = [
+  {
+    title: '名称',
+    key: 'name',
+    width: 150,
+    render(row) {
+      const index = getDataIndex(row.key);
+      return h(ShowOrEdit, {
+        value: row.name,
+        onUpdateValue(v) {
+          console.log(index, data);
+          data.value[index].name = v;
         },
-        {
-          title: 'UID',
-          key: 'uid',
-          width: 100,
-          render(row) {
-            const index = getDataIndex(row.key);
-            return h(ShowOrEdit, {
-              value: row.age,
-              onUpdateValue(v) {
-                data.value[index].age = v;
-              },
-            });
-          },
-        },
-        {
-          title: '备注',
-          key: 'remark',
-          render(row) {
-            const index = getDataIndex(row.key);
-            return h(ShowOrEdit, {
-              value: row.address,
-              onUpdateValue(v) {
-                data.value[index].address = v;
-              },
-            });
-          },
-        },
-        {
-          title: '备注',
-          key: 'remark',
-        },
-      ],
-    };
+      });
+    },
   },
-});
+  {
+    title: '备注',
+    key: 'remark',
+    render(row) {
+      const index = getDataIndex(row.key);
+      return h(ShowOrEdit, {
+        value: row.remark,
+        onUpdateValue(v) {
+          data.value[index].remark = v;
+        },
+      });
+    },
+  },
+  {
+    title: 'Action',
+    key: 'actions',
+    render(row) {
+      return h(
+        NButton,
+        {
+          strong: true,
+          tertiary: true,
+          size: 'small',
+          onClick: () => {
+            console.log('del', row);
+            configStore.delUser(row.key);
+          },
+        },
+        { default: () => '删除' },
+      );
+    },
+  },
+];
 </script>

@@ -24,20 +24,44 @@ const useConfigStore = defineStore('config', {
         liveDm: ref(defConfig.liveDm),
       };
     }
-    const configs = ref(Object.create(null)) as Ref<{
-      [x in number]: ReturnType<typeof createConfig>;
-    }>;
-    Reflect.set(configs.value, '0', createConfig());
+    const configs = Object.create(null) as {
+      [x: string | number]: ReturnType<typeof createConfig>;
+    };
+    Reflect.set(configs, '0', createConfig());
+    const users = [
+      {
+        name: '公共配置',
+        remark: '公共配置',
+      },
+    ];
 
     return {
       configs,
-      id: ref(0),
+      id: 0,
+      users,
     };
   },
   getters: {
     config: state => Object.values(state.configs),
   },
-  persist: true,
+  actions: {
+    addUser(user) {
+      if (this.users.find(u => u.name === user.name)) return false;
+      this.users.push(user);
+      return true;
+    },
+    delUser(key: number) {
+      this.users.splice(key, 1);
+    },
+  },
+  persist: {
+    beforeRestore: ctx => {
+      console.log(`about to restore '${ctx.store.$id}'`, ctx);
+    },
+    afterRestore: ctx => {
+      console.log(`just restored '${ctx.store.$id}'`, ctx);
+    },
+  },
 });
 
 export default useConfigStore;
