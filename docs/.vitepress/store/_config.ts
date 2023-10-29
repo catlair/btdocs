@@ -293,22 +293,23 @@ export const defConfig = {
 };
 
 export function createConfig() {
+  const config = JSON.parse(JSON.stringify(defConfig));
   return {
-    coin: ref(defConfig.coin),
-    couponBalance: ref(defConfig.couponBalance),
-    match: ref(defConfig.match),
-    manga: ref(defConfig.manga),
-    jury: ref(defConfig.jury),
-    intimacy: ref(defConfig.intimacy),
-    dailyBattery: ref(defConfig.dailyBattery),
-    unFollow: ref(defConfig.unFollow),
-    bigPoint: ref(defConfig.bigPoint),
-    exchangeBigPoint: ref(defConfig.exchangeBigPoint),
-    activityLottery: ref(defConfig.activityLottery),
-    lottery: ref(defConfig.lottery),
-    exchangeCoupon: ref(defConfig.exchangeCoupon),
-    redPack: ref(defConfig.redPack),
-    watchLink: ref(defConfig.watchLink),
-    liveDm: ref(defConfig.liveDm),
+    coin: ref(config.coin),
+    couponBalance: ref(config.couponBalance),
+    match: ref(config.match),
+    manga: ref(config.manga),
+    jury: ref(config.jury),
+    intimacy: ref(config.intimacy),
+    dailyBattery: ref(config.dailyBattery),
+    unFollow: ref(config.unFollow),
+    bigPoint: ref(config.bigPoint),
+    exchangeBigPoint: ref(config.exchangeBigPoint),
+    activityLottery: ref(config.activityLottery),
+    lottery: ref(config.lottery),
+    exchangeCoupon: ref(config.exchangeCoupon),
+    redPack: ref(config.redPack),
+    watchLink: ref(config.watchLink),
+    liveDm: ref(config.liveDm),
   };
 }

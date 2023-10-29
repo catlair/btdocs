@@ -12,7 +12,10 @@ import { storeToRefs } from 'pinia';
 import useConfigStore from '@store/config';
 const configStore = useConfigStore();
 const { users } = storeToRefs(configStore);
-const { NInput, NButton } = naive;
+const { NInput, NButton, useMessage, useDialog } = naive;
+
+const message = useMessage();
+const dialog = useDialog();
 
 const data = computed(() =>
   users.value.map((user, index) => ({
@@ -63,10 +66,16 @@ const ShowOrEdit = defineComponent({
 });
 
 const buttonClick = () => {
-  configStore.addUser({
-    name: new Date().getTime().toString(),
+  const name = new Date().getTime().toString();
+  const r = configStore.addUser({
+    name,
     remark: '点击修改',
   });
+  if (r) {
+    message.success(
+      `成功添加帐号${name}，你说没有？我也不确定，人生哪有绝对。偷偷告诉你点击数据就可以随心所欲地编辑了`,
+    );
+  }
 };
 
 const getDataIndex = key => {
@@ -82,9 +91,10 @@ const columns = [
       const index = getDataIndex(row.key);
       return h(ShowOrEdit, {
         value: row.name,
-        onUpdateValue(v) {
-          console.log(index, data);
-          data.value[index].name = v;
+        onUpdateValue(name: string) {
+          configStore.patchUser(index, {
+            name,
+          });
         },
       });
     },
@@ -96,8 +106,10 @@ const columns = [
       const index = getDataIndex(row.key);
       return h(ShowOrEdit, {
         value: row.remark,
-        onUpdateValue(v) {
-          data.value[index].remark = v;
+        onUpdateValue(remark: string) {
+          configStore.patchUser(index, {
+            remark,
+          });
         },
       });
     },
@@ -114,7 +126,20 @@ const columns = [
           size: 'small',
           onClick: () => {
             console.log('del', row);
-            configStore.delUser(row.key);
+            dialog.warning({
+              title: '警告',
+              content: '你确定？',
+              positiveText: '确定',
+              negativeText: '不确定',
+              closable: false,
+              onPositiveClick: () => {
+                configStore.delUser(row.key);
+                message.success('确定？那好吧，开弓没有回头箭');
+              },
+              onNegativeClick: () => {
+                message.error('苦海无涯，回头是岸。不错，孺子可教也');
+              },
+            });
           },
         },
         { default: () => '删除' },

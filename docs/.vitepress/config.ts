@@ -1,9 +1,10 @@
-import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions } from 'vitepress';
+import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions, PageData } from 'vitepress';
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { ElementPlusResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
+import markdownItTaskLists from 'markdown-it-task-lists';
 
 import { biliSvg, qqGroupSvg } from './svg';
 
@@ -120,6 +121,7 @@ export default defineConfig({
   },
   vite: vite(),
   markdown: markdown(),
+  transformPageData,
 });
 
 function nav(): DefaultTheme.NavItem[] {
@@ -351,6 +353,14 @@ function vite(): UserConfig['vite'] {
           find: '@store',
           replacement: fileURLToPath(new URL('./store', import.meta.url)),
         },
+        {
+          find: '@data',
+          replacement: fileURLToPath(new URL('./data', import.meta.url)),
+        },
+        {
+          find: '@utils',
+          replacement: fileURLToPath(new URL('./utils', import.meta.url)),
+        },
       ],
     },
     plugins: [
@@ -374,5 +384,17 @@ function markdown(): MarkdownOptions {
   return {
     // 如果是本地则 lineNumbers: true，否则 lineNumbers: false
     lineNumbers: process.env.NODE_ENV === 'development',
+    config(md) {
+      md.use(markdownItTaskLists);
+    },
   };
+}
+
+function transformPageData(pageData: PageData) {
+  const title = pageData.params?.title;
+  // 为 schema 下的动态页面生成标题
+  if (title && pageData.relativePath.includes('schema')) {
+    pageData.title = title;
+    pageData.description = pageData.params?.description || title;
+  }
 }

@@ -18,7 +18,7 @@
     "docs/**/*.d.ts",
     "docs/**/*.tsx",
     "docs/**/*.vue"
-  ],
+, "docs/.vitepress/data/configSchema.ts"  ],
   "types": [
     "element-plus/global"
   ],

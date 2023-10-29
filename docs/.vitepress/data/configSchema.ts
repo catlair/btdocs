@@ -1089,3 +1089,30 @@ export const logSchema = {
 };
 
 export const baseSchema = {};
+
+export default {
+  jurySchema,
+  matchSchema,
+  giftSchema,
+  couponBalanceSchema,
+  coinSchema,
+  mangaSchema,
+  intimacySchema,
+  unFollowSchema,
+  dailyBatterySchema,
+  bigPointSchema,
+  exchangeBigPointSchema,
+  exchangeCouponSchema,
+  redPackSchema,
+  lotterySchema,
+  activityLotterySchema,
+  watchLinkSchema,
+  blinkSchema,
+  liveDmSchema,
+  appSchema,
+  functionSchema,
+  limitSchema,
+  messageSchema,
+  logSchema,
+  baseSchema,
+};

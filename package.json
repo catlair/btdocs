@@ -7,7 +7,6 @@
   "author": "catlair <catlair@qq.com>",
   "license": "MIT",
   "devDependencies": {
-    "@lljj/vue3-form-element": "^1.19.0",
     "@lljj/vue3-form-naive": "^1.19.1",
     "@types/node": "^20.4.5",
     "@vercel/frameworks": "^1.5.0",
@@ -43,6 +42,7 @@
     "codemirror-json5": "^1.0.3",
     "element-plus": "^2.3.8",
     "json5": "^2.2.3",
+    "markdown-it-task-lists": "^2.1.1",
     "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
     "v-code-diff": "^1.5.1",
