@@ -8,6 +8,9 @@ description: 历史配置对比
 import useConfigStore from '@store/config'
 const store = useConfigStore()
 
+function btnClick() {
+  console.log(window.localStorage.removeItem('config'))
+}
 </script>
 
 ## 宛如戏台上的老将军，背上插满了 flag
@@ -32,6 +35,10 @@ const store = useConfigStore()
 - [x] 主键支持主题，支持了，但又没支持
 - [ ] @lljj/vue3-form-naive 暗黑下的奇怪配色
 - [ ] 配置项描述迁移
+
+## 开发选项
+
+<n-button @click="btnClick">重置缓存</n-button>
 
 ## 配置总览
 

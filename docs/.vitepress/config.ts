@@ -337,6 +337,7 @@ function vite(): UserConfig['vite'] {
         '@sagold/json-pointer',
         'codemirror-json5',
         'ebnf',
+        'pinia-plugin-persistedstate',
       ],
     },
     resolve: {
