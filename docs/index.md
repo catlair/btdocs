@@ -11,8 +11,8 @@ hero:
       text: 上手指南
       link: /guide/
     - theme: alt
-      text: 配置详情
-      link: /config/
+      text: 配置编辑
+      link: /schema/
 
 features:
   - title: 开箱即用 🎉

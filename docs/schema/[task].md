@@ -5,6 +5,7 @@ lang: zh-CN
 <script setup lang="ts">
 import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
+import { h } from 'vue'
 import { coinSchema } from './_schema'
 import useConfigStore from '@store/config'
 import { snakeToCamel } from '@utils'

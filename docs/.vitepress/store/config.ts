@@ -1,21 +1,19 @@
 import { defineStore } from 'pinia';
 import { createConfig } from './_config';
 
-const useConfigStore = defineStore('config', {
-  state: () => {
-    const users = [
-      {
-        name: '公共配置',
-        remark: '公共配置',
-        config: createConfig(),
-      },
-    ];
-
-    return {
-      curUser: '公共配置',
-      users,
-    };
+const users = [
+  {
+    name: '公共配置',
+    remark: '公共配置',
+    config: createConfig(),
   },
+];
+
+const useConfigStore = defineStore('config', {
+  state: () => ({
+    curUser: '公共配置',
+    users,
+  }),
   getters: {
     config: state =>
       state.users.map(user => {

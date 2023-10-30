@@ -13,6 +13,10 @@ function btnClick() {
 }
 </script>
 
+::: tip
+页面未完成，配置文档右转 [配置文档](/config/)
+:::
+
 ## 宛如戏台上的老将军，背上插满了 flag
 
 ::: tip
