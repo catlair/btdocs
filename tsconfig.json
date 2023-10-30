@@ -17,14 +17,21 @@
     "docs/**/*.ts",
     "docs/**/*.d.ts",
     "docs/**/*.tsx",
-    "docs/**/*.vue"
-, "docs/.vitepress/data/configSchema.ts"  ],
+    "docs/**/*.vue",
+    "docs/.vitepress/data/configSchema.ts"
+  ],
   "types": [
     "element-plus/global"
   ],
   "paths": {
     "@components": [
       "docs/.vitpress/components"
+    ],
+    "@utils": [
+      "docs/.vitpress/utils"
+    ],
+    "@store": [
+      "docs/.vitpress/store"
     ]
   },
 }

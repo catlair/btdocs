@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme';
 import type { EnhanceAppContext } from 'vitepress';
-import naive from 'naive-ui';
+import * as naive from 'naive-ui';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
