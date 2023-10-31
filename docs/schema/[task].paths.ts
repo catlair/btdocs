@@ -3,6 +3,13 @@ export default {
     return [
       {
         params: {
+          title: '功能配置',
+          task: 'function',
+          description: 'description',
+        },
+      },
+      {
+        params: {
           title: '投币',
           task: 'coin',
         },
@@ -101,6 +108,30 @@ export default {
         params: {
           title: '直播弹幕',
           task: 'live_dm',
+        },
+      },
+      {
+        params: {
+          title: '日志',
+          task: 'log',
+        },
+      },
+      {
+        params: {
+          title: '推送',
+          task: 'message',
+        },
+      },
+      {
+        params: {
+          title: '限制',
+          task: 'limit',
+        },
+      },
+      {
+        params: {
+          title: 'app 配置',
+          task: 'app',
         },
       },
     ];

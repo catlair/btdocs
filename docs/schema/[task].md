@@ -6,7 +6,6 @@ lang: zh-CN
 import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
 import { h } from 'vue'
-import { coinSchema } from './_schema'
 import useConfigStore from '@store/config'
 import { snakeToCamel } from '@utils'
 import schema from '@data/configSchema'
@@ -14,7 +13,8 @@ const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
 
 const message = useMessage();
 const configStore = useConfigStore()
-const {  index, users, curUser } = storeToRefs(configStore)
+const { index } = configStore
+const { users, curUser } = storeToRefs(configStore)
 
 const options = users.value.map(user => ({
   label: user.name,
@@ -63,6 +63,8 @@ function handleSelect (name: string | number) {
 </script>
 
 # {{ $params.title }}
+
+{{$params.description}}
 
 ## 帐号管理
 

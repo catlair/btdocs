@@ -44,7 +44,7 @@ export default defineConfig({
 
     nav: nav(),
 
-    sidebar: sidebar(),
+    sidebar: await sidebar(),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/catlair/BiliOutils' },
@@ -256,7 +256,7 @@ function nav(): DefaultTheme.NavItem[] {
   ];
 }
 
-function sidebar(): DefaultTheme.Sidebar {
+async function sidebar(): Promise<DefaultTheme.Sidebar> {
   return {
     '/guide/': [
       {
@@ -302,24 +302,7 @@ function sidebar(): DefaultTheme.Sidebar {
       { text: '配置', link: '/schema/' },
       { text: '账号管理', link: '/schema/user' },
       { text: '基本配置', link: '/schema/base' },
-      { text: '功能配置', link: '/schema/function' },
-      { text: '投币', link: '/schema/coin' },
-      { text: '使用 B 币券', link: '/schema/coupon_balance' },
-      { text: '竞猜', link: '/schema/match' },
-      { text: '天选时刻', link: '/schema/lottery' },
-      { text: '天选红包', link: '/schema/red_pack' },
-      { text: '取关分组', link: '/schema/un_follow' },
-      { text: '直播间礼物', link: '/schema/gift' },
-      { text: '粉丝亲密度', link: '/schema/intimacy' },
-      { text: '漫画任务', link: '/schema/manga' },
-      { text: '兑换漫读券', link: '/schema/exchange_coupon' },
-      { text: '大积分兑换', link: '/schema/exchange_big_point' },
-      { text: '风纪委员', link: '/schema/jury' },
-      { text: '大积分', link: '/schema/big_point' },
-      { text: '转盘抽奖', link: '/schema/activity_lottery' },
-      { text: '每日电池', link: '/schema/daily_battery' },
-      { text: '直播心跳', link: '/schema/watch_link' },
-      { text: '直播弹幕', link: '/schema/live_dm' },
+      ...(await getSchemaRoute()),
     ],
   };
 }
@@ -398,4 +381,12 @@ function transformPageData(pageData: PageData) {
     pageData.title = title;
     pageData.description = pageData.params?.description || title;
   }
+}
+
+async function getSchemaRoute() {
+  const paths = await import('../schema/[task].paths');
+  return paths.default.paths().map(({ params }) => ({
+    text: params.title,
+    link: `/schema/${params.task}`,
+  }));
 }

@@ -20,6 +20,9 @@ export type LiveDmCustom =
   | [number, number, string[]];
 
 export const defConfig = {
+  dailyRunTime: '17:30:00-23:40:00',
+  cookie: '',
+  userAgent: '',
   coin: {
     /** 自定义高优先级用户列表 */
     customizeUp: [] as number[],

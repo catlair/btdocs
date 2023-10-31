@@ -854,11 +854,6 @@ export const functionSchema = {
       title: '使用 b 币券',
       default: false,
     },
-    charging: {
-      type: 'boolean',
-      title: '充电（废弃）',
-      default: false,
-    },
     getVipPrivilege: {
       type: 'boolean',
       title: '获取 vip 权益',
@@ -1088,7 +1083,53 @@ export const logSchema = {
   },
 };
 
-export const baseSchema = {};
+export const baseSchema = {
+  type: 'object',
+  properties: {
+    cookie: {
+      type: 'string',
+      title: 'cookie',
+      description: '必填项',
+      default: '',
+      minLength: 60,
+      'ui:options': {
+        type: 'textarea',
+        rows: 16,
+      },
+    },
+    createCookieDay: {
+      type: 'integer',
+      title: '间隔指定时间创建新 cookie',
+    },
+    apiDelay: {
+      type: 'array',
+      title: '任务延时',
+      description: '单位秒，区间中随机，或固定一个值（仅部分功能有效）',
+      default: [2, 6],
+      items: {
+        type: 'integer',
+      },
+    },
+    dailyRunTime: {
+      type: 'string',
+      title: 'dailyRunTime',
+      default: '',
+      minLength: 20,
+      description: 'Serveless 随机运行的时间段',
+    },
+    userAgent: {
+      type: 'string',
+      title: 'userAgent',
+      description: '浏览器用户代理，内置偶尔随机更新 （建议自行配置）',
+      default: '',
+      minLength: 20,
+      'ui:options': {
+        type: 'textarea',
+        rows: 6,
+      },
+    },
+  },
+};
 
 export default {
   jurySchema,

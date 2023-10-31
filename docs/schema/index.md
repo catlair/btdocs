@@ -32,6 +32,7 @@ function getUsers(){
         }
         }).filter(Boolean)
         console.log(users)
+        if(users.length === 0) throw new Error('fuck')
         return users
   } catch (error) {
     message.error(`你在忽悠我，导入的配置是错误的。错误信息：${error.message}`)
@@ -64,6 +65,7 @@ function coverBtn(){
        const users = getUsers()
        if (users) {
         store.users = users
+        store.curUser = store.users[0].name
         message.success('成功洗脑');
        }
       },
@@ -82,6 +84,7 @@ function mergeBtn(){
         const users = getUsers()
          if (users) {
           store.users = [...store.users, ...users]
+          store.curUser = store.users[0].name
           message.success('成功洗脑，有些配置可能是一样的，记得手动处理哦');
         }
       },
