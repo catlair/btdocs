@@ -13,8 +13,7 @@ const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
 
 const message = useMessage();
 const configStore = useConfigStore()
-const { index } = configStore
-const { users, curUser } = storeToRefs(configStore)
+const { users, curUser, index } = storeToRefs(configStore)
 
 const options = users.value.map(user => ({
   label: user.name,
@@ -67,6 +66,8 @@ function handleSelect (name: string | number) {
 {{$params.description}}
 
 ## 帐号管理
+
+{{index}}-{{curUser}}
 
 <n-dropdown trigger="hover" :options="options" @select="handleSelect" :show-arrow="true" :render-option="renderOption">
 <n-button>切换帐号({{curUser}})</n-button>

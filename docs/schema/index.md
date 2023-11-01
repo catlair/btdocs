@@ -6,12 +6,21 @@ description: 历史配置对比
 
 <script setup lang="ts">
 import useConfigStore from '@store/config'
-import { getCookieItem } from '@utils'
-import { ref } from 'vue'
+import { getDefConfig } from '@store/_config'
+import { getCookieItem, difference } from '@utils'
+import { ref, computed } from 'vue'
 import * as naive from 'naive-ui';
 import JSON5 from 'json5'
 const { useMessage, useDialog } = naive;
 const store = useConfigStore()
+
+const defConfig = getDefConfig()
+const delDefConfig = computed(() => store.config.map((config) => difference(config, defConfig)))
+const commonConfig = delDefConfig.value.find(config => config.__common__)
+const simpleConfig = computed(() => commonConfig ? delDefConfig.value.map((config) => {
+  if(config.__common__) return config
+  return difference(config, commonConfig)
+}) : delDefConfig.value)
 
 function getUsers(){
  if (!configJson.value) {
@@ -118,17 +127,30 @@ const dialog = useDialog()
 - [ ] 保存状态到 indexDB，实现撤回功能。
 - [ ] UI 组件优化，你会 CSS？
 - [x] 导入已有配置
-- [ ] 简化导出配置，大家磁盘都是花钱买的
+- [x] 简化导出配置，大家磁盘都是花钱买的
 - [x] 主键支持主题，支持了，但又没支持
 - [ ] @lljj/vue3-form-naive 暗黑下的奇怪配色
 - [ ] 配置项描述迁移
 - [ ] json 代码块可编辑
+- [ ] 修改部分配置从而更好适配
 
 ## 配置总览
 
-```json-vue
+::: code-group
+
+```json-vue [最简配置]
+{{simpleConfig}}
+```
+
+```json-vue [去除默认]
+{{delDefConfig}}
+```
+
+```json-vue [全部配置]
 {{store.config}}
 ```
+
+:::
 
 ## 导入已有配置
 

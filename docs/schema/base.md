@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, h } from 'vue'
 import useConfigStore from '@store/config'
 import schema from '@data/configSchema'
 import VueForm from '@lljj/vue3-form-naive';
@@ -108,7 +108,7 @@ const change = ({newValue}) => {
 
 <div class="form">
     <vue-form
-      :modelValue="config"
+      :modelValue="base"
       :schema="schema['baseSchema']"
       :form-props="formProps"
       :ui-schema="uiSchema"
