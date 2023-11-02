@@ -42,7 +42,7 @@ html.gray {
 }
 
 h3.fieldGroupWrap_title + .fieldGroupWrap_box {
-  background: v-bind(arrayOrderListBackground) !important;
+  background: unset !important;
   padding: 12px;
   margin-bottom: 12px;
   border: 0.1rem dashed #b2bec3;
