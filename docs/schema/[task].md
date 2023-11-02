@@ -5,11 +5,18 @@ lang: zh-CN
 <script setup lang="ts">
 import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
+import { useData } from 'vitepress'
 import { h } from 'vue'
 import useConfigStore from '@store/config'
 import { snakeToCamel } from '@utils'
-import schema from '@data/configSchema'
+import { useConfigSchema } from '@data/configSchema'
+
 const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
+const { isDark } = useData()
+
+const schema = useConfigSchema({ isDark })
+
+console.log(schema)
 
 const message = useMessage();
 const configStore = useConfigStore()

@@ -24,6 +24,8 @@ export function getDefConfig() {
   return cloneDeep({
     dailyRunTime: '17:30:00-23:40:00',
     cookie: '',
+    apiDelay: [2, 6],
+    createCookieDay: undefined,
     userAgent: '',
     function: {
       silver2Coin: true,

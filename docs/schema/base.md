@@ -1,12 +1,16 @@
 <script lang="ts" setup>
 import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
+import { useData } from 'vitepress'
 import { ref, onMounted, computed, h } from 'vue'
 import useConfigStore from '@store/config'
-import schema from '@data/configSchema'
+import { useConfigSchema } from '@data/configSchema'
 import VueForm from '@lljj/vue3-form-naive';
 
 const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
+const { isDark } = useData()
+
+const schema = useConfigSchema({ isDark })
 
 const message = useMessage();
 const configStore = useConfigStore()

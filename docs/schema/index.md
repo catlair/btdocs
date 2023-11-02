@@ -1,7 +1,7 @@
 ---
 lang: zh-CN
-title: 历史配置对比
-description: 历史配置对比
+title: 配置表单
+description: 配置表单
 ---
 
 <script setup lang="ts">
@@ -138,7 +138,7 @@ const dialog = useDialog()
 
 ::: code-group
 
-```json-vue [最简配置]
+```json-vue [最简配置（推荐）]
 {{simpleConfig}}
 ```
 

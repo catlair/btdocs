@@ -115,7 +115,71 @@ const columns = [
     },
   },
   {
-    title: 'Action',
+    title: '删除',
+    key: 'actions',
+    render(row) {
+      return h(
+        NButton,
+        {
+          strong: true,
+          tertiary: true,
+          size: 'small',
+          onClick: () => {
+            console.log('del', row);
+            dialog.warning({
+              title: '警告',
+              content: '你确定？',
+              positiveText: '确定',
+              negativeText: '不确定',
+              closable: false,
+              onPositiveClick: () => {
+                configStore.delUser(row.key);
+                message.success('确定？那好吧，开弓没有回头箭');
+              },
+              onNegativeClick: () => {
+                message.error('苦海无涯，回头是岸。不错，孺子可教也');
+              },
+            });
+          },
+        },
+        { default: () => '删除' },
+      );
+    },
+  },
+  {
+    title: '复制',
+    key: 'actions',
+    render(row) {
+      return h(
+        NButton,
+        {
+          strong: true,
+          tertiary: true,
+          size: 'small',
+          onClick: () => {
+            console.log('del', row);
+            dialog.warning({
+              title: '警告',
+              content: '你确定？',
+              positiveText: '确定',
+              negativeText: '不确定',
+              closable: false,
+              onPositiveClick: () => {
+                configStore.delUser(row.key);
+                message.success('确定？那好吧，开弓没有回头箭');
+              },
+              onNegativeClick: () => {
+                message.error('苦海无涯，回头是岸。不错，孺子可教也');
+              },
+            });
+          },
+        },
+        { default: () => '删除' },
+      );
+    },
+  },
+  {
+    title: '删除',
     key: 'actions',
     render(row) {
       return h(
