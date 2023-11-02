@@ -988,15 +988,6 @@ export function useConfigSchema({ isDark }: Options = {}) {
       email: {
         type: 'object',
         title: 'email',
-        'ui:options': {
-          fieldStyle: {
-            // 0.1.0 版本添加
-            // 通过 vue render函数 style 传递给 Field 组件，支持所有field节点
-            background: computed(() => (!isDark?.value ? '#ecf0f1' : '#2C3A47')),
-            padding: '12px',
-            marginBottom: '12px',
-          },
-        },
         properties: {
           host: {
             type: 'string',

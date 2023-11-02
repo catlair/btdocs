@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import DefaultTheme from 'vitepress/theme';
 import { useData } from 'vitepress';
+import { computed } from 'vue';
 import * as NaiveUI from 'naive-ui';
 
 import TwComment from './components/TwComment.vue';
@@ -8,6 +9,8 @@ import TwComment from './components/TwComment.vue';
 const { darkTheme } = NaiveUI;
 const { Layout } = DefaultTheme;
 const { isDark } = useData();
+
+const arrayOrderListBackground = computed(() => (!isDark.value ? '#ecf0f1' : '#2C3A47'));
 </script>
 
 <template>
@@ -32,5 +35,16 @@ html.gray {
   filter: grayscale(100%);
   filter: gray;
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+}
+
+.arrayOrderList {
+  background: v-bind(arrayOrderListBackground) !important;
+}
+
+h3.fieldGroupWrap_title + .fieldGroupWrap_box {
+  background: v-bind(arrayOrderListBackground) !important;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 0.1rem dashed #b2bec3;
 }
 </style>

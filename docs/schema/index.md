@@ -128,8 +128,8 @@ const dialog = useDialog()
 - [ ] UI 组件优化，你会 CSS？
 - [x] 导入已有配置
 - [x] 简化导出配置，大家磁盘都是花钱买的
-- [x] 主键支持主题，支持了，但又没支持
-- [ ] @lljj/vue3-form-naive 暗黑下的奇怪配色
+- [x] 组件支持主题，~~支持了，但又没支持~~，覆盖 @lljj/vue3-form-naive 部分 class 后真的支持了
+- [x] @lljj/vue3-form-naive 暗黑下的奇怪配色
 - [ ] 配置项描述迁移
 - [ ] json 代码块可编辑
 - [ ] 修改部分配置从而更好适配
