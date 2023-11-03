@@ -52,6 +52,46 @@ export function getDefConfig() {
       liveDm: false,
       addExp: true,
     },
+    log: {
+      pushLevel: 'verbose' as LevelType | boolean,
+      consoleLevel: 'debug' as LevelType | boolean,
+      fileLevel: 'debug' as LevelType | boolean,
+      useEmoji: true,
+      fileSplit: 'day' as 'day' | 'month',
+    },
+    limit: {
+      // 获取经验限制为 6 级
+      level6: true,
+      // 投币限制为 5 颗
+      coins5: true,
+      // 仅在漫画即将过期前购买漫画
+      buyMangaOnlyBeforeExpire: true,
+    },
+    message: {
+      // markdown 格式需要 \n\n
+      br: '\n',
+      // 仅错误时发送
+      onlyError: false,
+      email: {
+        host: 'smtp.163.com',
+        port: 465,
+      },
+      pushplusToken: '',
+      api: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        timeout: 5000,
+        url: '',
+        proxy: {
+          host: '',
+          port: 443,
+          auth: '',
+        },
+        data: {},
+      },
+    },
     coin: {
       /** 自定义高优先级用户列表 */
       customizeUp: [] as number[],

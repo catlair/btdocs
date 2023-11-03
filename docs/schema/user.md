@@ -1,8 +1,10 @@
 ---
 lang: zh-CN
-title: 账号管理
-description: 账号管理
+title: 帐号管理
+description: 帐号管理
 ---
+
+# 帐号管理
 
 ::: tip 一个重要的提示
 名称为唯一识别特性，请认真填写，建议为帐号的 uid/mid。
@@ -18,6 +20,11 @@ description: 账号管理
 
 <UserTable></UserTable>
 
+## 切换帐号
+
+<ChangeUser></ChangeUser>
+
 <script setup lang="ts">
 import UserTable from './UserTable.vue'
+import ChangeUser from './ChangeUser.vue'
 </script>

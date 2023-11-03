@@ -311,16 +311,19 @@ export function useConfigSchema({ isDark }: Options = {}) {
         type: 'boolean',
         default: true,
         title: '直播弹幕',
+        description: '直播弹幕（+100，点亮灰牌子）',
       },
       liveLike: {
         type: 'boolean',
         default: true,
         title: '点赞直播间',
+        description: '点赞直播间 (+100)',
       },
       liveHeart: {
         type: 'boolean',
         default: false,
         title: '直播心跳',
+        description: '观看直播 (+100 * n)',
       },
       whiteList: {
         type: 'array',
@@ -329,7 +332,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'integer',
         },
         default: [],
-        description: '白名单',
+        description: '只操作此列表中的（优先级高于 黑名单）',
       },
       blackList: {
         type: 'array',
@@ -337,14 +340,15 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
-        description: '黑名单',
+        description: '操作全部，但排除其中的',
         default: [],
       },
       limitFeed: {
         type: 'integer',
         default: 1500,
         title: '每日亲密度上限 （系统 1500）',
-        description: '每日亲密度上限 （系统 1500）',
+        description:
+          '每日亲密度上限 （系统为 1500），越小则 直播心跳 执行时间越少，反之越长，可以超过 1500，多做点可能更稳妥',
       },
       skipNum: {
         type: 'integer',
@@ -428,7 +432,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
       },
       delayByRoomid: {
         type: 'array',
-        title: '重复获取到同一roomid时的等待时间',
+        title: '重复获取到同一roomid时的等待时间（秒）',
         default: [10, 20],
         items: {
           type: 'number',
@@ -445,9 +449,11 @@ export function useConfigSchema({ isDark }: Options = {}) {
         type: 'integer',
         title: '重试等待时间（秒）',
         default: 20,
+        description: '是否在完成后等待 20s 再检查一次，也可直接填写等待时间（单位秒）',
       },
       isWatch: {
         type: 'boolean',
+        description: '是否完成观看视频的任务（模拟，不需要 30 分钟） ，会产生历史记录',
         title: '是否观看视频',
         default: true,
       },
@@ -455,6 +461,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         type: 'integer',
         title: '领取任务后的观看延时',
         default: 40,
+        description: '领取任务后的观看延时（秒），尝试用更长的时间解决观看视频没加积分的问题',
       },
     },
   };
@@ -465,22 +472,26 @@ export function useConfigSchema({ isDark }: Options = {}) {
       delay: {
         type: 'integer',
         title: '多次尝试间隔时间',
+        description: '多次尝试间隔时间，单位 ms',
         default: 200,
       },
       retry: {
         type: 'integer',
         title: '重试次数',
+        description: '重试次数',
         default: 3,
       },
       startDelay: {
         type: 'integer',
         title: '启动延时',
+        description: '启动延时 ms，在 12 点之后相加 30 ms，（12点准时启动可能无法获取到信息）',
         default: 30,
       },
       name: {
         type: 'array',
         title: '兑换商品名称',
         default: [],
+        description: '兑换商品名称，与 token 二选一',
         items: {
           type: 'string',
         },
@@ -488,6 +499,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
       token: {
         type: 'array',
         title: '兑换商品 token',
+        description: '兑换商品 token，与 name 二选一',
         default: [],
         items: {
           type: 'string',
@@ -503,7 +515,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         title: '兑换漫读券数量',
         default: 1,
         type: 'integer',
-        description: '兑换漫读券数量，小于 1 为自动',
+        description: '兑换漫读券数量，小于 1 的数为根据积分确定',
       },
       delay: {
         title: '间隔时间',
@@ -514,10 +526,12 @@ export function useConfigSchema({ isDark }: Options = {}) {
       keepAmount: {
         title: '保留积分数',
         default: 0,
+        description: '保留积分数',
         type: 'integer',
       },
       startHour: {
         type: 'array',
+        description: '兑换时间',
         title: '兑换开始时间',
         items: {
           type: 'integer',
@@ -526,6 +540,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
       multiNum: {
         title: '分多次兑换',
         type: 'integer',
+        description: '分多次兑换，每次兑换的数量，（群友要求，但实际鸡肋甚至负作用）',
       },
     },
   };
@@ -535,64 +550,94 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       source: {
         title: '直播间来源方式',
+        default: 0,
+        description:
+          '直播间来源方式 1 活动（活动链接可能更新不及时），2 扫描。其它值 所有方式依次尝试。',
         type: 'integer',
       },
       uri: {
+        description: '活动链接',
+        title: '活动链接',
         type: 'string',
+        default: '',
       },
       intervalActive: {
         title: '每轮抢红包的间隔时间',
         type: 'integer',
+        default: 60,
+        description: '【仅使用活动时有效】 每轮抢红包的间隔时间（秒）',
       },
       restTime: {
         type: 'array',
+        description:
+          ' 中场休息时间，当每参加了几个直播间的时候，休息一下 [参加个数，休息时间（分，小于1为直接结束）',
+        default: [-1, -1],
         title: '中场休息时间',
         items: {
           type: 'integer',
         },
       },
       riskTime: {
+        description:
+          '疑似触发风控时休眠时间，[连续出现次数，休眠时间（分，小于1为直接结束）]。与 riskNum 不同，该参数会与 restTime 互相影响重置次数',
         type: 'array',
+        default: [-1, -1],
         title: '疑似触发风控时休眠时间',
         items: {
           type: 'integer',
         },
       },
-      riskSleepTime: {
-        type: 'integer',
-      },
       linkRoomNum: {
+        default: 1,
+        description: '同时参与的直播间数量',
         title: '同时参与的直播间数量',
         type: 'integer',
       },
       totalNum: {
+        default: -1,
+        description: '总参与次数，达到后不管结果如何，直接结束',
         title: '总参与次数',
         type: 'integer',
       },
       dmNum: {
         type: 'array',
+        default: [10],
         title: '参与直播时发送的弹幕数量',
+        description:
+          '参与直播时发送的弹幕数量（与内置数量比，min(10，剩余时间/5，配置)）。[固定值]，[最少,最多]',
         items: {
           type: 'integer',
         },
       },
       moveUpInWait: {
+        default: true,
+        description: '是否在等待时处理关注用户（读取消息，移动）',
         title: '是否在等待时处理关注用户',
         type: 'boolean',
       },
       moveTag: {
+        default: 'rp关注',
+        title: '移动到分组',
+        description: '天选时刻关注 UP 移动到分组',
         type: 'string',
       },
       actFollowMsg: {
         type: 'string',
-        enum: ['read', 'del', 'delete', 'none'],
+        default: 'read',
+        description: '关注回复处理方式',
+        enum: ['read', 'del', 'none'],
+        enumNames: ['读取', '删除', '不处理'],
       },
       noWinNum: {
+        description: '连续超过多少次没有中，直接结束，小于1为不限制',
+        default: 10,
         title: '连续超过多少次没有中',
         type: 'integer',
       },
       riskNum: {
         title: '连续疑似触发风控多少次',
+        default: 5,
+        description: '连续疑似触发风控多少次，直接结束，小于1为不限制',
         type: 'integer',
       },
     },
@@ -602,43 +647,84 @@ export function useConfigSchema({ isDark }: Options = {}) {
     type: 'object',
     properties: {
       excludeAward: {
+        description: '奖品描述不能包含，比如“自拍一张”将被跳过',
+        title: '排除奖品',
         type: 'array',
+        default: [
+          '舰',
+          '船',
+          '航海',
+          '代金券',
+          '优惠券',
+          '自拍',
+          '照',
+          '写真',
+          '图',
+          '提督',
+          '车车一局',
+          '再来一局',
+          '游戏道具',
+        ],
         items: {
           type: 'string',
         },
       },
       includeAward: {
+        description: '奖品描述包含，如果满足则跳过 排除',
         type: 'array',
+        title: '包含奖品',
+        default: ['谢'],
         items: {
           type: 'string',
         },
       },
       blackUid: {
+        description: 'up 黑名单（up 的 id，不是房间号）',
         type: 'array',
+        default: [65566781, 1277481241, 1643654862, 603676925],
         items: {
           type: 'integer',
         },
       },
       moveTag: {
+        description: '关注的用户统一移动到此',
         type: 'string',
+        default: '天选时刻',
+        title: '关注的用户统一移动到此',
       },
       pageNum: {
+        description: '扫描几页直播间',
         title: '天选获取的直播页数',
+        default: 2,
         type: 'integer',
       },
       actFollowMsg: {
+        description: '关注时产生的回复的处理方式',
         type: 'string',
-        enum: ['read', 'del', 'delete', 'none'],
+        title: '关注时产生的回复的处理方式',
+        enum: ['read', 'del', 'none'],
+        enumNames: ['读取', '删除', '不处理'],
       },
       scanFollow: {
         type: 'string',
-        enum: ['only'],
+        title: '扫描关注的用户',
+        description:
+          '扫描关注的用户，任意值则扫描，如果为 only 则只扫描关注用户，不会扫描直播分区。默认无值（不扫描）',
+        enum: ['only', '不扫描'],
+        enumNames: ['只扫描关注', '不扫描'],
+        default: '不扫描',
       },
       skipNeedFollow: {
+        description: '跳过条件为关注的天选时刻',
+        title: '跳过条件为关注的天选时刻',
         type: 'boolean',
+        default: false,
       },
       mayBeWinMsg: {
+        description: '打印可能中奖的消息（48 小时内）',
+        title: '打印可能中奖的消息',
         type: 'boolean',
+        default: true,
       },
     },
   };
@@ -648,6 +734,8 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       list: {
         type: 'array',
+        description:
+          '（非云函数不推荐在此配置，详见 PS）。自定义活动列表（如需使用，有效性请自行维护，不会删除过期配置），格式见 PS',
         title: '活动列表',
         default: [],
         items: {
@@ -655,11 +743,13 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
       },
       isRequest: {
+        description: '是否从网络请求活动列表',
         type: 'boolean',
         title: '是否从网络请求活动列表',
         default: true,
       },
       delay: {
+        description: '随机抽奖延时（秒），只用于单个活动中多次机会的间隔',
         type: 'array',
         title: '抽奖延时',
         default: [1.8, 3.2],
@@ -669,11 +759,14 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
       },
       bangumi: {
+        description:
+          '	与 isRequest 配合，是否通过追番增加次数（如果有番剧/影视，追番然后取消，当然不一定能增加次数），云函数不建议开启（因为追番只能生效一次，但是云函数每次都会运行）',
         type: 'boolean',
         title: '追番？',
         default: false,
       },
       follow: {
+        description: '同 bangumi，不过情况复杂，暂时没有完成预留在这里，可以先配置为 true 等更新',
         type: 'boolean',
         title: '关注？',
         default: false,
@@ -681,9 +774,12 @@ export function useConfigSchema({ isDark }: Options = {}) {
       proxyPrefix: {
         type: 'string',
         title: '请求 GitHub 使用的代理前缀',
+        description: '请求 GitHub 使用的代理前缀，例如 https://ghproxy.com/',
         default: 'https://ghproxy.com/',
       },
       customUrl: {
+        description:
+          '自定义活动列表链接。有自己的在线列表或者有使用前缀无法处理的链接都可以直接在此配置完整的。',
         type: 'string',
         title: '自定义活动列表链接',
         default: '',
@@ -696,7 +792,8 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       uid: {
         type: 'array',
-        title: '用户 uid，非直播间 id',
+        title: '用户 uid',
+        description: '用户 uid，非直播间 id',
         default: [],
         items: {
           type: 'number',
@@ -705,6 +802,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
       roomid: {
         type: 'array',
         title: '直播间 id',
+        description: '直播间 id，如果有值则 uid 不会有效',
         default: [],
         items: {
           type: 'number',
@@ -712,33 +810,39 @@ export function useConfigSchema({ isDark }: Options = {}) {
       },
       heart: {
         type: 'boolean',
+        description: '直播心跳 api',
         title: '直播心跳',
         default: true,
       },
       time: {
         type: 'integer',
+        description: '直播心跳时间，单位分',
         title: '直播心跳时间',
         default: 30,
       },
       wss: {
         type: 'boolean',
+        description: '直播 wss 心跳',
         title: '直播 wss 心跳',
         default: false,
       },
       tcp: {
         type: 'boolean',
+        description: '直播 tcp 心跳，与 wss 是一致的',
         title: '直播 tcp 心跳',
         default: false,
       },
       area: {
         type: 'array',
         title: '分区',
+        description: '直播分区，例如 3,321 为手游-原神',
         default: [
           [3, 321],
           [3, 549],
         ],
         items: {
           type: 'array',
+          default: [3, 321],
           items: {
             type: 'integer',
           },
@@ -752,6 +856,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       roomid: {
         type: 'array',
+        description: '	直播间 id',
         title: '直播间 id',
         default: [],
         items: {
@@ -759,6 +864,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
       },
       delay: {
+        description: '延时，单位秒，例如 [8, 13] 为 8-13s 之间随机',
         type: 'array',
         title: '延时 s',
         default: [8, 13],
@@ -769,15 +875,37 @@ export function useConfigSchema({ isDark }: Options = {}) {
       },
       num: {
         type: 'integer',
+        description: '次数',
         title: '次数',
         default: 0,
       },
       custom: {
+        description: '自定义弹幕。当 custom 有值时，roomid 、num 会被忽略。',
         type: 'array',
         title: '自定义',
         default: [],
         items: {
           type: 'object',
+          properties: {
+            id: {
+              title: '用户 uid',
+              type: 'integer',
+            },
+            num: {
+              type: 'integer',
+              title: '次数',
+              default: 1,
+            },
+            msg: {
+              title: '信息',
+              type: 'array',
+              default: ['haha'],
+              items: {
+                type: 'string',
+                default: 'haha',
+              },
+            },
+          },
         },
       },
     },
@@ -788,26 +916,31 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       title: {
         type: 'string',
+        description: '直播间标题',
         title: '直播间标题',
         default: '',
       },
       parentId: {
         type: 'integer',
-        title: 'parentId',
+        description: '开播分区 parentId',
+        title: '开播分区 parentId',
         default: 0,
       },
       areaId: {
+        description: '开播分区 areaId',
         type: 'integer',
-        title: 'areaId',
+        title: '开播分区 areaId',
         default: 0,
       },
       roomid: {
         type: 'integer',
+        description: '自己的直播间 id',
         title: '自己的直播间 id',
         default: 0,
       },
       time: {
         type: 'integer',
+        description: '直播时间',
         title: '直播时间',
         default: 33,
       },
@@ -822,6 +955,8 @@ export function useConfigSchema({ isDark }: Options = {}) {
         properties: {
           build: {
             type: 'integer',
+            description: 'App 版本号',
+            default: '7370300',
           },
         },
       },
@@ -956,14 +1091,17 @@ export function useConfigSchema({ isDark }: Options = {}) {
         type: 'boolean',
         title: '获取经验限制为 6 级',
         default: true,
+        description: '获取经验限制为 6 级',
       },
       coins5: {
         type: 'boolean',
         title: '投币限制为 5 颗',
+        description: '投币限制为 5 颗',
         default: true,
       },
       buyMangaOnlyBeforeExpire: {
         type: 'boolean',
+        description: '仅在漫画即将过期前购买漫画',
         title: '仅在漫画即将过期前购买漫画',
         default: true,
       },
@@ -989,14 +1127,30 @@ export function useConfigSchema({ isDark }: Options = {}) {
         type: 'object',
         title: 'email',
         properties: {
-          host: {
+          from: {
             type: 'string',
+            description: '发件邮箱',
             title: 'host',
-            default: 'smtp.163.com',
+          },
+          to: {
+            type: 'string',
+            description: '接收邮箱，默认 from 的值',
+            title: 'host',
+          },
+          pass: {
+            type: 'string',
+            description: '发件邮箱的授权码',
+            title: 'host',
+          },
+          host: {
+            description: '发件邮箱服务器 smtp.163.com',
+            type: 'string',
+            title: '服务器',
           },
           port: {
+            description: '端口号',
             type: 'integer',
-            title: 'port',
+            title: '端口号',
             default: 465,
           },
         },
@@ -1014,6 +1168,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
             type: 'string',
             title: 'method',
             default: 'POST',
+            enum: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
           },
           headers: {
             type: 'object',
@@ -1023,6 +1178,12 @@ export function useConfigSchema({ isDark }: Options = {}) {
                 type: 'string',
                 title: 'Content-Type',
                 default: 'application/json',
+                enum: [
+                  'application/json',
+                  'application/octet-stream',
+                  'application/x-www-form-urlencoded',
+                  'multipart/form-data',
+                ],
               },
             },
           },
@@ -1034,6 +1195,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           url: {
             type: 'string',
             title: 'url',
+            description: 'url 必填，query 参数请直接拼接到 url 中',
             default: '',
           },
           proxy: {
@@ -1072,22 +1234,38 @@ export function useConfigSchema({ isDark }: Options = {}) {
     properties: {
       pushLevel: {
         type: 'string',
+        title: '推送等级',
+        default: 'verbose',
+        description: '推送等级',
         enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
       },
       consoleLevel: {
         type: 'string',
+        title: '打印等级',
+        default: 'debug',
+        description: '打印等级',
         enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
       },
       fileLevel: {
         type: 'string',
+        title: '文件等级',
+        default: 'debug',
+        description: '文件等级',
         enum: ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'],
       },
       useEmoji: {
         type: 'boolean',
+        title: '使用 Emoji',
+        default: true,
+        description: '使用 Emoji',
       },
       fileSplit: {
         type: 'string',
+        title: '文件分割方式',
+        default: 'day',
+        description: '文件分割方式',
         enum: ['day', 'month'],
+        enumNames: ['按天', '按月'],
       },
     },
   };
@@ -1098,7 +1276,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
       cookie: {
         type: 'string',
         title: 'cookie',
-        description: '必填项',
+        description: '必填项 <a href="/config/get_value#必看">获取 Cookie 参考</a>',
         default: '',
         minLength: 60,
         'ui:options': {
