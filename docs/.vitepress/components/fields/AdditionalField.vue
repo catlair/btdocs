@@ -31,7 +31,7 @@ const { fieldProps, vueUtils } = vue3Form;
 
 const { NDynamicInput, NFormItem } = naiveui;
 
-const props = defineProps({ ...fieldProps, modelValue: Object });
+const props = defineProps(fieldProps);
 
 const values = computed(() =>
   Object.entries(vueUtils.getPathVal(props.rootFormData, props.curNodePath)),
