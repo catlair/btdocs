@@ -2,6 +2,7 @@ import { UserConfig, defineConfig, DefaultTheme, MarkdownOptions, PageData } fro
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { ElementPlusResolve, createStyleImportPlugin } from 'vite-plugin-style-import';
 import markdownItTaskLists from 'markdown-it-task-lists';
@@ -345,9 +346,14 @@ function vite(): UserConfig['vite'] {
           find: '@utils',
           replacement: fileURLToPath(new URL('./utils', import.meta.url)),
         },
+        {
+          find: '@widgets',
+          replacement: fileURLToPath(new URL('./components/widgets', import.meta.url)),
+        },
       ],
     },
     plugins: [
+      vueJsx(),
       createStyleImportPlugin({
         resolves: [ElementPlusResolve()],
       }),

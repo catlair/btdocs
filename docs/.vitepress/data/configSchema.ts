@@ -1,10 +1,7 @@
-import { ref, computed } from 'vue';
+import { DynamicInput, DynamicInputNumber } from '@widgets';
+import { ref } from 'vue';
 
-interface Options {
-  isDark?: Ref<boolean>;
-}
-
-export function useConfigSchema({ isDark }: Options = {}) {
+export function useConfigSchema() {
   const jurySchema = {
     type: 'object',
     properties: {
@@ -142,6 +139,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'integer',
         },
         description: '自定义投喂礼物用户列表',
+        'ui:widget': DynamicInputNumber,
       },
       id: {
         type: 'array',
@@ -151,6 +149,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         default: [1, 30607, 30426, 31531, 31674],
         description: '投喂礼物 id',
+        'ui:widget': DynamicInputNumber,
       },
       name: {
         type: 'array',
@@ -160,6 +159,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         default: [],
         description: '投喂礼物 name',
+        'ui:widget': DynamicInput,
       },
       all: {
         type: 'boolean',
@@ -193,6 +193,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'integer',
         },
         description: '预设时间，哪一天？设置为空数组即每一天',
+        'ui:widget': DynamicInputNumber,
       },
       use: {
         type: 'string',
@@ -215,6 +216,9 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'integer',
         },
         description: '自定义高优先级用户列表',
+        'ui:widget': DynamicInputNumber,
+        'ui:show-button': false,
+        'ui:show-sort-button': false,
       },
       targetLevel: {
         type: 'integer',
@@ -246,6 +250,10 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         default: ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
         description: '获取稿件的来源（排序），留空则来自 首页推荐',
+        'ui:widget': DynamicInput,
+        'ui:min': 1,
+        'ui:max': 5,
+        'ui:show-sort-button': true,
       },
       upperAccMatch: {
         type: 'boolean',
@@ -287,6 +295,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:widget': DynamicInputNumber,
       },
       name: {
         type: 'array',
@@ -295,6 +304,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'string',
         },
+        'ui:widget': DynamicInput,
       },
       love: {
         type: 'boolean',
@@ -333,6 +343,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         default: [],
         description: '只操作此列表中的（优先级高于 黑名单）',
+        'ui:widget': DynamicInputNumber,
       },
       blackList: {
         type: 'array',
@@ -342,6 +353,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         description: '操作全部，但排除其中的',
         default: [],
+        'ui:widget': DynamicInputNumber,
       },
       limitFeed: {
         type: 'integer',
@@ -389,6 +401,10 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInputNumber,
+        'ui:max': 2,
+        'ui:min': 0,
       },
       totalNum: {
         type: 'integer',
@@ -405,6 +421,8 @@ export function useConfigSchema({ isDark }: Options = {}) {
         },
         description: '取消关注的 tag',
         default: ['天选时刻', 'rp关注'],
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInput,
       },
     },
   };
@@ -429,6 +447,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'number',
           minimum: 0,
         },
+        'ui:widget': DynamicInputNumber,
       },
       delayByRoomid: {
         type: 'array',
@@ -438,6 +457,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'number',
           minimum: 0,
         },
+        'ui:widget': DynamicInputNumber,
       },
     },
   };
@@ -495,6 +515,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'string',
         },
+        'ui:widget': DynamicInput,
       },
       token: {
         type: 'array',
@@ -504,6 +525,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'string',
         },
+        'ui:widget': DynamicInput,
       },
     },
   };
@@ -536,6 +558,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:widget': DynamicInputNumber,
       },
       multiNum: {
         title: '分多次兑换',
@@ -576,6 +599,10 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInputNumber,
+        'ui:max': 2,
+        'ui:min': 0,
       },
       riskTime: {
         description:
@@ -586,6 +613,10 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInputNumber,
+        'ui:max': 2,
+        'ui:min': 0,
       },
       linkRoomNum: {
         default: 1,
@@ -608,6 +639,10 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'integer',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInputNumber,
+        'ui:max': 2,
+        'ui:min': 0,
       },
       moveUpInWait: {
         default: true,
@@ -668,6 +703,8 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'string',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInput,
       },
       includeAward: {
         description: '奖品描述包含，如果满足则跳过 排除',
@@ -677,14 +714,19 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'string',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInput,
       },
       blackUid: {
         description: 'up 黑名单（up 的 id，不是房间号）',
+        title: 'up 黑名单',
         type: 'array',
         default: [65566781, 1277481241, 1643654862, 603676925],
         items: {
           type: 'integer',
         },
+        'ui:show-sort-button': false,
+        'ui:widget': DynamicInputNumber,
       },
       moveTag: {
         description: '关注的用户统一移动到此',
@@ -757,6 +799,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'number',
           minimum: 0,
         },
+        'ui:widget': DynamicInputNumber,
       },
       bangumi: {
         description:
@@ -798,6 +841,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'number',
         },
+        'ui:widget': DynamicInputNumber,
       },
       roomid: {
         type: 'array',
@@ -807,6 +851,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'number',
         },
+        'ui:widget': DynamicInputNumber,
       },
       heart: {
         type: 'boolean',
@@ -862,6 +907,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
         items: {
           type: 'number',
         },
+        'ui:widget': DynamicInputNumber,
       },
       delay: {
         description: '延时，单位秒，例如 [8, 13] 为 8-13s 之间随机',
@@ -872,6 +918,7 @@ export function useConfigSchema({ isDark }: Options = {}) {
           type: 'number',
           minimum: 0,
         },
+        'ui:widget': DynamicInputNumber,
       },
       num: {
         type: 'integer',

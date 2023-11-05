@@ -6,7 +6,11 @@ import * as NaiveUI from 'naive-ui';
 
 import TwComment from './components/TwComment.vue';
 
-const { darkTheme } = NaiveUI;
+import { setupToggle } from './toggle';
+
+setupToggle();
+
+const { darkTheme, zhCN, dateZhCN } = NaiveUI;
 const { Layout } = DefaultTheme;
 const { isDark } = useData();
 
@@ -14,7 +18,7 @@ const arrayOrderListBackground = computed(() => (!isDark.value ? '#ecf0f1' : '#2
 </script>
 
 <template>
-  <n-config-provider :theme="isDark ? darkTheme : null">
+  <n-config-provider :theme="isDark ? darkTheme : null" :locale="zhCN" :date-locale="dateZhCN">
     <n-message-provider>
       <n-dialog-provider>
         <Layout>
@@ -27,7 +31,11 @@ const arrayOrderListBackground = computed(() => (!isDark.value ? '#ecf0f1' : '#2
 </template>
 
 <style>
-html.gray {
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+}
+/* html.gray {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -ms-filter: grayscale(100%);
@@ -36,7 +44,9 @@ html.gray {
   filter: gray;
   filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 }
+*/
 
+/* https://vue-json-schema-form.lljj.me/ */
 .arrayOrderList {
   background: v-bind(arrayOrderListBackground) !important;
 }

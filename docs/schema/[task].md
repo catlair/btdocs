@@ -5,25 +5,21 @@ lang: zh-CN
 <script setup lang="ts">
 import ChangeUser from './ChangeUser.vue'
 
-import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
-import { h } from 'vue'
 import useConfigStore from '@store/config'
 import { snakeToCamel } from '@utils'
 import { useConfigSchema } from '@data/configSchema'
 
-const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
 
 const schema = useConfigSchema()
 
-const message = useMessage();
 const configStore = useConfigStore()
 const { users, curUser, index } = storeToRefs(configStore)
 </script>
 
 # {{ $params.title }}
 
-{{$params.description}}
+{{ $params.description }}
 
 ## 帐号管理
 

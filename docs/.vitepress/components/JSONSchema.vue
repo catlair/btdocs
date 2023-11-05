@@ -47,4 +47,4 @@ const formFooter = {
 };
 </script>
 
-<style scoped></style>
+<style></style>

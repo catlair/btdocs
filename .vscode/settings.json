@@ -1,6 +1,10 @@
 {
   "cSpell.words": [
+    "codemirror",
+    "lljj",
+    "persistedstate",
     "unplugin"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "vue.server.vitePress.supportMdFile": true
 }

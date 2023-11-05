@@ -22,7 +22,7 @@ const props = defineProps<{
 const url = `//player.bilibili.com/player.html?bvid=${props.bv}&page=${props.page || 1}`;
 </script>
 
-<style scoped>
+<style>
 .bilibili-video {
   width: 100%;
   height: 500px;
