@@ -1,3 +1,4 @@
+import { AdditionalField } from '@fields';
 import { DynamicInput, DynamicInputNumber } from '@widgets';
 import { ref } from 'vue';
 
@@ -377,7 +378,10 @@ export function useConfigSchema() {
       // 专属弹幕
       dm: {
         type: 'object',
-        properties: {},
+        'ui:field': AdditionalField,
+        default: {
+          name: 'zhangsan',
+        },
       },
     },
   };

@@ -195,7 +195,7 @@ export function getDefConfig() {
       // 专属弹幕
       dm: {
         // id 为 up 主 mid，非直播间 id。用于某些直播间可能有机器人玩法
-        // 11111: '打卡',
+        11111: '打卡',
       } as Record<number, string | string[]>,
     },
     dailyBattery: {

@@ -41,9 +41,9 @@ const useConfigStore = defineStore('config', {
       };
     },
   },
-  persist: {
-    debug: import.meta.env.DEV,
-  },
+  // persist: {
+  //   debug: import.meta.env.DEV,
+  // },
 });
 
 export default useConfigStore;

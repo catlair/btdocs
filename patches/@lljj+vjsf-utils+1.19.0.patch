@@ -1,0 +1,25 @@
+diff --git a/node_modules/@lljj/vjsf-utils/package.json b/node_modules/@lljj/vjsf-utils/package.json
+index fc1b73a..01a30f4 100644
+--- a/node_modules/@lljj/vjsf-utils/package.json
++++ b/node_modules/@lljj/vjsf-utils/package.json
+@@ -1,6 +1,7 @@
+ {
+     "name": "@lljj/vjsf-utils",
+     "version": "1.19.0",
++    "type":"module",
+     "description": "vue json schema form 使用的基础utils工具类",
+     "private": false,
+     "publishConfig": {
+diff --git a/node_modules/@lljj/vjsf-utils/vue3Utils.js b/node_modules/@lljj/vjsf-utils/vue3Utils.js
+index 9508549..6808f2d 100644
+--- a/node_modules/@lljj/vjsf-utils/vue3Utils.js
++++ b/node_modules/@lljj/vjsf-utils/vue3Utils.js
+@@ -6,7 +6,7 @@ import { defineComponent, h, resolveComponent as _resolveComponent } from 'vue';
+ 
+ import {
+     nodePath2ClassName, isRootNodePath, computedCurPath, getPathVal, path2prop, pathSeparator
+-} from './vueCommonUtils';
++} from './vueCommonUtils.js';
+ 
+ // 删除当前path值
+ export function deletePathVal(vueData, name) {

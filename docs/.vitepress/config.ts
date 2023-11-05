@@ -350,6 +350,10 @@ function vite(): UserConfig['vite'] {
           find: '@widgets',
           replacement: fileURLToPath(new URL('./components/widgets', import.meta.url)),
         },
+        {
+          find: '@fields',
+          replacement: fileURLToPath(new URL('./components/fields', import.meta.url)),
+        },
       ],
     },
     plugins: [

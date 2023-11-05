@@ -24,14 +24,14 @@
     "element-plus/global"
   ],
   "paths": {
-    "@components": [
-      "docs/.vitpress/components"
+    "@components/*": [
+      "./docs/.vitpress/components/*"
     ],
-    "@utils": [
-      "docs/.vitpress/utils"
+    "@utils/*": [
+      "./docs/.vitpress/utils/*"
     ],
-    "@store": [
-      "docs/.vitpress/store"
+    "@store/*": [
+      "./docs/.vitpress/store/*"
     ]
   },
 }

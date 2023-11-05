@@ -57,6 +57,7 @@ function btnClick() {
     closable: false,
     onPositiveClick: () => {
       console.log(window.localStorage.removeItem('config'))
+      location.reload()
       message.success('好吧，你赢了');
     },
   });
