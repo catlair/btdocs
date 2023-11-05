@@ -26,7 +26,8 @@
 <script setup lang="ts">
 import { reactive, computed, unref } from 'vue';
 import * as naiveui from 'naive-ui';
-import { fieldProps, vueUtils } from '@lljj/vue3-form-naive';
+import * as vue3Form from '@lljj/vue3-form-naive';
+const { fieldProps, vueUtils } = vue3Form;
 
 const { NDynamicInput, NFormItem } = naiveui;
 
