@@ -26,8 +26,6 @@
 <script setup lang="ts">
 import { reactive, computed, unref } from 'vue';
 import * as naiveui from 'naive-ui';
-import * as vue3Form from '@lljj/vue3-form-naive';
-const { fieldProps, vueUtils } = vue3Form;
 
 const { NDynamicInput, NFormItem } = naiveui;
 
@@ -59,4 +57,11 @@ function fromEntries(entries) {
   }
   return obj;
 }
+</script>
+
+<script lang="ts">
+import * as vue3Form from '@lljj/vue3-form-naive';
+const { fieldProps, vueUtils } = vue3Form;
+
+export {};
 </script>

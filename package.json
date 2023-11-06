@@ -22,7 +22,7 @@
     "vercel": "^31.1.1",
     "vfonts": "^0.0.3",
     "vite-plugin-style-import": "^2.0.0",
-    "vitepress": "v1.0.0-rc.25",
+    "vitepress": "^1.0.0-rc.25",
     "typescript": "^5.2.2"
   },
   "scripts": {
