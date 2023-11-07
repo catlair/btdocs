@@ -1,7 +1,9 @@
 import { markRaw } from 'vue';
 
-import AdditionalFieldVue from './AdditionalField.vue';
+import IntimacyDmFieldVue from './IntimacyDmField.vue';
+import MessageApiDataFieldVue from './MessageApiDataField.vue';
 
-const AdditionalField = markRaw(AdditionalFieldVue);
+const IntimacyDmField = markRaw(IntimacyDmFieldVue);
+const MessageApiDataField = markRaw(MessageApiDataFieldVue);
 
-export { AdditionalField };
+export { IntimacyDmField, MessageApiDataField };

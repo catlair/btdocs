@@ -1,4 +1,4 @@
-import { AdditionalField } from '@fields';
+import { IntimacyDmField, MessageApiDataField } from '@fields';
 import { DynamicInput, DynamicInputNumber } from '@widgets';
 import { ref } from 'vue';
 
@@ -377,11 +377,9 @@ export function useConfigSchema() {
       },
       // 专属弹幕
       dm: {
+        title: '专属弹幕',
         type: 'object',
-        'ui:field': AdditionalField,
-        default: {
-          name: 'zhangsan',
-        },
+        'ui:field': IntimacyDmField,
       },
     },
   };
@@ -1273,7 +1271,7 @@ export function useConfigSchema() {
           data: {
             type: 'object',
             title: 'data',
-            default: {},
+            'ui:field': MessageApiDataField,
           },
         },
       },
