@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import VueForm from '@lljj/vue3-form-naive';
 // import VueForm from '@lljj/vue3-form-element';
 
@@ -28,9 +28,16 @@ const value = computed({
   },
 });
 
-const formProps = {
-  layoutColumn: 2,
-};
+// TODO 效果未达到
+const formProps = ref({
+  layoutColumn: window.innerWidth < 600 ? 1 : 2,
+});
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    formProps.value.layoutColumn = window.innerWidth < 600 ? 1 : 2;
+  });
+});
 
 const uiSchema = {
   'ui:width': {
