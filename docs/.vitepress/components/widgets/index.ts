@@ -7,7 +7,7 @@ import * as vue3Utils from '@lljj/vjsf-utils/vue3Utils';
 
 const { NDynamicTags } = naiveui;
 
-const mvc = component => markRaw(vue3Utils.vue3Utils(component));
+const mvc = component => markRaw(vue3Utils.modelValueComponent(component));
 
 const DynamicInputNumber = markRaw(DynamicInputNumberVue);
 
