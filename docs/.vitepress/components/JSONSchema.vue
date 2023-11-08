@@ -28,7 +28,6 @@ const value = computed({
   },
 });
 
-// TODO 效果未达到
 const formProps = ref({
   layoutColumn: window.innerWidth < 600 ? 1 : 2,
 });

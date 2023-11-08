@@ -1,5 +1,5 @@
 import { IntimacyDmField, MessageApiDataField } from '@fields';
-import { DynamicInput, DynamicInputNumber } from '@widgets';
+import { DynamicInput, DynamicInputNumber, NDynamicTags } from '@widgets';
 import { ref } from 'vue';
 
 export function useConfigSchema() {
@@ -706,7 +706,7 @@ export function useConfigSchema() {
           type: 'string',
         },
         'ui:show-sort-button': false,
-        'ui:widget': DynamicInput,
+        'ui:widget': NDynamicTags,
       },
       includeAward: {
         description: '奖品描述包含，如果满足则跳过 排除',
@@ -717,7 +717,7 @@ export function useConfigSchema() {
           type: 'string',
         },
         'ui:show-sort-button': false,
-        'ui:widget': DynamicInput,
+        'ui:widget': NDynamicTags,
       },
       blackUid: {
         description: 'up 黑名单（up 的 id，不是房间号）',
@@ -728,7 +728,7 @@ export function useConfigSchema() {
           type: 'integer',
         },
         'ui:show-sort-button': false,
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': NDynamicTags,
       },
       moveTag: {
         description: '关注的用户统一移动到此',

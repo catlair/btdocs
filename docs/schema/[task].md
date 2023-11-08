@@ -21,6 +21,8 @@ const { users, curUser, index } = storeToRefs(configStore)
 
 {{ $params.description }}
 
+<!-- @content -->
+
 ## 帐号管理
 
 {{index}}-{{curUser}}

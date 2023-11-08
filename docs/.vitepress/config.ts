@@ -17,6 +17,8 @@ export default defineConfig({
   base: '/',
   cleanUrls: true,
 
+  srcExclude: srcExclude(),
+
   head: [
     ['meta', { name: 'baidu-site-verification', content: 'codeva-72mBIKGDRe' }],
     ['meta', { name: 'baidu-site-verification', content: 'codeva-59RKnCJIEl' }],
@@ -399,4 +401,8 @@ async function getSchemaRoute() {
     text: params.title,
     link: `/schema/${params.task}`,
   }));
+}
+
+function srcExclude() {
+  return ['**/_*.md'];
 }
