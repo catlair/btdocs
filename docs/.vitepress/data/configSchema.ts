@@ -728,7 +728,7 @@ export function useConfigSchema() {
           type: 'integer',
         },
         'ui:show-sort-button': false,
-        'ui:widget': DynamicTags,
+        'ui:widget': DynamicInputNumber,
       },
       moveTag: {
         description: '关注的用户统一移动到此',
