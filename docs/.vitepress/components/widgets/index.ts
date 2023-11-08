@@ -11,8 +11,6 @@ const mvc = component => markRaw(vue3Utils.vue3Utils(component));
 
 const DynamicInputNumber = markRaw(DynamicInputNumberVue);
 
-const NaiveUI = {
-  NDynamicTags: mvc(NDynamicTags)
-};
+export const NDynamicTags = mvc(NDynamicTags);
 
-export { DynamicInput, DynamicInputNumber,...NaiveUI };
+export { DynamicInput, DynamicInputNumber };
