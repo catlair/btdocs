@@ -7,12 +7,4 @@
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "vue.server.vitePress.supportMdFile": true,
-  "workbench.colorCustomizations": {
-    "statusBar.debuggingBackground": "#c06f98",
-    "statusBar.foreground": "#a2b4bd",
-    "editorBracketMatch.background": "#5a6f75",
-    "activityBar.background": "#54015D",
-    "titleBar.activeBackground": "#760182",
-    "titleBar.activeForeground": "#FEFAFF"
-  }
 }

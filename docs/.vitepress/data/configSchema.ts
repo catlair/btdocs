@@ -1,5 +1,5 @@
 import { IntimacyDmField, MessageApiDataField } from '@fields';
-import { DynamicInput, DynamicInputNumber, DynamicTags } from '@widgets';
+import { DynamicInput, DynamicInputNumber, DynamicTags, DynamicNumberTags } from '@widgets';
 import { ref } from 'vue';
 
 export function useConfigSchema() {
@@ -150,7 +150,7 @@ export function useConfigSchema() {
         },
         default: [1, 30607, 30426, 31531, 31674],
         description: '投喂礼物 id',
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       name: {
         type: 'array',
@@ -160,7 +160,7 @@ export function useConfigSchema() {
         },
         default: [],
         description: '投喂礼物 name',
-        'ui:widget': DynamicInput,
+        'ui:widget': DynamicTags,
       },
       all: {
         type: 'boolean',
@@ -1345,6 +1345,7 @@ export function useConfigSchema() {
         items: {
           type: 'integer',
         },
+        'ui:widget': DynamicInputNumber,
       },
       dailyRunTime: {
         type: 'string',

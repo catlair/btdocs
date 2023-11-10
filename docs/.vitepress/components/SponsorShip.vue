@@ -18,20 +18,24 @@
     <!-- </p> -->
 
     <div>
-      <el-button
-        v-for="button in buttons"
-        :key="button.text"
-        :type="button.type"
-        text
-        @click="changeZZUrl(button)"
-        >{{ button.text }}</el-button
-      >
-
-      <img :class="zzClass" :src="zzUrl" alt="zz_three" />
-    </div>
-
-    <div>
-      <img class="zz" :src="alipay_red" alt="alipay_red" />
+      <n-space vertical>
+        <n-space>
+          <n-button
+            v-for="button in buttons"
+            :key="button.text"
+            :type="button.type"
+            @click="changeZZUrl(button)"
+            >{{ button.text }}</n-button
+          ></n-space
+        >
+        <n-image
+          :width="zzClass && 400"
+          :src="zzUrl"
+          alt="zz_three"
+          :class="zzClass"
+          :previewed-img-props="{ style: { border: '8px solid white' } }"
+        />
+      </n-space>
     </div>
 
     <!-- <p>感谢：</p> -->
@@ -46,7 +50,7 @@
         <span>匿名用户的微信赞助。</span>
       </li>
     </ul> -->
-    <!-- <el-divider border-style="dashed" /> -->
+    <!-- <n-divider border-style="dashed" /> -->
     <!-- <span>The language of eternal question.</span> -->
   </div>
 </template>
@@ -56,7 +60,7 @@ import zz_three from '/images/zz_three.png';
 import zz_alipay from '/images/zz_alipay.png';
 import zz_weixin from '/images/zz_weixin.png';
 import zz_qq from '/images/zz_qq.png';
-import alipay_red from '/images/alipay_red.jpg';
+import zz_alipay_red from '/images/alipay_red.jpg';
 import { ref } from 'vue';
 // import { storeToRefs } from 'pinia';
 // import { useReleasesStore } from '@stores/releases';
@@ -68,15 +72,17 @@ const zzUrls = {
   alipay: zz_alipay,
   weixin: zz_weixin,
   qq: zz_qq,
+  alipay_red: zz_alipay_red,
 };
-const zzUrl = ref(zz_three);
-const zzClass = ref('');
+const zzUrl = ref(zz_alipay_red);
+const zzClass = ref('zz');
 
 const buttons = [
-  { type: 'primary', text: '全部', url: 'all' },
-  { type: 'primary', text: '支付宝', url: 'alipay' },
-  { type: 'primary', text: '微信', url: 'weixin' },
-  { type: 'primary', text: 'QQ', url: 'qq' },
+  { type: 'tertiary', text: '全部', url: 'all' },
+  { type: 'tertiary', text: '支付宝', url: 'alipay' },
+  { type: 'tertiary', text: '微信', url: 'weixin' },
+  { type: 'tertiary', text: 'QQ', url: 'qq' },
+  { type: 'tertiary', text: '支付宝红包', url: 'alipay_red' },
 ] as const;
 
 function changeZZUrl(button) {

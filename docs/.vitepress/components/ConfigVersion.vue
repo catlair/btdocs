@@ -10,8 +10,10 @@
           placeholder="简单测试一下，不搞那么复杂了"
         />
         <div style="margin-top: 10px">
-          <el-button @click="drawer = false">取消</el-button>
-          <el-button type="primary" @click="clickInputJSON">确定</el-button>
+          <n-space
+            ><n-button type="info" @click="drawer = false">取消</n-button>
+            <n-button type="success" @click="clickInputJSON">确定</n-button>
+          </n-space>
         </div>
       </div>
     </el-drawer>
@@ -39,10 +41,12 @@
     </div>
     <div class="change-format">
       <div>
-        <el-button size="small" @click="drawer = true"> 输入内容对比 </el-button>
-        <a :href="newUrl" style="margin-left: 0.4em"
-          ><el-button size="small"> 下载当前选择版本 </el-button></a
-        >
+        <n-space>
+          <n-button type="primary" size="small" @click="drawer = true"> 输入内容对比 </n-button>
+          <a :href="newUrl" style="margin-left: 0.4em"
+            ><n-button type="info" size="small"> 下载当前选择版本 </n-button></a
+          >
+        </n-space>
       </div>
       <el-radio-group v-model="outputFormatRadio" size="small">
         <el-radio-button label="Split" name="outputFormat" />

@@ -1,6 +1,6 @@
 <template>
   <div style="padding-left: 10px; padding-bottom: 10px">
-    <el-button @click="verifyJSON5">校验</el-button>
+    <n-button @click="verifyJSON5">校验</n-button>
   </div>
   <codemirror
     v-model="code"

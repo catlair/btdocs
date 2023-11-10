@@ -1,16 +1,15 @@
 import { markRaw } from 'vue';
 
+import DynamicTags from './DynamicTags';
 import DynamicInput from './DynamicInput';
 import DynamicInputNumberVue from './DynamicInputNumber.vue';
-import * as naiveui from 'naive-ui';
-import * as vue3Utils from '@lljj/vjsf-utils/vue3Utils';
+import DynamicNumberTagsVue from './DynamicNumberTags.vue';
 
-const { NDynamicTags } = naiveui;
-
-const mvc = component => markRaw(vue3Utils.modelValueComponent(component));
+// const { NDynamicTags } = naiveui;
 
 const DynamicInputNumber = markRaw(DynamicInputNumberVue);
+const DynamicNumberTags = markRaw(DynamicNumberTagsVue);
 
-export const DynamicTags = mvc(NDynamicTags);
+// export const DynamicTags = mvc(NDynamicTags);
 
-export { DynamicInput, DynamicInputNumber };
+export { DynamicInput, DynamicInputNumber, DynamicNumberTags, DynamicTags };

@@ -11,7 +11,9 @@ description: 简单介绍
 如果喜欢请为 <https://github.com/catlair/BiliOutils> 点个 star，关注才能不迷路。
 :::
 
-## 支持功能 <Badge v-if="isRefreshed" type="tip" :text="`版本${tagName}`" vertical="top" />
+## 支持功能
+
+<!-- <Badge v-if="isRefreshed" type="tip" :text="`版本${tagName}`" vertical="top" /> -->
 
 <!--@include: ../md/func.md-->
 
@@ -65,7 +67,7 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 
 扫码加入群，群不提供使用帮助，自行看文档，别问，问就拉黑（群号：759694670）：
 
-![qq群](/images/qq_group.png)
+<n-image src="/images/qq_group.png" alt="qq群" :class="zzClass"/>
 
 ## 支持
 

@@ -139,6 +139,7 @@ const dialog = useDialog()
 - [ ] 完善部分配置校验，例如 Cookie
 - [ ] 导出配置过滤掉无效配置
 - [x] @lljj/vue3-form-naive 不支持 addtionalProperties，自定义实现部分需要动态输入的配置
+- [x] 公共配置隐藏 cookie 配置
 
 ## 配置总览
 

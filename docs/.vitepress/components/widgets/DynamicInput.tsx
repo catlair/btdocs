@@ -1,21 +1,16 @@
-import { defineComponent, markRaw } from 'vue';
-import * as vue3Utils from '@lljj/vjsf-utils/vue3Utils';
+import { defineComponent } from 'vue';
 import * as naiveui from 'naive-ui';
+import { mvc } from './utils';
 
 const { NDynamicInput } = naiveui;
 
-const moduleValeComponent = markRaw(
-  vue3Utils.modelValueComponent(
-    defineComponent({
-      name: 'DynamicInput',
-      setup(_, { attrs }) {
-        return () => <NDynamicInput {...attrs}></NDynamicInput>;
-      },
-    }),
-    {
-      model: 'value',
+const moduleValeComponent = mvc(
+  defineComponent({
+    name: 'DynamicInput',
+    setup(_, { attrs }) {
+      return () => <NDynamicInput {...attrs}></NDynamicInput>;
     },
-  ),
+  }),
 );
 
 export default moduleValeComponent;

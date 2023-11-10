@@ -1,33 +1,29 @@
 <script lang="ts" setup>
 import ChangeUser from './ChangeUser.vue'
 
-import * as naive from 'naive-ui';
 import { storeToRefs } from 'pinia';
-import { useData } from 'vitepress'
-import { ref, onMounted, computed, h } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import useConfigStore from '@store/config'
 import { useConfigSchema } from '@data/configSchema'
 import VueForm from '@lljj/vue3-form-naive';
 
-const { useMessage, NTooltip, DropdownOption, DropdownGroupOption } = naive;
-const { isDark } = useData()
+const schema = useConfigSchema()
 
-const schema = useConfigSchema({ isDark })
-
-const message = useMessage();
 const configStore = useConfigStore()
-const { index } = configStore
-const { users, curUser } = storeToRefs(configStore)
+const { users, index } = storeToRefs(configStore)
 
-const user = users.value[index]
+const user = computed(()=>users.value[index.value])
 
-const base = computed(()=>
-  ( {cookie: user.config.cookie,
-  createCookieDay: user.config.createCookieDay,
-  apiDelay: user.config.apiDelay,
-  dailyRunTime: user.config.dailyRunTime,
-  userAgent: user.config.userAgent}
-))
+
+const baseSchema = computed(() => {
+    Reflect.set(schema.value['baseSchema']['properties']['cookie'], 'ui:hidden', user.value.name === '公共配置')
+  return schema.value['baseSchema']
+})
+
+const base = computed(()=>{
+  const {cookie,createCookieDay,apiDelay,dailyRunTime,userAgent} = user.value.config
+  return {cookie,createCookieDay,apiDelay,dailyRunTime,userAgent}
+})
 
 const userAgent = ref('')
 
@@ -54,7 +50,7 @@ const formFooter = {
 };
 
 const change = ({newValue}) => {
-  users.value[index].config = {...users.value[index].config,...newValue}
+  users.value[index.value].config = {...users.value[index.value].config,...newValue}
 }
 </script>
 
@@ -69,7 +65,7 @@ const change = ({newValue}) => {
 <div class="form">
     <vue-form
       :modelValue="base"
-      :schema="schema['baseSchema']"
+      :schema="baseSchema"
       :form-props="formProps"
       :ui-schema="uiSchema"
       :formFooter="formFooter"

@@ -10,31 +10,31 @@ description: 常见问题解答
 
 **A：** 请查看文档，Cookie 的获取方式。[Cookie 的获取方式](../config/get_value.md#必看)
 
-<el-divider border-style="dashed" />
+<n-divider border-style="dashed" />
 
 **Q：** 使用青龙面板安装依赖失败？
 
 **A：** npm 包安装失败与本项目无关，建议尝试切换 npm 源，**更新青龙面板**。检查网络情况，如 DNS，防火墙，代理，路由器拦截等。可百度了解相关内容。
 
-<el-divider border-style="dashed" />
+<n-divider border-style="dashed" />
 
 **Q：** 版本何时更新？
 
 **A：** 不定期更新依赖，与时俱进。优先级高的 bug 会尽快修复。功能需求会根据实际情况更新。
 
-<el-divider border-style="dashed" />
+<n-divider border-style="dashed" />
 
 **Q：** 账号出现风控？
 
 **A：** 可能是程序的原因，但请优先考虑是否是异地使用等自身原因，然后再停止运行/反馈问题。
 
-<el-divider border-style="dashed" />
+<n-divider border-style="dashed" />
 
 **Q：** 莫名奇妙的投币，消耗道具，是不是程序盗用了？
 
 **A：** 是的，你别用。（代码是开源的你可以找出程序任何的盗用的行为）
 
-<el-divider border-style="dashed" />
+<n-divider border-style="dashed" />
 
 **Q：** 为什么这么垃圾？
 

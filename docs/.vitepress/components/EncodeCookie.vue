@@ -1,8 +1,8 @@
 <template>
-  <el-space>
-    <el-input v-model="cookie" placeholder="请输入 Cookie"></el-input>
-    <el-button @click="encodeCookieClick">点击编码</el-button>
-  </el-space>
+  <n-space>
+    <n-input v-model:value="cookie" placeholder="请输入 Cookie"></n-input>
+    <n-button @click="encodeCookieClick">点击编码</n-button>
+  </n-space>
 
   <div style="margin-top: 1em" v-if="newCookie">
     Cookie是否满足脚本要求（bili_jct， SESSDATA， DedeUserID，长度大于90）：{{
