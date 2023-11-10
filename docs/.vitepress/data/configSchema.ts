@@ -140,7 +140,7 @@ export function useConfigSchema() {
           type: 'integer',
         },
         description: '自定义投喂礼物用户列表',
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       id: {
         type: 'array',
@@ -217,9 +217,7 @@ export function useConfigSchema() {
           type: 'integer',
         },
         description: '自定义高优先级用户列表',
-        'ui:widget': DynamicInputNumber,
-        'ui:show-button': false,
-        'ui:show-sort-button': false,
+        'ui:widget': DynamicNumberTags,
       },
       targetLevel: {
         type: 'integer',
@@ -296,7 +294,7 @@ export function useConfigSchema() {
         items: {
           type: 'integer',
         },
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       name: {
         type: 'array',
@@ -305,7 +303,7 @@ export function useConfigSchema() {
         items: {
           type: 'string',
         },
-        'ui:widget': DynamicInput,
+        'ui:widget': DynamicTags,
       },
       love: {
         type: 'boolean',
@@ -344,7 +342,7 @@ export function useConfigSchema() {
         },
         default: [],
         description: '只操作此列表中的（优先级高于 黑名单）',
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       blackList: {
         type: 'array',
@@ -354,7 +352,7 @@ export function useConfigSchema() {
         },
         description: '操作全部，但排除其中的',
         default: [],
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       limitFeed: {
         type: 'integer',
@@ -424,7 +422,7 @@ export function useConfigSchema() {
         description: '取消关注的 tag',
         default: ['天选时刻', 'rp关注'],
         'ui:show-sort-button': false,
-        'ui:widget': DynamicInput,
+        'ui:widget': DynamicTags,
       },
     },
   };
@@ -705,7 +703,6 @@ export function useConfigSchema() {
         items: {
           type: 'string',
         },
-        'ui:show-sort-button': false,
         'ui:widget': DynamicTags,
       },
       includeAward: {
@@ -716,7 +713,6 @@ export function useConfigSchema() {
         items: {
           type: 'string',
         },
-        'ui:show-sort-button': false,
         'ui:widget': DynamicTags,
       },
       blackUid: {
@@ -727,8 +723,7 @@ export function useConfigSchema() {
         items: {
           type: 'integer',
         },
-        'ui:show-sort-button': false,
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       moveTag: {
         description: '关注的用户统一移动到此',
@@ -843,7 +838,7 @@ export function useConfigSchema() {
         items: {
           type: 'number',
         },
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       roomid: {
         type: 'array',
@@ -853,7 +848,7 @@ export function useConfigSchema() {
         items: {
           type: 'number',
         },
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       heart: {
         type: 'boolean',
@@ -909,7 +904,7 @@ export function useConfigSchema() {
         items: {
           type: 'number',
         },
-        'ui:widget': DynamicInputNumber,
+        'ui:widget': DynamicNumberTags,
       },
       delay: {
         description: '延时，单位秒，例如 [8, 13] 为 8-13s 之间随机',
