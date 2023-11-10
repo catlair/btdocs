@@ -15,7 +15,7 @@ const moduleValeComponent = mvc(
             trigger: ({ activate, disabled }) => (
               <NButton
                 size="small"
-                type="primary"
+                type="info"
                 dashed
                 disabled={disabled}
                 onClick={() => activate()}

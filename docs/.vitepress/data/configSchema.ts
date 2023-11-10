@@ -515,7 +515,7 @@ export function useConfigSchema() {
         items: {
           type: 'string',
         },
-        'ui:widget': DynamicInput,
+        'ui:widget': DynamicTags,
       },
       token: {
         type: 'array',
@@ -525,7 +525,7 @@ export function useConfigSchema() {
         items: {
           type: 'string',
         },
-        'ui:widget': DynamicInput,
+        'ui:widget': DynamicTags,
       },
     },
   };

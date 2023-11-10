@@ -3,6 +3,7 @@
     <template #input="{ submit, deactivate }">
       <n-input-number
         size="small"
+        ref="inputInstRef"
         :update-value-on-input="false"
         :show-button="false"
         @blur="deactivate"
@@ -24,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ref, watch, nextTick } from 'vue';
 import Add from '@vicons/ionicons5/Add';
 
 export default defineComponent({
@@ -36,13 +37,15 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props) {
-    const tags = computed({
-      get: () => props.modelValue?.map(String),
-      set(val) {
-        return val;
-      },
+    const inputInstRef = ref(null);
+    watch(inputInstRef, value => {
+      if (value) nextTick(() => value.focus());
     });
-    return { tags };
+    const tags = computed(() => props.modelValue?.map(String));
+    return {
+      tags,
+      inputInstRef,
+    };
   },
 });
 </script>
