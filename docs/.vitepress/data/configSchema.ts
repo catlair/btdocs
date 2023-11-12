@@ -819,7 +819,7 @@ export function useConfigSchema() {
         type: 'string',
         title: '请求 GitHub 使用的代理前缀',
         description: '请求 GitHub 使用的代理前缀，例如 https://ghproxy.com/',
-        default: 'https://ghproxy.com/',
+        default: '',
       },
       customUrl: {
         description:
