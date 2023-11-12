@@ -1,34 +1,27 @@
 <template>
-  <n-dynamic-input v-model:value="customValue" :on-create="onCreate">
-    <template #create-button-default> 随便搞点啥 </template>
-    <template #default="{ value }">
-      <div style="display: flex; align-items: center; width: 100%">
-        <n-checkbox v-model:checked="value.isCheck" style="margin-right: 12px" />
-        <n-input-number v-model:value="value.num" style="margin-right: 12px; width: 160px" />
-        <n-input v-model:value="value.string" type="text" />
-        {{ isReactive(value) }}
-      </div>
-    </template>
-  </n-dynamic-input>
-  <pre>{{ JSON.stringify(customValue, null, 2) }}</pre>
+  <n-space vertical>
+    <n-slider key="1" v-model:value="value1" :max="50" />
+    <n-slider key="2" v-model:value="value2" />
+    <n-slider key="13" v-model:value="value3" />
+    <n-slider key="11" v-model:value="value4" />
+    <n-input-number v-model:value="value1" size="small" />
+    <n-input-number v-model:value="value2" size="small" />
+    <n-input-number v-model:value="value3" size="small" />
+    <n-input-number v-model:value="value4" size="small" />
+  </n-space>
 </template>
 
-<script lang="ts" setup>
-import { ref, isReactive } from 'vue';
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
 
-const customValue = ref([
-  {
-    isCheck: true,
-    num: 1,
-    string: '一个字符串',
+export default defineComponent({
+  setup() {
+    return {
+      value1: ref(50),
+      value2: ref(50),
+      value3: ref(0),
+      value4: ref(0),
+    };
   },
-]);
-
-function onCreate() {
-  return {
-    isCheck: false,
-    num: 1,
-    string: '一个字符串',
-  };
-}
+});
 </script>

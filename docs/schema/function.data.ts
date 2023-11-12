@@ -1,6 +1,8 @@
+import { snakeToCamel } from '../.vitepress/utils';
+
 export default {
   load() {
-    return {
+    const task2func = {
       coin: 'addCoins',
       manga: 'mangaTask',
       coupon_balance: 'useCouponBp',
@@ -15,6 +17,13 @@ export default {
       daily_battery: 'dailyBattery',
       watch_link: 'watchLink',
       live_dm: 'liveDm',
+      red_pack: 'liveRedPack',
+    };
+    return {
+      task2func,
+      func2conf: Object.fromEntries(
+        Object.entries(task2func).map(([key, value]) => [value, snakeToCamel(key)]),
+      ),
     };
   },
 };

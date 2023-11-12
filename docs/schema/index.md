@@ -7,20 +7,51 @@ description: 配置表单
 <script setup lang="ts">
 import useConfigStore from '@store/config'
 import { getDefConfig } from '@store/_config'
+import { useLocalStorage } from '@vueuse/core'
+import { cloneDeep } from 'lodash-es'
 import { getCookieItem, difference } from '@utils'
+import { data } from './function.data'
 import { ref, computed } from 'vue'
 import * as naive from 'naive-ui';
 import JSON5 from 'json5'
 const { useMessage, useDialog } = naive;
 const store = useConfigStore()
 
+const settings = useLocalStorage<string[]>('config-settings',['default', 'common', 'unused', 'useless'])
+
 const defConfig = getDefConfig()
-const delDefConfig = computed(() => store.config.map((config) => difference(config, defConfig)))
-const commonConfig = delDefConfig.value.find(config => config.__common__)
-const simpleConfig = computed(() => commonConfig ? delDefConfig.value.map((config) => {
-  if(config.__common__) return config
-  return difference(config, commonConfig)
-}) : delDefConfig.value)
+
+const userConfig = computed(() => {
+  return settings.value.reduce((config, setting) => {
+    switch (setting) {
+      case 'default':
+        return config.map((config) => difference(config, defConfig));
+      case 'common':
+        {
+          const commonConfig = config.find(config => config.__common__)
+          return commonConfig ? config.map(config => config.__common__ ? config : difference(config, commonConfig)) : config
+        }
+      case 'unused':
+        {
+          return config.map(config => {
+            if(!config.function) return config
+            Object.entries<string>(data.func2conf).map(([key,value])=> {
+            if(config.function[key] === false){
+              Reflect.deleteProperty(config, value)
+            }
+           })
+           return config
+          })
+        }
+      case 'useless':
+        {
+          return config.filter(config => (config.__common__ || config.cookie));
+        }
+      default:
+        return config;
+    }
+  }, cloneDeep(store.config))
+})
 
 function getUsers(){
  if (!configJson.value) {
@@ -110,51 +141,25 @@ const dialog = useDialog()
 页面建设中，配置文档右转 [配置文档](/config/)
 :::
 
-## 宛如戏台上的老将军，背上插满了 flag
-
-::: tip
-在功能建设的道路上，你若有什么建议，请直接在底部评论区砸砖！
-
-虽然本项目目前还没有文档贡献者，但又如诗云：「登上那座南山，采摘蕨菜；没有见到君子，就会憔悴不堪。」
-
-最终，我们将以更轻松愉快的方式去替换现有的表格模式文档介绍，降低使用难度。所以，一起加入这个“地狱”，让我们一起让这个项目变得更美好！
-:::
-
-下面是 todo list，flag 立得像戏台上的老将军，但是谁说一定会做呢。
-
-- [x] 简单实现，~~什么，还不能用？那你说个 der~~，支持导入导出，姑且认为能用
-- [x] 多账号，也不是很难嘛
-- [x] 保存页面状态，一个插件而已
-- [ ] 保存状态到 indexDB，实现撤回功能。
-- [ ] UI 组件优化，你会 CSS？
-- [x] 导入已有配置
-- [x] 简化导出配置，大家磁盘都是花钱买的
-- [x] 组件支持主题，~~支持了，但又没支持~~，覆盖 @lljj/vue3-form-naive 部分 class 后真的支持了
-- [x] @lljj/vue3-form-naive 暗黑下的奇怪配色
-- [x] 配置项描述迁移
-- [ ] json 代码块可编辑
-- [ ] 修改部分配置从而更好适配
-- [ ] 处理默认值修改的情况
-- [ ] 配置复制
-- [ ] 完善部分配置校验，例如 Cookie
-- [ ] 导出配置过滤掉无效配置
-- [x] @lljj/vue3-form-naive 不支持 addtionalProperties，自定义实现部分需要动态输入的配置
-- [x] 公共配置隐藏 cookie 配置
-
 ## 配置总览
+
+<n-checkbox-group v-model:value="settings">
+  <n-space item-style="display: flex;">
+    <n-checkbox value="default" label="去除默认" />
+    <n-checkbox value="common" label="去除公共" />
+    <n-checkbox value="unused" label="去除未使用" />
+    <n-checkbox value="useless" label="去除无效" />
+  </n-space>
+</n-checkbox-group>
 
 ::: code-group
 
 ```json-vue [最简配置（推荐）]
-{{simpleConfig}}
-```
-
-```json-vue [去除默认]
-{{delDefConfig}}
+{{ userConfig }}
 ```
 
 ```json-vue [全部配置]
-{{store.config}}
+{{ store.config }}
 ```
 
 :::
@@ -193,3 +198,34 @@ const dialog = useDialog()
 :::
 
 <n-button @click="btnClick">重置缓存</n-button>
+
+## 宛如戏台上的老将军，背上插满了 flag
+
+::: tip
+在功能建设的道路上，你若有什么建议，请直接在底部评论区砸砖！
+
+虽然本项目目前还没有文档贡献者，但又如诗云：「登上那座南山，采摘蕨菜；没有见到君子，就会憔悴不堪。」
+
+最终，我们将以更轻松愉快的方式去替换现有的表格模式文档介绍，降低使用难度。所以，一起加入这个“地狱”，让我们一起让这个项目变得更美好！
+:::
+
+下面是 todo list，flag 立得像戏台上的老将军，但是谁说一定会做呢。
+
+- [x] 简单实现，~~什么，还不能用？那你说个 der~~，支持导入导出，姑且认为能用
+- [x] 多账号，也不是很难嘛
+- [x] 保存页面状态，一个插件而已
+- [ ] 保存状态到 indexDB，实现撤回功能。
+- [ ] UI 组件优化，你会 CSS？
+- [x] 导入已有配置
+- [x] 简化导出配置，大家磁盘都是花钱买的
+- [x] 组件支持主题，~~支持了，但又没支持~~，覆盖 @lljj/vue3-form-naive 部分 class 后真的支持了
+- [x] @lljj/vue3-form-naive 暗黑下的奇怪配色
+- [x] 配置项描述迁移
+- [ ] json 代码块可编辑
+- [ ] 修改部分配置从而更好适配
+- [ ] 处理默认值修改的情况
+- [ ] 配置复制
+- [ ] 完善部分配置校验，例如 Cookie
+- [ ] 导出配置过滤掉无效配置
+- [x] @lljj/vue3-form-naive 不支持 addtionalProperties，自定义实现部分需要动态输入的配置
+- [x] 公共配置隐藏 cookie 配置

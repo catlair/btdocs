@@ -54,7 +54,7 @@ const paths = [
       title: '直播间礼物',
       task: 'gift',
     },
-    content: 'PS：正常运行的前提时配置了目标用户 `mids`，否则不会运行。',
+    content: 'PS：正常运行的前提是配置了目标用户 `mids`，否则不会运行。',
   },
   {
     params: {

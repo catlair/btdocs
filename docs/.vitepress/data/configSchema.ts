@@ -1,5 +1,11 @@
 import { IntimacyDmField, MessageApiDataField } from '@fields';
-import { DynamicInput, DynamicInputNumber, DynamicTags, DynamicNumberTags } from '@widgets';
+import {
+  LinkAreaSelect,
+  DynamicInputNumber,
+  DynamicTags,
+  DynamicNumberTags,
+  DynamicSelect,
+} from '@widgets';
 import { ref } from 'vue';
 
 export function useConfigSchema() {
@@ -248,11 +254,10 @@ export function useConfigSchema() {
           type: 'string',
         },
         default: ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
-        description: '获取稿件的来源（排序），留空则来自 首页推荐',
-        'ui:widget': DynamicInput,
-        'ui:min': 1,
-        'ui:max': 5,
-        'ui:show-sort-button': true,
+        description: '获取稿件的来源（请注意排序），留空则来自 首页推荐',
+        'ui:widget': DynamicSelect,
+        'ui:enum': ['自定义UP', '特别关注', '关注', '首页推荐', '分区排行'],
+        'ui:multiple': true,
       },
       upperAccMatch: {
         type: 'boolean',
@@ -748,10 +753,9 @@ export function useConfigSchema() {
         type: 'string',
         title: '扫描关注的用户',
         description:
-          '扫描关注的用户，任意值则扫描，如果为 only 则只扫描关注用户，不会扫描直播分区。默认无值（不扫描）',
+          '扫描关注的用户，非设定值则扫描，如果为 only 则只扫描关注用户，不会扫描直播分区。默认无值（不扫描）',
         enum: ['only', '不扫描'],
         enumNames: ['只扫描关注', '不扫描'],
-        default: '不扫描',
       },
       skipNeedFollow: {
         description: '跳过条件为关注的天选时刻',
@@ -882,6 +886,7 @@ export function useConfigSchema() {
           [3, 321],
           [3, 549],
         ],
+        'ui:widget': LinkAreaSelect,
         items: {
           type: 'array',
           default: [3, 321],
