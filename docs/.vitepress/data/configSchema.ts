@@ -818,8 +818,8 @@ export function useConfigSchema() {
       proxyPrefix: {
         type: 'string',
         title: '请求 GitHub 使用的代理前缀',
-        description: '请求 GitHub 使用的代理前缀，例如 https://ghproxy.com/',
-        default: '',
+        description: '请求 GitHub 使用的代理前缀，例如 https://mirror.ghproxy.com/',
+        default: 'https://mirror.ghproxy.com/',
       },
       customUrl: {
         description:
