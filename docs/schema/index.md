@@ -11,18 +11,22 @@ import { useLocalStorage } from '@vueuse/core'
 import { cloneDeep } from 'lodash-es'
 import { getCookieItem, difference } from '@utils'
 import { data } from './function.data'
-import { ref, computed } from 'vue'
+import { ref, computed, VNode, h } from 'vue'
 import * as naive from 'naive-ui';
 import JSON5 from 'json5'
 const { useMessage, useDialog } = naive;
 const store = useConfigStore()
 
 const settings = useLocalStorage<string[]>('config-settings',['default', 'common', 'unused', 'useless'])
+const selectUsers = ref<string[]>([])
+const commonDisabled = ref(false)
 
 const defConfig = getDefConfig()
 
 const userConfig = computed(() => {
-  return ['default', 'common', 'unused', 'useless'].filter(str=> settings.value.includes(str)).reduce((config, setting) => {
+  commonDisabled.value = settings.value.includes('users')
+
+  return ['default', 'common', 'unused', 'useless', 'users'].filter(str => settings.value.includes(str)).reduce((config, setting) => {
     switch (setting) {
       case 'default':
         return config.map((config) => difference(config, defConfig));
@@ -51,7 +55,7 @@ const userConfig = computed(() => {
       default:
         return config;
     }
-  }, cloneDeep(store.config))
+  }, cloneDeep<any[]>(settings.value.includes('users') ? store.users.map(user => selectUsers.value.includes(user.name) && user.config).filter(Boolean) : store.config))
 })
 
 function getUsers(){
@@ -136,6 +140,12 @@ function mergeBtn(){
 const configJson = ref('')
 const message = useMessage()
 const dialog = useDialog()
+
+const selectUsersRenderOption = ({ node, option }: { node: VNode; option: naive.SelectOption }) =>
+  h(naive.NTooltip, null, {
+    trigger: () => node,
+    default: () => option.remark
+  })
 </script>
 
 ::: tip
@@ -144,14 +154,19 @@ const dialog = useDialog()
 
 ## 配置总览
 
+<n-space vertical>
 <n-checkbox-group v-model:value="settings">
   <n-space item-style="display: flex;">
     <n-checkbox value="default" label="去除默认" />
-    <n-checkbox value="common" label="去除公共" />
+    <n-checkbox value="common" label="去除公共" :disabled="commonDisabled" />
     <n-checkbox value="unused" label="去除未使用" />
     <n-checkbox value="useless" label="去除无效" />
+    <n-checkbox value="users" label="指定用户" />
   </n-space>
 </n-checkbox-group>
+
+<n-select v-show="settings.includes('users')" v-model:value="selectUsers" :render-option="selectUsersRenderOption" multiple :options="store.users.map(user => ({label:user.name,value:user.name,remark:user.remark}))"/>
+</n-space>
 
 ::: code-group
 
