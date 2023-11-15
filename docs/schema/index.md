@@ -22,7 +22,7 @@ const settings = useLocalStorage<string[]>('config-settings',['default', 'common
 const defConfig = getDefConfig()
 
 const userConfig = computed(() => {
-  return settings.value.reduce((config, setting) => {
+  return ['default', 'common', 'unused', 'useless'].filter(str=> settings.value.includes(str)).reduce((config, setting) => {
     switch (setting) {
       case 'default':
         return config.map((config) => difference(config, defConfig));
@@ -34,9 +34,10 @@ const userConfig = computed(() => {
       case 'unused':
         {
           return config.map(config => {
-            if(!config.function) return config
+            if(config.__common__) return config
+            const functions = Object.assign({}, defConfig.function, config.function)
             Object.entries<string>(data.func2conf).map(([key,value])=> {
-            if(config.function[key] === false){
+            if(functions[key] === false){
               Reflect.deleteProperty(config, value)
             }
            })
