@@ -186,18 +186,13 @@ function nav(): DefaultTheme.NavItem[] {
           target: '_blank',
         },
         {
-          text: 'CORN 在线工具',
-          link: 'http://cron.ciding.cc/',
-          target: '_blank',
-        },
-        {
           text: '获取安卓 APK 登录',
           link: 'https://github.com/catlair/blogin/',
           target: '_blank',
         },
         {
-          text: '简易 CORN 定时任务工具',
-          link: 'https://github.com/catlair/cron/',
+          text: '项目无关小工具',
+          link: '/tools/',
           target: '_blank',
         },
       ],
