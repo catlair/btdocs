@@ -20,3 +20,4 @@ yarn-error.log
 docs/.vitepress/dist
 docs/.vitepress/cache
 .vercel
+.vitepress/cache

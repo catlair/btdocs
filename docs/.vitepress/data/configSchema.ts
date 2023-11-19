@@ -1327,7 +1327,7 @@ export function useConfigSchema() {
         title: 'cookie',
         description: '必填项 <a href="/config/get_value#必看">获取 Cookie 参考</a>',
         default: '',
-        minLength: 60,
+        minLength: 90,
         'ui:options': {
           type: 'textarea',
           rows: 16,

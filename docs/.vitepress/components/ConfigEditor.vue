@@ -34,7 +34,7 @@ import { oneDark } from '@codemirror/theme-one-dark';
 import JSON5 from 'json5';
 import { ElMessage } from 'element-plus';
 import 'element-plus/es/components/message/style/css';
-import { isBiliCookie } from './utils/cookie';
+import { isBiliCookie } from '@utils/cookie';
 import { schema, arrSchema } from './schema';
 
 const code = ref(``);

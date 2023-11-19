@@ -5,6 +5,7 @@ import { storeToRefs } from 'pinia';
 import { ref, onMounted, computed } from 'vue'
 import useConfigStore from '@store/config'
 import { useConfigSchema } from '@data/configSchema'
+import { isBiliCookie } from '@utils/cookie'
 import VueForm from '@lljj/vue3-form-naive';
 
 const schema = useConfigSchema()
@@ -12,7 +13,7 @@ const schema = useConfigSchema()
 const configStore = useConfigStore()
 const { users, index } = storeToRefs(configStore)
 
-const user = computed(()=>users.value[index.value])
+const user = computed(() => users.value[index.value])
 
 
 const baseSchema = computed(() => {
@@ -52,6 +53,27 @@ const formFooter = {
 const change = ({newValue}) => {
   users.value[index.value].config = {...users.value[index.value].config,...newValue}
 }
+
+const rules = [{
+        rule: 'cookie',
+        validator(value, _rootFormData) {
+            if (!isBiliCookie(value)) return 'Cookie 校验不通过，请注意 Cookie是否满足脚本要求（至少存在 bili_jct， SESSDATA， DedeUserID，且长度大于90）';
+        }
+}];
+
+const customRule = ({field, value, rootFormData, callback}) => {
+    for(const ruleItem of rules) {
+        // String | Regx
+        if ((String(ruleItem.rule) === ruleItem.rule && ruleItem.rule === field)
+                || (Object.prototype.toString.call(ruleItem.rule) === '[object RegExp]' && ruleItem.rule.test(field))
+        ) {
+            const error = ruleItem.validator(value, rootFormData);
+            // 停止继续校验
+            if (error) return callback(error);
+        }
+    }
+    return callback()
+}
 </script>
 
 # 基本配置
@@ -69,6 +91,7 @@ const change = ({newValue}) => {
       :form-props="formProps"
       :ui-schema="uiSchema"
       :formFooter="formFooter"
+      :custom-rule="customRule"
       @submit="submit"
       @change="change"
     ></vue-form>

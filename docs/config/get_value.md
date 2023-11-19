@@ -37,6 +37,26 @@ LIVE_BUVID=AUTO8016188357987702; bsource=search_baidu; PVID=2
 ![bili_exit](/images/bili_exit.png)
 :::
 
+::: danger 注意
+在使用 Chromium 类的浏览器时复制时一定要选中**复制**，而不是使用自带的**复制值**功能。
+:::
+
+选中值，点击右键，选择 `复制`或者按键 `Ctrl + C`，得到结果会被编码（下为可能被编码的部分）。
+
+```
+SESSDATA=b2817085%2C1672313089%2C25294%2A71; PVID=3; b_timer=%7B%22ffp%22%3A%7B%22333.851.fp.risk_B0835BF0%22%3A%22181C34B87E8%22%2C%22777.5.0.0.fp.risk_B0835BF0%22%3A%22181C352F104%22%7D%7D
+```
+
+点击项，点击右键，选择 `复制值`，得到结果并没有被编码（如下举例），这个添加到配置中是会导致 json5 格式错误的，并且部分接口数据也会异常。
+
+```
+SESSDATA=b281131,167123189,1235294*21; PVID=3; b_timer={"ffp":{"333.851.fp.risk_B0835BF0":"181C34B87E8","777.5.0.0.fp.risk_B0835BF0":"181C352F104"}}
+```
+
+当然你可以把其放到这里进行编码
+
+<EncodeCookie></EncodeCookie>
+
 ## PC 获取 Cookie 的方法
 
 推荐使用 Firefox/Chrome/Chromium Edge/360 极速浏览器
@@ -61,26 +81,6 @@ LIVE_BUVID=AUTO8016188357987702; bsource=search_baidu; PVID=2
 点击某一个请求（通常为 nav ）
 
 ![chrome-net-bnav](/images/chrome-net-bnav.png)
-
-::: danger 注意
-在使用 Chromium 类的浏览器时复制时一定要选中**复制**，而不是使用自带的**复制值**功能。
-:::
-
-选中值，点击右键，选择 `复制`或者按键 `Ctrl + C`，得到结果会被编码（下为可能被编码的部分）。
-
-```
-SESSDATA=b2817085%2C1672313089%2C25294%2A71; PVID=3; b_timer=%7B%22ffp%22%3A%7B%22333.851.fp.risk_B0835BF0%22%3A%22181C34B87E8%22%2C%22777.5.0.0.fp.risk_B0835BF0%22%3A%22181C352F104%22%7D%7D
-```
-
-点击项，点击右键，选择 `复制值`，得到结果并没有被编码（如下举例），这个添加到配置中是会导致 json5 格式错误的，并且部分接口数据也会异常。
-
-```
-SESSDATA=b281131,167123189,1235294*21; PVID=3; b_timer={"ffp":{"333.851.fp.risk_B0835BF0":"181C34B87E8","777.5.0.0.fp.risk_B0835BF0":"181C352F104"}}
-```
-
-当然你可以把其放到这里进行编码
-
-<EncodeCookie></EncodeCookie>
 
 ## 移动端获取 cookie
 

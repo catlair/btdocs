@@ -1,6 +1,4 @@
-function getCookieJSON(
-  cookie: string | undefined
-): Record<string, string> | undefined {
+function getCookieJSON(cookie: string | undefined): Record<string, string> | undefined {
   if (!cookie) return {};
   // 使用正则表达式获取 cookie 键值对，并转换为对象
   return cookie.match(/([^;=]+)(?:=([^;]*))?/g)?.reduce((pre, cur) => {
@@ -22,9 +20,7 @@ function encodeCookieValue(val: string): string {
 export function encodeCookie(cookie: string) {
   const cookieJson = getCookieJSON(cookie);
   if (!cookieJson) return 'cookie 存在错误！！！';
-  Object.entries(cookieJson).forEach(
-    ([key, val]) => (cookieJson[key] = encodeCookieValue(val))
-  );
+  Object.entries(cookieJson).forEach(([key, val]) => (cookieJson[key] = encodeCookieValue(val)));
   return getCookieString(cookieJson);
 }
 
@@ -39,8 +35,13 @@ export function isBiliCookie(cookie: string) {
   return Boolean(
     cookie &&
       cookie.length > 90 &&
-      ['bili_jct', 'SESSDATA', 'DedeUserID'].every((str) =>
-        cookie.includes(str)
-      )
+      ['bili_jct', 'SESSDATA', 'DedeUserID'].every(str => cookie.includes(str)),
   );
+}
+
+export function getCookieItem(cookie: string | undefined, key: string) {
+  if (!cookie) return null;
+  const reg = `(?:^| )${key}=([^;]*)(?:;|$)`;
+  const r = cookie.match(reg);
+  return r ? r[1] : null;
 }

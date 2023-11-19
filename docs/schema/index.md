@@ -231,7 +231,7 @@ const selectUsersRenderOption = ({ node, option }: { node: VNode; option: naive.
 - [x] 多账号，也不是很难嘛
 - [x] 保存页面状态，一个插件而已
 - [ ] 保存状态到 indexDB，实现撤回功能。
-- [ ] UI 组件优化，你会 CSS？
+- [x] UI 组件优化，~~你会 CSS？~~
 - [x] 导入已有配置
 - [x] 简化导出配置，大家磁盘都是花钱买的
 - [x] 组件支持主题，~~支持了，但又没支持~~，覆盖 @lljj/vue3-form-naive 部分 class 后真的支持了
@@ -240,8 +240,8 @@ const selectUsersRenderOption = ({ node, option }: { node: VNode; option: naive.
 - [ ] json 代码块可编辑
 - [ ] 修改部分配置从而更好适配
 - [ ] 处理默认值修改的情况
-- [ ] 配置复制
-- [ ] 完善部分配置校验，例如 Cookie
-- [ ] 导出配置过滤掉无效配置
+- [x] 配置复制
+- [ ] 完善部分配置校验，例如 Cookie，doing（cookie 已完成
+- [x] 导出配置过滤掉无效配置
 - [x] @lljj/vue3-form-naive 不支持 addtionalProperties，自定义实现部分需要动态输入的配置
 - [x] 公共配置隐藏 cookie 配置

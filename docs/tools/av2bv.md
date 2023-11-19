@@ -12,7 +12,7 @@ const BASE = 58n;
 
 const data = 'FcwAPNKTMug3GV5Lj7EJnHpWsx4tb8haYeviqBz6rkCy12mUSDQX9RdoZf';
 
-function av2bv(aid) {
+function av2bv(aid: number) {
   const bytes = ['B', 'V', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0'];
   let bv_idx = bytes.length - 1;
   let tmp = (MAX_AID | BigInt(aid)) ^ XOR_CODE;
@@ -26,8 +26,8 @@ function av2bv(aid) {
   return bytes.join('');
 }
 
-function bv2av(bvid) {
-  const bvidArr = Array.from(bvid);
+function bv2av(bvid: string) {
+  const bvidArr = Array.from<string>(bvid);
   [bvidArr[3], bvidArr[9]] = [bvidArr[9], bvidArr[3]];
   [bvidArr[4], bvidArr[7]] = [bvidArr[7], bvidArr[4]];
   bvidArr.splice(0, 3);

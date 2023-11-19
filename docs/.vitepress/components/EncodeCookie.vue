@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import { encodeCookie, isBiliCookie } from './utils/cookie';
+import { encodeCookie, isBiliCookie } from '@utils/cookie';
 
 const cookie = ref('');
 const newCookie = ref('');
