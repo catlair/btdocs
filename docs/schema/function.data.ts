@@ -14,6 +14,7 @@ export default {
       big_point: 'bigPoint',
       jury: 'judgement',
       activity_lottery: 'activityLottery',
+      add_exp: 'addExp',
       daily_battery: 'dailyBattery',
       watch_link: 'watchLink',
       live_dm: 'liveDm',

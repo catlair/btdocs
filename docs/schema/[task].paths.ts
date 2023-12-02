@@ -110,6 +110,14 @@ const paths = [
   },
   {
     params: {
+      title: '大会员每日 10 经验',
+      task: 'add_exp',
+    },
+    content:
+      '默认配置逻辑：无需配置，主动播放视频（如需）并领取。没有年度大会员也可以在配置中开启非大会员领取。',
+  },
+  {
+    params: {
       title: '每日电池',
       task: 'daily_battery',
     },

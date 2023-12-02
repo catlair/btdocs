@@ -296,6 +296,10 @@ export function getDefConfig() {
       skipNeedFollow: false,
       // 打印可能中奖的消息
       mayBeWinMsg: true,
+      // 扫描分区
+      area: [] as string[],
+      // 开启扫描分区
+      useArea: false,
     },
     redPack: {
       /**

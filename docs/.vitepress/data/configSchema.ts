@@ -6,6 +6,7 @@ import {
   DynamicNumberTags,
   DynamicSelect,
 } from '@widgets';
+import { options as linkAreaOptions } from '@widgets/linkAreaSelect';
 import { ref } from 'vue';
 
 export function useConfigSchema() {
@@ -769,6 +770,23 @@ export function useConfigSchema() {
         type: 'boolean',
         default: true,
       },
+      useArea: {
+        description: '开启扫描分区？',
+        title: '开启扫描分区',
+        type: 'boolean',
+        default: false,
+      },
+      area: {
+        description: '扫描分区白名单，开启后只扫描分区内的',
+        title: '扫描分区白名单',
+        'ui:widget': DynamicSelect,
+        items: {
+          type: 'string',
+        },
+        default: [],
+        'ui:enum': linkAreaOptions.map(area => area.label),
+        'ui:multiple': true,
+      },
     },
   };
 
@@ -992,6 +1010,25 @@ export function useConfigSchema() {
         description: '直播时间',
         title: '直播时间',
         default: 33,
+      },
+    },
+  };
+
+  const addExpSchema = {
+    type: 'object',
+    properties: {
+      needVip: {
+        type: 'boolean',
+        description: '如果你不是年度大会员依然想领取请关闭此选项，后果自负（官方说不是 bug）',
+        title: '需要年度大会员',
+        default: true,
+      },
+      watchVideo: {
+        type: 'boolean',
+        description:
+          '关闭{需要年度大会员}后此配置才有效。没有年度大会员无法判断你的任务完成情况，建议开启，每次领取前都观看一次视频',
+        title: '观看视频',
+        default: true,
       },
     },
   };
@@ -1387,6 +1424,7 @@ export function useConfigSchema() {
     watchLinkSchema,
     blinkSchema,
     liveDmSchema,
+    addExpSchema,
     appSchema,
     functionSchema,
     limitSchema,
