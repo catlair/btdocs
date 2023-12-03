@@ -117,7 +117,7 @@ GitHub 上的开源项目：
 
 感谢以下平台为本项目提供服务（主要是教给有缘人白嫖技巧）：
 
-- [vercel](https://vercel.com/) 为本项目提供静态网站托管服务（为支持国内访问，本人自费 2024666.xyz 域名）。
+- [vercel](https://vercel.com/) 为本项目提供静态网站托管服务。
 - [supabase](https://supabase.io/) 为本项目提供数据库服务。
 - [mongodb](https://www.mongodb.com/) 为本项目提供数据库服务。
 - [js.org](https://js.org/) 为本项目提供域名服务，用于 Github pages 部署的备份文档。
