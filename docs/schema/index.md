@@ -148,8 +148,12 @@ const selectUsersRenderOption = ({ node, option }: { node: VNode; option: naive.
   })
 </script>
 
-::: tip
+::: tip 提示
 页面建设中，配置文档右转 [配置文档](/config/)
+:::
+
+::: tip 提示
+默认填写的表单是公共配置，公共配置不能够填写 Cookie，需要配置帐号请在帐号管理中添加一个配置。
 :::
 
 ## 配置总览

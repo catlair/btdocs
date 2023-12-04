@@ -15,6 +15,8 @@ description: 简单介绍
 
 <!-- <Badge v-if="isRefreshed" type="tip" :text="`版本${tagName}`" vertical="top" /> -->
 
+[点击跳转](/schema/function)
+
 <!--@include: ../md/func.md-->
 
 ## 重要提示
@@ -23,17 +25,9 @@ description: 简单介绍
 cookie 重要提示（关于频繁失效），除了账号本身可能存在的风险外（例如异地登录，大量的天选等），还可能是以下原因：
 
 请务必查看 Cookie 的获取[点击这里跳转](../config/get_value.md)
-
-由于 百度云函数 华为云函数 已经开始收费，且统计数据表明，使用人数较少，所以不再提供此类云函数部署，如有需要请自行编译。
 :::
 
 <!-- 不管你是否注意到，但是我很高兴的告诉，本项目不再开源，当然下载到的内容能够直接看到代码。开源与不开源无所谓，因为到闭源为止，通过 issue 和 pr 提供代码或文档帮助的一共只有 5 位， star 有 263 个。如果你还想再来到这里，记住 `btdocs.vercel.app` 才是一直不变的链接。 -->
-
-::: tip
-获取直播间 -412 错误，暂时不知道怎么解决。影响功能：liveLottery、liveRedPack。
-
-通过半年实测，createCookieDay 配置确实有延长 cookie 时效的效果。
-:::
 
 ## 使用说明
 
@@ -92,12 +86,12 @@ cookie 重要提示（关于频繁失效），除了账号本身可能存在的�
 
 GitHub 上的开源项目：
 
-- [SocialSisterYi/bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect)
-- [catlair/bili-task-puppeteer](https://github.com/catlair/bili-task-puppeteer)
-- [lzghzr/TampermonkeyJS](https://github.com/lzghzr/TampermonkeyJS)
-- [whyour/qinglong](https://github.com/whyour/qinglong)
-- [RayWangQvQ/BiliBiliToolPro](https://github.com/RayWangQvQ/BiliBiliToolPro)
-- [dd178/BILI_judgement](https://github.com/dd178/BILI_judgement)
+- [SocialSisterYi/bilibili-API-collect - 参考 API 文档](https://github.com/SocialSisterYi/bilibili-API-collect)
+- [catlair/bili-task-puppeteer - （已归档）](https://github.com/catlair/bili-task-puppeteer)
+- [lzghzr/TampermonkeyJS - 直播心跳参考](https://github.com/lzghzr/TampermonkeyJS)
+- [whyour/qinglong - 推送参考](https://github.com/whyour/qinglong)
+- [RayWangQvQ/BiliBiliToolPro - 梦开始的地方](https://github.com/RayWangQvQ/BiliBiliToolPro)
+- [dd178/BILI_judgement - 风纪委员 API 参考](https://github.com/dd178/BILI_judgement)
 
 同时感谢所有被依赖的开源项目，详见 package.json。包括没有依赖的 https://github.com/lodash
 
@@ -117,13 +111,27 @@ GitHub 上的开源项目：
 
 感谢以下平台为本项目提供服务（主要是教给有缘人白嫖技巧）：
 
+- [VS Code](https://code.visualstudio.com/) 宇宙第一慢编辑器（
+- [JetBrains](https://www.jetbrains.com/) 宇宙第一卡集成开发环境（
+- [FiraCode](https://github.com/tonsky/FiraCode) 推荐的编程字体。
 - [vercel](https://vercel.com/) 为本项目提供静态网站托管服务。
 - [supabase](https://supabase.io/) 为本项目提供数据库服务。
 - [mongodb](https://www.mongodb.com/) 为本项目提供数据库服务。
 - [js.org](https://js.org/) 为本项目提供域名服务，用于 Github pages 部署的备份文档。
+- [js.cool](https://js.cool/) 为本项目提供域名服务，用于 Vercel 部署的主要文档。
 - [github pages](https://pages.github.com/) 为本项目提供静态网站托管服务。
 - [github actions](https://docs.github.com/zh/actions) 为本项目提供持续集成服务。
 - [renovate](https://www.mend.io/renovate/) 为本项目提供依赖更新服务。
 - [bilibili](https://www.bilibili.com/) 为本项目提供在线视频服务。
 - [twikoo](https://twikoo.js.org/) 一个简洁、安全、免费的静态网站评论系统。
 - [vitepress](https://vitepress.dev/) Simple, powerful, and fast. Meet the modern SSG framework you've always wanted.
+
+### 项目所使用的语言
+
+- [JavaScript](https://github.com/tc39/proposals) 这就是一坨屎。
+- [TypeScript](https://github.com/tc39/proposals) 给屎加了点塘。
+- [Go](https://go.dev/) Life is short, let is Go.
+- [Rust](https://www.rust-lang.org/) 编程届的原神。
+- [CSS](https://www.w3.org/Style/CSS/Overview.en.html) 全宇宙应用最广泛的样式表语言。
+- [HTML](https://html.spec.whatwg.org/multipage/) 不知道怎么描述。
+- [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) 这玩意儿有官网？

@@ -28,67 +28,8 @@
 | ~~liveLottery~~  |        | ~~直播天选时刻~~（黑号风险）                  | [点击](/config/func.md#天选时刻)    |
 | liveRedPack      |        | 直播天选红包                                  | [点击](/config/func.md#每日电池)    |
 | dailyBattery     |        | 每日电池任务                                  | [点击](/config/func.md#天选红包)    |
-| addExp           | `true` | 大会员领取经验                                | 无                                  |
+| addExp           | `true` | 大会员领取经验                                |                                     |
 | activityLottery  |        | 转盘抽奖                                      | [点击](/config/func.md#转盘抽奖)    |
 | judgement        |        | 风纪委员                                      | [点击](/config/func.md#风纪委员)    |
 | ~~liveWeekTask~~ |        | 直播周任务                                    |                                     |
 | ~~blink~~        |        | 直播                                          |                                     |
-
-::: details 参考写法
-
-```json5
-{
-  function: {
-    // 瓜子兑换硬币
-    silver2Coin: true,
-    // 直播签到
-    liveSignTask: true,
-    // 投币
-    addCoins: true,
-    // 分享和观看
-    shareAndWatch: true,
-    // 应援团签到
-    supGroupSign: false,
-    // 使用 b 币券
-    useCouponBp: false,
-    // 充电（废弃）
-    charging: false,
-    // 获取 vip 权益
-    getVipPrivilege: false,
-    // 直播赠送礼物
-    giveGift: false,
-    // 赛事竞猜
-    matchGame: false,
-    // 直播天选时刻
-    liveLottery: false,
-    // 直播天选红包
-    liveRedPack: false,
-    // 批量取关
-    batchUnfollow: false,
-    // 粉丝牌等级
-    liveIntimacy: false,
-    // 漫画任务
-    mangaTask: false,
-    // 大会员积分
-    bigPoint: false,
-    // 风纪委员
-    judgement: false,
-    // 转盘抽奖
-    activityLottery: false,
-    // 每日电池
-    dailyBattery: false,
-    // 每日直播任务
-    liveWeekTask: false,
-    // 直播
-    blink: false,
-    // 直播间心跳
-    watchLink: false,
-    // 直播弹幕
-    liveDm: false,
-  },
-}
-```
-
-:::
-
-- dailyBattery 于亲密度和红包任务完成后执行，可以减少弹幕的发送。

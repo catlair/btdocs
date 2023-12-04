@@ -117,7 +117,7 @@ export function useConfigSchema() {
         type: 'integer',
         title: '压硬币数量',
         default: 2,
-        description: '压硬币数量',
+        description: '每一场赛事压硬币数量',
         maximum: 10,
         minimum: 1,
       },
@@ -189,9 +189,9 @@ export function useConfigSchema() {
     properties: {
       mid: {
         type: 'integer',
-        title: '充电的 up',
+        title: '充电的 up uid',
         default: 0,
-        description: '充电的 up 默认自己',
+        description: '填写 uid （0 会被处理为自己）',
       },
       presetTime: {
         type: 'array',
@@ -223,7 +223,7 @@ export function useConfigSchema() {
         items: {
           type: 'integer',
         },
-        description: '自定义高优先级用户列表',
+        description: '自定义高优先级用户列表（填入 uid），将会随机选择，与顺序无关',
         'ui:widget': DynamicNumberTags,
       },
       targetLevel: {
@@ -1362,7 +1362,7 @@ export function useConfigSchema() {
       cookie: {
         type: 'string',
         title: 'cookie',
-        description: '必填项 <a href="/config/get_value#必看">获取 Cookie 参考</a>',
+        description: '必填项 <a href="/config/get_value#必看" target="_blank">获取 Cookie 参考</a>',
         default: '',
         minLength: 90,
         'ui:options': {
