@@ -8,8 +8,11 @@ description: 本地直接运行
 
 Node.js 首先需要本地的运行环境：
 
-- [下载 Node.js 长期维护版](https://nodejs.org/zh-cn/)
-- [安装到系统](https://www.runoob.com/nodejs/nodejs-install-setup.html)
+- [下载 Node.js 长期维护版（官网）](https://nodejs.org/)
+- [下载 Node.js（阿里镜像）](https://registry.npmmirror.com/-/binary/node/latest-iron/)
+- [下载 Node.js（科大镜像）](https://mirrors.ustc.edu.cn/help/node.html)
+- [下载 Win 64 位最新 LTS（阿里镜像）](https://registry.npmmirror.com/-/binary/node/latest-iron/node-v20.10.0-x64.msi)
+- [安装到系统教程](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 
 ::: tip 提示
 如果已经安装了 node14 及以上可以跳过此步骤。
