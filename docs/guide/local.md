@@ -108,9 +108,9 @@ linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务
 
 ![win_run_taskschd](/images/win_run.png)
 
-这里的命令是 `npx`，安装 node 就有，没有那是你的问题，别问我。
+这里的命令是 `bilioutils`。
 
-参数是 `bilioutils -c E:\github\bilitools\config.json5 -ld E:\github\bilitools` 注意更改路径哦，别问我路径怎么写，我也不知道。并且你能确保你的命令能够在 cmd 或者 powershell 中直接运行成功。
+参数是 `-c E:\github\bilitools\config.json5 -ld E:\github\bilitools` 注意更改路径哦，别问我路径怎么写，我也不知道。并且你能确保你的命令能够在 cmd 或者 powershell 中直接运行成功。
 
 起始于，如果你知道是啥最好写上，不知道那就别乱填写。
 
@@ -127,6 +127,8 @@ linux 推荐用 crontab 来定时运行，windows 下也可以使用系统任务
 ## 参考视频
 
 windows 下的定时运行方式，可以参考这个视频：
+
+注意：视频有时效性，与文档有出入处请以文档为准。
 
 <BilibiliVideo bv="BV1oF411y71V"/>
 
