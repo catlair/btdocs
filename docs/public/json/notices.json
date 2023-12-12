@@ -1,10 +1,20 @@
 {
   "common": [
     {
-      "content": "本项目开源且免费，文档地址 https://b.2024666.xyz 使用请自觉 star，请不要无故 fork 本项目。"
+      "content": "本项目开源且免费，文档地址 https://bo.js.cool 使用请自觉 star，by --- catlair。"
     },
     {
       "rule": [
+        {
+          "key": ["function", "mangaTask"],
+          "value": true
+        },
+        {
+          "key": ["manga", "summer"],
+          "value": true
+        }
+      ],
+      "config": [
         {
           "key": ["function", "mangaTask"],
           "value": true
@@ -27,10 +37,22 @@
           "value": "https://ghproxy.com/"
         }
       ],
+      "config": [
+        {
+          "key": ["activityLottery", "proxyPrefix"],
+          "value": "https://ghproxy.com/"
+        }
+      ],
       "content": "ghproxy 似乎已经失效，如果转盘出现 All promises were rejected 错误请删除 ghproxy 否则无法更新"
     },
     {
       "rule": [
+        {
+          "key": ["manga", "summer"],
+          "value": true
+        }
+      ],
+      "config": [
         {
           "key": ["manga", "summer"],
           "value": true
