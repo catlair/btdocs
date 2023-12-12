@@ -1,7 +1,8 @@
 {
   "common": [
     {
-      "content": "本项目开源且免费，文档地址 https://bo.js.cool 使用请自觉 star，by --- catlair。"
+      "content": "本项目开源且免费，文档地址 https://bo.js.cool 使用请自觉 star，by --- catlair。",
+      "config": []
     },
     {
       "rule": [
