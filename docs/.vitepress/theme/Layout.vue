@@ -22,10 +22,8 @@ const arrayOrderListBackground = computed(() => (!isDark.value ? '#ecf0f1' : '#2
     <n-message-provider>
       <n-dialog-provider>
         <Layout>
-          <template #doc-after>
-            <TwComment />
-          </template> </Layout
-      ></n-dialog-provider>
+        </Layout>
+      </n-dialog-provider>
     </n-message-provider>
   </n-config-provider>
 </template>
