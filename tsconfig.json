@@ -12,6 +12,17 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "paths": {
+      "@components/*": [
+        "./docs/.vitpress/components/*"
+      ],
+      "@utils/*": [
+        "./docs/.vitpress/utils/*"
+      ],
+      "@store/*": [
+        "./docs/.vitpress/store/*"
+      ]
+    },
   },
   "include": [
     "docs/**/*.ts",
@@ -23,15 +34,4 @@
   "types": [
     "element-plus/global"
   ],
-  "paths": {
-    "@components/*": [
-      "./docs/.vitpress/components/*"
-    ],
-    "@utils/*": [
-      "./docs/.vitpress/utils/*"
-    ],
-    "@store/*": [
-      "./docs/.vitpress/store/*"
-    ]
-  },
 }
