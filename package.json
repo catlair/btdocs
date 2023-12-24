@@ -16,6 +16,7 @@
     "consola": "^3.2.3",
     "naive-ui": "^2.35.0",
     "node-fetch": "^3.3.2",
+    "@catlair/bilicomic-dataflow": "^0.0.4",
     "patch-package": "^8.0.0",
     "sass": "^1.64.1",
     "typescript": "^5.2.2",
