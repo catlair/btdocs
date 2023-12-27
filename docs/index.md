@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: 配置编辑
       link: /schema/
+    - theme: brand
+      text: WPS 脚本
+      link: /wps/
 
 features:
   - title: 开箱即用 🎉

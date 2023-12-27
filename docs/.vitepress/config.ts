@@ -249,6 +249,11 @@ function nav(): DefaultTheme.NavItem[] {
           link: 'https://docs.github.com/cn/actions',
           target: '_blank',
         },
+        {
+          text: '金山文档',
+          link: 'https://www.kdocs.cn/',
+          target: '_blank',
+        },
       ],
     },
   ];
