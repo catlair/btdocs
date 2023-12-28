@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'BiliOutils'
   text: 'Bilibili 每日工具箱'
-  tagline: 简单，强大，开源，免费，持续更新。满足你的一切需求（并不
+  tagline: 持续更新。满足你的一切需求（并不
   actions:
     - theme: brand
       text: 上手指南
@@ -13,7 +13,7 @@ hero:
     - theme: alt
       text: 配置编辑
       link: /schema/
-    - theme: brand
+    - theme: alt
       text: WPS 脚本
       link: /wps/
 

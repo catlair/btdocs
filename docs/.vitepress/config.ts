@@ -131,7 +131,21 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     { text: '首页', link: '/' },
     { text: '指南', link: '/guide/' },
-    { text: '配置', link: '/config/' },
+    {
+      text: '配置',
+      items: [
+        {
+          text: '在线表单',
+          link: '/config/',
+          target: '_blank',
+        },
+        {
+          text: '文档',
+          link: '/schema/',
+          target: '_blank',
+        },
+      ],
+    },
     {
       text: '仓库',
       items: [
@@ -183,11 +197,6 @@ function nav(): DefaultTheme.NavItem[] {
         {
           text: 'Gzip 压缩',
           link: 'https://www.baidufe.com/fehelper/en-decode/',
-          target: '_blank',
-        },
-        {
-          text: '获取安卓 APK 登录',
-          link: 'https://github.com/catlair/blogin/',
           target: '_blank',
         },
         {
