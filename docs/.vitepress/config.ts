@@ -136,12 +136,12 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: '在线表单',
-          link: '/config/',
+          link: '/schema/',
           target: '_blank',
         },
         {
           text: '文档',
-          link: '/schema/',
+          link: '/config/',
           target: '_blank',
         },
       ],
