@@ -19,7 +19,7 @@
       automerge: false,
     },
   ],
-  automerge: true,
+  automerge: false,
   automergeType: 'pr',
   ignoreTests: true,
   platformAutomerge: true,
