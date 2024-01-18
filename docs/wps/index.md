@@ -24,7 +24,7 @@ https://www.kdocs.cn/
 
 访问以下模板：
 
-【金山文档】 漫画签到-模板 https://kdocs.cn/l/cuQrj
+【金山文档】 漫画签到-模板 https://kdocs.cn/l/cuQrjaKqKg87
 
 保存模板：
 
