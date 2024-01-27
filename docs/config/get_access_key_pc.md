@@ -1,5 +1,11 @@
 # 通过浏览器 cookie 获取 access_key
 
+已失效
+
+已失效
+
+已失效
+
 ## link.acg.tv 方法
 
 缺点是无法获取 refresh_token，导致无法刷新 access_key。
