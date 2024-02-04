@@ -64,11 +64,13 @@ require('bilioutils').ql();
 
 :::
 
+### 更新了 BiliOutils
+
+删除依赖 `bilioutils`，并重新安装该依赖即可。
+
 ## 更新 cookie
 
-添加 node 依赖 `@catlair/blogin`
-
-然后拉取青龙面板运行的代码
+拉取青龙面板运行的代码
 
 ::: code-group
 
