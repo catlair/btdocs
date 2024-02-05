@@ -708,6 +708,7 @@ export function useConfigSchema() {
         },
         default: [],
         'ui:enum': linkAreaOptions.map(area => area.label),
+        'ui:filterable': true,
         'ui:multiple': true,
       },
     },
@@ -815,6 +816,7 @@ export function useConfigSchema() {
         default: [],
         'ui:enum': linkAreaOptions.map(area => area.label),
         'ui:multiple': true,
+        'ui:filterable': true,
       },
     },
   };
