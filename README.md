@@ -12,7 +12,7 @@
 
 **[详细文档查看](https://btdocs.vercel.app/)**
 
-**[详细文档查看（解析加速）](https://b.2024666.xyz/)**
+**[详细文档查看（解析加速）](https://bo.js.cool/)**
 
 **[备用文档](https://catlair.github.io/BiliOutils/)**
 

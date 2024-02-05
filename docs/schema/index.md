@@ -149,10 +149,6 @@ const selectUsersRenderOption = ({ node, option }: { node: VNode; option: naive.
 </script>
 
 ::: tip 提示
-如果你正在使用 b.2024666.xyz 访问本页面，请尽快将数据导出，并使用 https://bo.js.cool/ 访问，本页面（b.2024666.xyz）将在一个月内关闭，届时将无法访问。
-:::
-
-::: tip 提示
 页面建设中，配置文档右转 [配置文档](/config/)
 :::
 

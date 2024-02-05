@@ -694,7 +694,7 @@ export function useConfigSchema() {
         type: 'integer',
       },
       useArea: {
-        description: '开启扫描分区？',
+        description: '开启扫描分区？开启后扫描分区白名单有效。',
         title: '开启扫描分区',
         type: 'boolean',
         default: false,
@@ -800,7 +800,7 @@ export function useConfigSchema() {
         default: true,
       },
       useArea: {
-        description: '开启扫描分区？',
+        description: '开启扫描分区？开启后扫描分区白名单有效。',
         title: '开启扫描分区',
         type: 'boolean',
         default: false,

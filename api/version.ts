@@ -11,7 +11,7 @@ export default async (_request: VercelRequest, response: VercelResponse) => {
     tag_name: npmVersion || process.env.VERVEL_TAG_NAME,
     notice: {
       common: [
-        '本项目开源且免费，文档地址 https://b.2024666.xyz 使用请自觉 star，请不要无故 fork 本项目。文档 UI 已经更换，如果文档没有更新，请使用 ctrl + shift + r 强制刷新。',
+        '本项目开源且免费，文档地址 https://bo.js.cool 使用请自觉 star，请不要无故 fork 本项目。文档 UI 已经更换，如果文档没有更新，请使用 ctrl + shift + r 强制刷新。',
       ],
       scf: [],
       fc: [],
