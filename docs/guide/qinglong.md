@@ -64,9 +64,11 @@ require('bilioutils').ql();
 
 :::
 
-### 更新了 BiliOutils
+### 更新 BiliOutils
 
 删除依赖 `bilioutils`，并重新安装该依赖即可。
+
+自动更新可以手动添加一个任务，运行命令为 `pnpm remove bilioutils && pnpm add bilioutils`
 
 ## 更新 cookie
 

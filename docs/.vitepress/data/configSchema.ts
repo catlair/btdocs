@@ -681,6 +681,35 @@ export function useConfigSchema() {
         description: '连续疑似触发风控多少次，直接结束，小于1为不限制',
         type: 'integer',
       },
+      areaPages: {
+        title: '扫描每个分区的前几页',
+        default: 3,
+        description: '扫描每个分区的前几页，排在后面的有红包的概率也比较小',
+        type: 'integer',
+      },
+      scanAreaTimes: {
+        title: '扫描分区循环次数',
+        default: 3,
+        description: '扫描分区循环次数，防止一直循环但又一直没有扫描到',
+        type: 'integer',
+      },
+      useArea: {
+        description: '开启扫描分区？',
+        title: '开启扫描分区',
+        type: 'boolean',
+        default: false,
+      },
+      area: {
+        description: '扫描分区白名单，开启后只扫描分区内的',
+        title: '扫描分区白名单',
+        'ui:widget': DynamicSelect,
+        items: {
+          type: 'string',
+        },
+        default: [],
+        'ui:enum': linkAreaOptions.map(area => area.label),
+        'ui:multiple': true,
+      },
     },
   };
 
@@ -842,9 +871,13 @@ export function useConfigSchema() {
       customUrl: {
         description:
           '自定义活动列表链接。有自己的在线列表或者有使用前缀无法处理的链接都可以直接在此配置完整的。',
-        type: 'string',
         title: '自定义活动列表链接',
-        default: '',
+        default: [],
+        type: 'array',
+        items: {
+          type: 'string',
+          default: '',
+        },
       },
     },
   };
