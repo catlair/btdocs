@@ -9,7 +9,7 @@ description: 本地直接运行
 Node.js 首先需要本地的运行环境：
 
 - [下载 Node.js 长期维护版（官网）](https://nodejs.org/)
-- [下载 Node.js（阿里镜像）](https://registry.npmmirror.com/-/binary/node/latest-iron/)
+- 下载 Node.js（阿里镜像）[最新版](https://registry.npmmirror.com/binary.html?path=node/latest-iron/) [长期维护版](https://registry.npmmirror.com/binary.html?path=node/latest-iron/)
 - 下载 Node.js（校园网联合镜像）[最新版](https://mirrors.cernet.edu.cn/nodejs-release/latest) [长期维护版](https://mirrors.cernet.edu.cn/nodejs-release/latest-iron/)（[相关帮助](https://help.mirrors.cernet.edu.cn/nodejs-release)）
 - [下载 Win 64 位最新 LTS（阿里镜像）](https://registry.npmmirror.com/-/binary/node/latest-iron/node-v20.10.0-x64.msi)
 - [安装到系统教程](https://www.runoob.com/nodejs/nodejs-install-setup.html)
