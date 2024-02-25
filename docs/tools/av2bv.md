@@ -82,7 +82,7 @@ function avidValidator(value) {
 }
 
 function allowInput(value) {
-  return !['0', 'I', 'l', 'O'].some((str) => value.include(str));
+  return !['0', 'I', 'l', 'O'].some((str) => value.includes(str)) ;
 }
 </script>
 
