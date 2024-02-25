@@ -129,7 +129,6 @@ PS：涉及到硬币安全，建议开启后修改默认配置到适合自己的
 | includeAward   | 字符串数组         | `["谢"]`                                                                                               | 奖品描述包含，如果满足则跳过 excludeAward                                                          |
 | blackUid       | 数值数组           | `[65566781, 1277481241, 1643654862, 603676925]`                                                        | up 黑名单（up 的 id，不是房间号）[获取方式](#用户-id)                                              |
 | moveTag        | 字符串             | `天选时刻`                                                                                             | 关注的用户统一移动到此                                                                             |
-| pageNum        | 数值               | `2`                                                                                                    | 扫描几页直播间                                                                                     |
 | actFollowMsg   | `read`或者 `del`   | `'read'`                                                                                               | 关注时产生的回复的处理方式                                                                         |
 | scanFollow     | 任意值或者`'only'` | 无                                                                                                     | 扫描关注的用户，任意值则扫描，如果为 `only` 则只扫描关注用户，不会扫描直播分区。默认无值（不扫描） |
 | skipNeedFollow | 布尔值             | `false`                                                                                                | 跳过条件为关注的天选时刻                                                                           |
@@ -161,7 +160,6 @@ PS：涉及到硬币安全，建议开启后修改默认配置到适合自己的
     includeAward: ['谢'],
     blackUid: [65566781, 1277481241, 1643654862, 603676925],
     moveTag: '天选时刻',
-    pageNum: 2,
     actFollowMsg: 'read',
     scanFollow: '',
     skipNeedFollow: false,

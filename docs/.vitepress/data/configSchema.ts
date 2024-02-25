@@ -681,36 +681,42 @@ export function useConfigSchema() {
         description: '连续疑似触发风控多少次，直接结束，小于1为不限制',
         type: 'integer',
       },
-      areaPages: {
-        title: '扫描每个分区的前几页',
-        default: 3,
-        description: '扫描每个分区的前几页，排在后面的有红包的概率也比较小',
+      // areaPages: {
+      //   title: '扫描每个分区的前几页',
+      //   default: 3,
+      //   description: '扫描每个分区的前几页，排在后面的有红包的概率也比较小',
+      //   type: 'integer',
+      // },
+      // scanAreaTimes: {
+      //   title: '扫描分区循环次数',
+      //   default: 3,
+      //   description: '扫描分区循环次数，防止一直循环但又一直没有扫描到',
+      //   type: 'integer',
+      // },
+      scanIndexTimes: {
+        title: '扫描主页循环次数',
+        default: 5,
+        description: '扫描主页循环次数，防止一直循环但又一直没有扫描到',
         type: 'integer',
       },
-      scanAreaTimes: {
-        title: '扫描分区循环次数',
-        default: 3,
-        description: '扫描分区循环次数，防止一直循环但又一直没有扫描到',
-        type: 'integer',
-      },
-      useArea: {
-        description: '开启扫描分区？开启后扫描分区白名单有效。',
-        title: '开启扫描分区',
-        type: 'boolean',
-        default: false,
-      },
-      area: {
-        description: '扫描分区白名单，开启后只扫描分区内的',
-        title: '扫描分区白名单',
-        'ui:widget': DynamicSelect,
-        items: {
-          type: 'string',
-        },
-        default: [],
-        'ui:enum': linkAreaOptions.map(area => area.label),
-        'ui:filterable': true,
-        'ui:multiple': true,
-      },
+      // useArea: {
+      //   description: '开启扫描分区？开启后扫描分区白名单有效。',
+      //   title: '开启扫描分区',
+      //   type: 'boolean',
+      //   default: false,
+      // },
+      // area: {
+      //   description: '扫描分区白名单，开启后只扫描分区内的',
+      //   title: '扫描分区白名单',
+      //   'ui:widget': DynamicSelect,
+      //   items: {
+      //     type: 'string',
+      //   },
+      //   default: [],
+      //   'ui:enum': linkAreaOptions.map(area => area.label),
+      //   'ui:filterable': true,
+      //   'ui:multiple': true,
+      // },
     },
   };
 
@@ -767,12 +773,12 @@ export function useConfigSchema() {
         default: '天选时刻',
         title: '关注的用户统一移动到此',
       },
-      pageNum: {
-        description: '扫描几页直播间',
-        title: '天选获取的直播页数',
-        default: 2,
-        type: 'integer',
-      },
+      // pageNum: {
+      //   description: '扫描几页直播间',
+      //   title: '天选获取的直播页数',
+      //   default: 2,
+      //   type: 'integer',
+      // },
       actFollowMsg: {
         description: '关注时产生的回复的处理方式',
         type: 'string',
@@ -800,24 +806,30 @@ export function useConfigSchema() {
         type: 'boolean',
         default: true,
       },
-      useArea: {
-        description: '开启扫描分区？开启后扫描分区白名单有效。',
-        title: '开启扫描分区',
-        type: 'boolean',
-        default: false,
+      scanIndexTimes: {
+        title: '扫描主页循环次数',
+        default: 5,
+        description: '扫描主页循环次数，防止一直循环但又一直没有扫描到',
+        type: 'integer',
       },
-      area: {
-        description: '扫描分区白名单，开启后只扫描分区内的',
-        title: '扫描分区白名单',
-        'ui:widget': DynamicSelect,
-        items: {
-          type: 'string',
-        },
-        default: [],
-        'ui:enum': linkAreaOptions.map(area => area.label),
-        'ui:multiple': true,
-        'ui:filterable': true,
-      },
+      // useArea: {
+      //   description: '开启扫描分区？开启后扫描分区白名单有效。',
+      //   title: '开启扫描分区',
+      //   type: 'boolean',
+      //   default: false,
+      // },
+      // area: {
+      //   description: '扫描分区白名单，开启后只扫描分区内的',
+      //   title: '扫描分区白名单',
+      //   'ui:widget': DynamicSelect,
+      //   items: {
+      //     type: 'string',
+      //   },
+      //   default: [],
+      //   'ui:enum': linkAreaOptions.map(area => area.label),
+      //   'ui:multiple': true,
+      //   'ui:filterable': true,
+      // },
     },
   };
 
