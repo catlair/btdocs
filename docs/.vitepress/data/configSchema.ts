@@ -773,6 +773,12 @@ export function useConfigSchema() {
         default: '天选时刻',
         title: '关注的用户统一移动到此',
       },
+      sync: {
+        description: '同步运行任务，即一次只执行一个天选，且在天选结束前不会有新的动作',
+        type: 'boolean',
+        default: false,
+        title: '同步运行',
+      },
       // pageNum: {
       //   description: '扫描几页直播间',
       //   title: '天选获取的直播页数',
