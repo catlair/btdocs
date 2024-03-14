@@ -49,5 +49,5 @@ const { users, curUser, index } = storeToRefs(configStore)
 ## 代码
 
 ```json-vue
-{{users[index].config[snakeToCamel($params.task)]}}
+{{ {[snakeToCamel($params.task)]: users[index].config[snakeToCamel($params.task)]} }}
 ```
